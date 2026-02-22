@@ -2,9 +2,9 @@
 
 ## Overview
 
-This repository contains the SQL processing logic for determining and consolidating eligible members for **The Scheme 2026** eligibility cycle. The script processes data from four operational phases (P1-P4) of 2025, applies eligibility criteria, and generates the final eligible member listing.
+This repository contains the SQL processing logic for determining and consolidating eligible members for **The Scheme** 2026 eligibility cycle. The script processes data from four operational phases (P1-P4) of 2025, applies eligibility criteria, and generates the final eligible member listing.
 
-**The Scheme 2026** in this documentation refers to a free social protection initiative designed to provide financial assistance and healthcare benefits to eligible Malaysian citizens, in the form of Insurance/ Takaful coverage. This project illustrates the technical implementation of eligibility processing for such programs.
+**The Scheme** in this documentation refers to a free social protection initiative designed to provide financial assistance and healthcare benefits to eligible Malaysian citizens, in the form of Insurance/ Takaful coverage. This project illustrates the technical implementation of eligibility processing for such programs.
 
 ## Purpose
 
