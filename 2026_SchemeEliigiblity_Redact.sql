@@ -1,34 +1,23 @@
-﻿
-
-  /*
-This file is to record the processing of 2026 Eligible members. Processing is done from Y2025 data, divided into 4, namely:
-
-    /*
-  REDACTED FOR OPSEC
-  */
+/*
+This file records the processing of the 2026 eligible member list.
+Processing uses the prior year's applicant data, received in 4 phases (P1 to P4).
+Each phase is split by category, age-checked, combined, deduplicated,
+screened against exclusion lists, and published as the final eligible list.
 */
 
 
 /*
-A) Y2025_P1 
-   /*
-  REDACTED FOR OPSEC
-  */
+A) P1
+
  */
 
 
-	/****** Y2025_P1 Processing ******/
-/*
-Category|CountOfRecord
-	Single|3239473
+	/****** P1 Processing ******/
 
-NRICPoliceMilitaryIDNumber|FullName|Tkh_lahir|Gender|Category|Spouse_NRICNumber|Spouse_FullName|Spouse_DateofBirth|Spouse_Gender|Spouse_Citizenship|Applicant_DisabilityStatus|Spouse_DisabilityStatus|Applicant_BankName|Applicant_BankAccountNumber|FullName_Bank_Spouse|Spouse_BankAccountNumber|Address|MobileNumber_Applicant|MobileNumber_Spouse
 
-*/
-
- SELECT NRICPoliceMilitaryIDNumber AS NRIC,--(1)
-							FullName AS FullName, 	--(2)							
-							Tkh_lahir AS DateofBirth,--(3)
+ SELECT Applicant_IDNumber AS NRIC,--(1)
+							FullName AS FullName, 	--(2)
+							Applicant_DOB AS DateofBirth,--(3)
 							CASE 
 								WHEN Gender = 'L' THEN '1'
 								ELSE '2'
@@ -42,61 +31,61 @@ NRICPoliceMilitaryIDNumber|FullName|Tkh_lahir|Gender|Category|Spouse_NRICNumber|
 							MobileNumber_Applicant AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-								WHEN Applicant_BankName = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-								WHEN Applicant_BankName = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-								WHEN Applicant_BankName = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-								WHEN Applicant_BankName = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-								WHEN Applicant_BankName = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-								WHEN Applicant_BankName = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-								WHEN Applicant_BankName = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-								WHEN Applicant_BankName = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-								WHEN Applicant_BankName = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-								WHEN Applicant_BankName = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-								WHEN Applicant_BankName = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-								WHEN Applicant_BankName = 'CITIBANK BERHAD' THEN  '13'
-								WHEN Applicant_BankName = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-								WHEN Applicant_BankName = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-								WHEN Applicant_BankName = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-								WHEN Applicant_BankName = 'BANK SIMPANAN NASIONAL' THEN  '17'
-								WHEN Applicant_BankName = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-								WHEN Applicant_BankName = 'AGRO BANK BERHAD' THEN  '22'
-								WHEN Applicant_BankName = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-								WHEN Applicant_BankName = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-								WHEN Applicant_BankName = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-								WHEN Applicant_BankName = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-								WHEN Applicant_BankName = 'MBSB BANK BERHAD' THEN  '29'
+								WHEN Applicant_BankName = 'BANK 01' THEN  '01'
+								WHEN Applicant_BankName = 'BANK 02' THEN  '02'
+								WHEN Applicant_BankName = 'BANK 03' THEN  '03'
+								WHEN Applicant_BankName = 'BANK 04' THEN  '04'
+								WHEN Applicant_BankName = 'BANK 05' THEN  '05'
+								WHEN Applicant_BankName = 'BANK 06' THEN  '06'
+								WHEN Applicant_BankName = 'BANK 07' THEN  '07'
+								WHEN Applicant_BankName = 'BANK 09' THEN  '09'
+								WHEN Applicant_BankName = 'BANK 10' THEN  '10'
+								WHEN Applicant_BankName = 'BANK 11' THEN  '11'
+								WHEN Applicant_BankName = 'BANK 12' THEN  '12'
+								WHEN Applicant_BankName = 'BANK 13' THEN  '13'
+								WHEN Applicant_BankName = 'BANK 14' THEN  '14'
+								WHEN Applicant_BankName = 'BANK 15' THEN  '15'
+								WHEN Applicant_BankName = 'BANK 16' THEN  '16'
+								WHEN Applicant_BankName = 'BANK 17' THEN  '17'
+								WHEN Applicant_BankName = 'BANK 18' THEN  '18'
+								WHEN Applicant_BankName = 'BANK 22' THEN  '22'
+								WHEN Applicant_BankName = 'BANK 23' THEN  '23'
+								WHEN Applicant_BankName = 'BANK 24' THEN  '24'
+								WHEN Applicant_BankName = 'BANK 27' THEN  '27'
+								WHEN Applicant_BankName = 'BANK 28' THEN  '28'
+								WHEN Applicant_BankName = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
 							Applicant_BankAccountNumber AS BankAccountNumber,--(14)
 							'3' AS MaritalStatus,--(15)
-							 'DATA The Scheme TERKINI AFTER RAYA V1' AS SourceFile,--(16)
+							 'P1_Batch' AS SourceFile,--(16)
 							CASE 
 								WHEN Applicant_DisabilityStatus = 'Y' THEN  'Y'
 								ELSE 'N'
 								END	AS  Indicator_DisabilityStatus_,--(17),--(17)
-							 CASE WHEN substring(NRICPoliceMilitaryIDNumber, 3, 2) = '01' AND substring (NRICPoliceMilitaryIDNumber, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 END
+							 CASE WHEN substring(Applicant_IDNumber, 3, 2) = '01' AND substring (Applicant_IDNumber, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
-							CASE WHEN SUBSTRING(Tkh_lahir,3,2) > '25' AND SUBSTRING(Tkh_lahir,6,2) = '01' AND SUBSTRING(Tkh_lahir,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(Tkh_lahir,3,2))*1 + 1
-							   WHEN SUBSTRING(Tkh_lahir,3,2) < '25' AND SUBSTRING(Tkh_lahir,6,2) = '01' AND SUBSTRING(Tkh_lahir,9,2) = '01' THEN '2026' - CONCAT('20',SUBSTRING(Tkh_lahir,3,2))*1 + 1
-							   WHEN SUBSTRING(Tkh_lahir,3,2) > '25' AND SUBSTRING(Tkh_lahir,6,2) >= '01' AND SUBSTRING(Tkh_lahir,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(Tkh_lahir,3,2))*1
-							   WHEN SUBSTRING(Tkh_lahir,3,2) < '25' AND SUBSTRING(Tkh_lahir,6,2) >= '01' AND SUBSTRING(Tkh_lahir,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(Tkh_lahir,3,2))*1
+							CASE WHEN SUBSTRING(Applicant_DOB,3,2) > '25' AND SUBSTRING(Applicant_DOB,6,2) = '01' AND SUBSTRING(Applicant_DOB,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(Applicant_DOB,3,2))*1 + 1
+							   WHEN SUBSTRING(Applicant_DOB,3,2) < '25' AND SUBSTRING(Applicant_DOB,6,2) = '01' AND SUBSTRING(Applicant_DOB,9,2) = '01' THEN '2026' - CONCAT('20',SUBSTRING(Applicant_DOB,3,2))*1 + 1
+							   WHEN SUBSTRING(Applicant_DOB,3,2) > '25' AND SUBSTRING(Applicant_DOB,6,2) >= '01' AND SUBSTRING(Applicant_DOB,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(Applicant_DOB,3,2))*1
+							   WHEN SUBSTRING(Applicant_DOB,3,2) < '25' AND SUBSTRING(Applicant_DOB,6,2) >= '01' AND SUBSTRING(Applicant_DOB,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(Applicant_DOB,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
-INTO #Y2025_P1_SingleNoSpouse
-  FROM Y2025_P1_TYPE_1
+INTO #P1_SingleNoSpouse
+  FROM SRC_P1_TYPE_1
   WHERE Spouse_NRICNumber = '' AND Category = 'Single'
-  --#Y2025_P1_SingleNoSpouse: 3,239,473 
+  --#P1_SingleNoSpouse
 
 
-   SELECT NRICPoliceMilitaryIDNumber AS NRIC,--(1)
-							FullName AS FullName, 	--(2)							
-							Tkh_lahir AS DateofBirth,--(3)
+   SELECT Applicant_IDNumber AS NRIC,--(1)
+							FullName AS FullName, 	--(2)
+							Applicant_DOB AS DateofBirth,--(3)
 							CASE 
 								WHEN Gender = 'L' THEN '1'
 								ELSE '2'
@@ -110,71 +99,62 @@ INTO #Y2025_P1_SingleNoSpouse
 							MobileNumber_Applicant AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-								WHEN Applicant_BankName = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-								WHEN Applicant_BankName = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-								WHEN Applicant_BankName = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-								WHEN Applicant_BankName = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-								WHEN Applicant_BankName = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-								WHEN Applicant_BankName = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-								WHEN Applicant_BankName = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-								WHEN Applicant_BankName = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-								WHEN Applicant_BankName = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-								WHEN Applicant_BankName = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-								WHEN Applicant_BankName = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-								WHEN Applicant_BankName = 'CITIBANK BERHAD' THEN  '13'
-								WHEN Applicant_BankName = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-								WHEN Applicant_BankName = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-								WHEN Applicant_BankName = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-								WHEN Applicant_BankName = 'BANK SIMPANAN NASIONAL' THEN  '17'
-								WHEN Applicant_BankName = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-								WHEN Applicant_BankName = 'AGRO BANK BERHAD' THEN  '22'
-								WHEN Applicant_BankName = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-								WHEN Applicant_BankName = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-								WHEN Applicant_BankName = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-								WHEN Applicant_BankName = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-								WHEN Applicant_BankName = 'MBSB BANK BERHAD' THEN  '29'
+								WHEN Applicant_BankName = 'BANK 01' THEN  '01'
+								WHEN Applicant_BankName = 'BANK 02' THEN  '02'
+								WHEN Applicant_BankName = 'BANK 03' THEN  '03'
+								WHEN Applicant_BankName = 'BANK 04' THEN  '04'
+								WHEN Applicant_BankName = 'BANK 05' THEN  '05'
+								WHEN Applicant_BankName = 'BANK 06' THEN  '06'
+								WHEN Applicant_BankName = 'BANK 07' THEN  '07'
+								WHEN Applicant_BankName = 'BANK 09' THEN  '09'
+								WHEN Applicant_BankName = 'BANK 10' THEN  '10'
+								WHEN Applicant_BankName = 'BANK 11' THEN  '11'
+								WHEN Applicant_BankName = 'BANK 12' THEN  '12'
+								WHEN Applicant_BankName = 'BANK 13' THEN  '13'
+								WHEN Applicant_BankName = 'BANK 14' THEN  '14'
+								WHEN Applicant_BankName = 'BANK 15' THEN  '15'
+								WHEN Applicant_BankName = 'BANK 16' THEN  '16'
+								WHEN Applicant_BankName = 'BANK 17' THEN  '17'
+								WHEN Applicant_BankName = 'BANK 18' THEN  '18'
+								WHEN Applicant_BankName = 'BANK 22' THEN  '22'
+								WHEN Applicant_BankName = 'BANK 23' THEN  '23'
+								WHEN Applicant_BankName = 'BANK 24' THEN  '24'
+								WHEN Applicant_BankName = 'BANK 27' THEN  '27'
+								WHEN Applicant_BankName = 'BANK 28' THEN  '28'
+								WHEN Applicant_BankName = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
 							Applicant_BankAccountNumber AS BankAccountNumber,--(14)
 							'3' AS MaritalStatus,--(15)
-							 'DATA The Scheme TERKINI AFTER RAYA V1' AS SourceFile,--(16)
+							 'P1_Batch' AS SourceFile,--(16)
 							CASE 
 								WHEN Applicant_DisabilityStatus = 'Y' THEN  'Y'
 								ELSE 'N'
 								END	AS  Indicator_DisabilityStatus_,--(17),--(17),--(17)
-							 CASE WHEN substring(NRICPoliceMilitaryIDNumber, 3, 2) = '01' AND substring (NRICPoliceMilitaryIDNumber, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 END
+							 CASE WHEN substring(Applicant_IDNumber, 3, 2) = '01' AND substring (Applicant_IDNumber, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
-							CASE WHEN SUBSTRING(Tkh_lahir,3,2) > '25' AND SUBSTRING(Tkh_lahir,6,2) = '01' AND SUBSTRING(Tkh_lahir,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(Tkh_lahir,3,2))*1 + 1
-							   WHEN SUBSTRING(Tkh_lahir,3,2) < '25' AND SUBSTRING(Tkh_lahir,6,2) = '01' AND SUBSTRING(Tkh_lahir,9,2) = '01' THEN '2026' - CONCAT('20',SUBSTRING(Tkh_lahir,3,2))*1 + 1
-							   WHEN SUBSTRING(Tkh_lahir,3,2) > '25' AND SUBSTRING(Tkh_lahir,6,2) >= '01' AND SUBSTRING(Tkh_lahir,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(Tkh_lahir,3,2))*1
-							   WHEN SUBSTRING(Tkh_lahir,3,2) < '25' AND SUBSTRING(Tkh_lahir,6,2) >= '01' AND SUBSTRING(Tkh_lahir,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(Tkh_lahir,3,2))*1
+							CASE WHEN SUBSTRING(Applicant_DOB,3,2) > '25' AND SUBSTRING(Applicant_DOB,6,2) = '01' AND SUBSTRING(Applicant_DOB,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(Applicant_DOB,3,2))*1 + 1
+							   WHEN SUBSTRING(Applicant_DOB,3,2) < '25' AND SUBSTRING(Applicant_DOB,6,2) = '01' AND SUBSTRING(Applicant_DOB,9,2) = '01' THEN '2026' - CONCAT('20',SUBSTRING(Applicant_DOB,3,2))*1 + 1
+							   WHEN SUBSTRING(Applicant_DOB,3,2) > '25' AND SUBSTRING(Applicant_DOB,6,2) >= '01' AND SUBSTRING(Applicant_DOB,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(Applicant_DOB,3,2))*1
+							   WHEN SUBSTRING(Applicant_DOB,3,2) < '25' AND SUBSTRING(Applicant_DOB,6,2) >= '01' AND SUBSTRING(Applicant_DOB,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(Applicant_DOB,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
- INTO #Y2025_P1_SingleNoSpouse_OKU
-  FROM Y2025_P1_TYPE_1
+ INTO #P1_SingleNoSpouse_Disabled
+  FROM SRC_P1_TYPE_1
   WHERE Spouse_NRICNumber = '' AND Applicant_DisabilityStatus ='Y' AND Category = 'Single'
-  --#Y2025_P1_SingleNoSpouse_OKU: 175,264 
+  --#P1_SingleNoSpouse_Disabled
 
 
-
-/*
-
-
-	Senior Citizen No Kin|374976
-
-NRICPoliceMilitaryIDNumber|FullName|Tkh_lahir|Gender|Category|Spouse_NRICNumber|Spouse_FullName|Spouse_DateofBirth|Spouse_Gender|Spouse_Citizenship|Applicant_DisabilityStatus|Spouse_DisabilityStatus|Applicant_BankName|Applicant_BankAccountNumber|FullName_Bank_Spouse|Spouse_BankAccountNumber|Address|MobileNumber_Applicant|MobileNumber_Spouse
-
-*/
 	
-			SELECT NRICPoliceMilitaryIDNumber AS NRIC,--(1)
-							FullName AS FullName, 	--(2)							
-							Tkh_lahir AS DateofBirth,--(3)
+			SELECT Applicant_IDNumber AS NRIC,--(1)
+							FullName AS FullName, 	--(2)
+							Applicant_DOB AS DateofBirth,--(3)
 							CASE 
 								WHEN Gender = 'L' THEN '1'
 								ELSE '2'
@@ -188,61 +168,61 @@ NRICPoliceMilitaryIDNumber|FullName|Tkh_lahir|Gender|Category|Spouse_NRICNumber|
 							MobileNumber_Applicant AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-								WHEN Applicant_BankName = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-								WHEN Applicant_BankName = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-								WHEN Applicant_BankName = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-								WHEN Applicant_BankName = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-								WHEN Applicant_BankName = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-								WHEN Applicant_BankName = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-								WHEN Applicant_BankName = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-								WHEN Applicant_BankName = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-								WHEN Applicant_BankName = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-								WHEN Applicant_BankName = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-								WHEN Applicant_BankName = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-								WHEN Applicant_BankName = 'CITIBANK BERHAD' THEN  '13'
-								WHEN Applicant_BankName = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-								WHEN Applicant_BankName = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-								WHEN Applicant_BankName = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-								WHEN Applicant_BankName = 'BANK SIMPANAN NASIONAL' THEN  '17'
-								WHEN Applicant_BankName = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-								WHEN Applicant_BankName = 'AGRO BANK BERHAD' THEN  '22'
-								WHEN Applicant_BankName = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-								WHEN Applicant_BankName = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-								WHEN Applicant_BankName = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-								WHEN Applicant_BankName = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-								WHEN Applicant_BankName = 'MBSB BANK BERHAD' THEN  '29'
+								WHEN Applicant_BankName = 'BANK 01' THEN  '01'
+								WHEN Applicant_BankName = 'BANK 02' THEN  '02'
+								WHEN Applicant_BankName = 'BANK 03' THEN  '03'
+								WHEN Applicant_BankName = 'BANK 04' THEN  '04'
+								WHEN Applicant_BankName = 'BANK 05' THEN  '05'
+								WHEN Applicant_BankName = 'BANK 06' THEN  '06'
+								WHEN Applicant_BankName = 'BANK 07' THEN  '07'
+								WHEN Applicant_BankName = 'BANK 09' THEN  '09'
+								WHEN Applicant_BankName = 'BANK 10' THEN  '10'
+								WHEN Applicant_BankName = 'BANK 11' THEN  '11'
+								WHEN Applicant_BankName = 'BANK 12' THEN  '12'
+								WHEN Applicant_BankName = 'BANK 13' THEN  '13'
+								WHEN Applicant_BankName = 'BANK 14' THEN  '14'
+								WHEN Applicant_BankName = 'BANK 15' THEN  '15'
+								WHEN Applicant_BankName = 'BANK 16' THEN  '16'
+								WHEN Applicant_BankName = 'BANK 17' THEN  '17'
+								WHEN Applicant_BankName = 'BANK 18' THEN  '18'
+								WHEN Applicant_BankName = 'BANK 22' THEN  '22'
+								WHEN Applicant_BankName = 'BANK 23' THEN  '23'
+								WHEN Applicant_BankName = 'BANK 24' THEN  '24'
+								WHEN Applicant_BankName = 'BANK 27' THEN  '27'
+								WHEN Applicant_BankName = 'BANK 28' THEN  '28'
+								WHEN Applicant_BankName = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
 							Applicant_BankAccountNumber AS BankAccountNumber,--(14)
 							'3' AS MaritalStatus,--(15)
-							 'DATA The Scheme TERKINI AFTER RAYA V1' AS SourceFile,--(16)
+							 'P1_Batch' AS SourceFile,--(16)
 							CASE 
 								WHEN Applicant_DisabilityStatus = 'Y' THEN  'Y'
 								ELSE 'N'
 								END	AS Indicator_DisabilityStatus_,--(17)
-							 CASE WHEN substring(NRICPoliceMilitaryIDNumber, 3, 2) = '01' AND substring (NRICPoliceMilitaryIDNumber, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 END
+							 CASE WHEN substring(Applicant_IDNumber, 3, 2) = '01' AND substring (Applicant_IDNumber, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
-							CASE WHEN SUBSTRING(Tkh_lahir,3,2) > '25' AND SUBSTRING(Tkh_lahir,6,2) = '01' AND SUBSTRING(Tkh_lahir,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(Tkh_lahir,3,2))*1 + 1
-							   WHEN SUBSTRING(Tkh_lahir,3,2) < '25' AND SUBSTRING(Tkh_lahir,6,2) = '01' AND SUBSTRING(Tkh_lahir,9,2) = '01' THEN '2026' - CONCAT('20',SUBSTRING(Tkh_lahir,3,2))*1 + 1
-							   WHEN SUBSTRING(Tkh_lahir,3,2) > '25' AND SUBSTRING(Tkh_lahir,6,2) >= '01' AND SUBSTRING(Tkh_lahir,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(Tkh_lahir,3,2))*1
-							   WHEN SUBSTRING(Tkh_lahir,3,2) < '25' AND SUBSTRING(Tkh_lahir,6,2) >= '01' AND SUBSTRING(Tkh_lahir,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(Tkh_lahir,3,2))*1
+							CASE WHEN SUBSTRING(Applicant_DOB,3,2) > '25' AND SUBSTRING(Applicant_DOB,6,2) = '01' AND SUBSTRING(Applicant_DOB,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(Applicant_DOB,3,2))*1 + 1
+							   WHEN SUBSTRING(Applicant_DOB,3,2) < '25' AND SUBSTRING(Applicant_DOB,6,2) = '01' AND SUBSTRING(Applicant_DOB,9,2) = '01' THEN '2026' - CONCAT('20',SUBSTRING(Applicant_DOB,3,2))*1 + 1
+							   WHEN SUBSTRING(Applicant_DOB,3,2) > '25' AND SUBSTRING(Applicant_DOB,6,2) >= '01' AND SUBSTRING(Applicant_DOB,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(Applicant_DOB,3,2))*1
+							   WHEN SUBSTRING(Applicant_DOB,3,2) < '25' AND SUBSTRING(Applicant_DOB,6,2) >= '01' AND SUBSTRING(Applicant_DOB,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(Applicant_DOB,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
- INTO #Y2025_P1_NoKinNoSpouse
-  FROM Y2025_P1_TYPE_1
+ INTO #P1_NoKinNoSpouse
+  FROM SRC_P1_TYPE_1
   WHERE Spouse_NRICNumber = '' AND Category = 'Senior Citizen No Kin'
-  --#Y2025_P1_NoKinNoSpouse: 374,976  
+  --#P1_NoKinNoSpouse
 
   
-			SELECT NRICPoliceMilitaryIDNumber AS NRIC,--(1)
-							FullName AS FullName, 	--(2)							
-							Tkh_lahir AS DateofBirth,--(3)
+			SELECT Applicant_IDNumber AS NRIC,--(1)
+							FullName AS FullName, 	--(2)
+							Applicant_DOB AS DateofBirth,--(3)
 							CASE 
 								WHEN Gender = 'L' THEN '1'
 								ELSE '2'
@@ -256,66 +236,65 @@ NRICPoliceMilitaryIDNumber|FullName|Tkh_lahir|Gender|Category|Spouse_NRICNumber|
 							MobileNumber_Applicant AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-								WHEN Applicant_BankName = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-								WHEN Applicant_BankName = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-								WHEN Applicant_BankName = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-								WHEN Applicant_BankName = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-								WHEN Applicant_BankName = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-								WHEN Applicant_BankName = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-								WHEN Applicant_BankName = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-								WHEN Applicant_BankName = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-								WHEN Applicant_BankName = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-								WHEN Applicant_BankName = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-								WHEN Applicant_BankName = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-								WHEN Applicant_BankName = 'CITIBANK BERHAD' THEN  '13'
-								WHEN Applicant_BankName = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-								WHEN Applicant_BankName = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-								WHEN Applicant_BankName = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-								WHEN Applicant_BankName = 'BANK SIMPANAN NASIONAL' THEN  '17'
-								WHEN Applicant_BankName = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-								WHEN Applicant_BankName = 'AGRO BANK BERHAD' THEN  '22'
-								WHEN Applicant_BankName = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-								WHEN Applicant_BankName = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-								WHEN Applicant_BankName = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-								WHEN Applicant_BankName = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-								WHEN Applicant_BankName = 'MBSB BANK BERHAD' THEN  '29'
+								WHEN Applicant_BankName = 'BANK 01' THEN  '01'
+								WHEN Applicant_BankName = 'BANK 02' THEN  '02'
+								WHEN Applicant_BankName = 'BANK 03' THEN  '03'
+								WHEN Applicant_BankName = 'BANK 04' THEN  '04'
+								WHEN Applicant_BankName = 'BANK 05' THEN  '05'
+								WHEN Applicant_BankName = 'BANK 06' THEN  '06'
+								WHEN Applicant_BankName = 'BANK 07' THEN  '07'
+								WHEN Applicant_BankName = 'BANK 09' THEN  '09'
+								WHEN Applicant_BankName = 'BANK 10' THEN  '10'
+								WHEN Applicant_BankName = 'BANK 11' THEN  '11'
+								WHEN Applicant_BankName = 'BANK 12' THEN  '12'
+								WHEN Applicant_BankName = 'BANK 13' THEN  '13'
+								WHEN Applicant_BankName = 'BANK 14' THEN  '14'
+								WHEN Applicant_BankName = 'BANK 15' THEN  '15'
+								WHEN Applicant_BankName = 'BANK 16' THEN  '16'
+								WHEN Applicant_BankName = 'BANK 17' THEN  '17'
+								WHEN Applicant_BankName = 'BANK 18' THEN  '18'
+								WHEN Applicant_BankName = 'BANK 22' THEN  '22'
+								WHEN Applicant_BankName = 'BANK 23' THEN  '23'
+								WHEN Applicant_BankName = 'BANK 24' THEN  '24'
+								WHEN Applicant_BankName = 'BANK 27' THEN  '27'
+								WHEN Applicant_BankName = 'BANK 28' THEN  '28'
+								WHEN Applicant_BankName = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
 							Applicant_BankAccountNumber AS BankAccountNumber,--(14)
 							'3' AS MaritalStatus,--(15)
-							 'DATA The Scheme TERKINI AFTER RAYA V1' AS SourceFile,--(16)
+							 'P1_Batch' AS SourceFile,--(16)
 							CASE 
 								WHEN Applicant_DisabilityStatus = 'Y' THEN  'Y'
 								ELSE 'N'
 								END	AS  Indicator_DisabilityStatus_,--(17)
-							 CASE WHEN substring(NRICPoliceMilitaryIDNumber, 3, 2) = '01' AND substring (NRICPoliceMilitaryIDNumber, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 END
+							 CASE WHEN substring(Applicant_IDNumber, 3, 2) = '01' AND substring (Applicant_IDNumber, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
-							CASE WHEN SUBSTRING(Tkh_lahir,3,2) > '25' AND SUBSTRING(Tkh_lahir,6,2) = '01' AND SUBSTRING(Tkh_lahir,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(Tkh_lahir,3,2))*1 + 1
-							   WHEN SUBSTRING(Tkh_lahir,3,2) < '25' AND SUBSTRING(Tkh_lahir,6,2) = '01' AND SUBSTRING(Tkh_lahir,9,2) = '01' THEN '2026' - CONCAT('20',SUBSTRING(Tkh_lahir,3,2))*1 + 1
-							   WHEN SUBSTRING(Tkh_lahir,3,2) > '25' AND SUBSTRING(Tkh_lahir,6,2) >= '01' AND SUBSTRING(Tkh_lahir,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(Tkh_lahir,3,2))*1
-							   WHEN SUBSTRING(Tkh_lahir,3,2) < '25' AND SUBSTRING(Tkh_lahir,6,2) >= '01' AND SUBSTRING(Tkh_lahir,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(Tkh_lahir,3,2))*1
+							CASE WHEN SUBSTRING(Applicant_DOB,3,2) > '25' AND SUBSTRING(Applicant_DOB,6,2) = '01' AND SUBSTRING(Applicant_DOB,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(Applicant_DOB,3,2))*1 + 1
+							   WHEN SUBSTRING(Applicant_DOB,3,2) < '25' AND SUBSTRING(Applicant_DOB,6,2) = '01' AND SUBSTRING(Applicant_DOB,9,2) = '01' THEN '2026' - CONCAT('20',SUBSTRING(Applicant_DOB,3,2))*1 + 1
+							   WHEN SUBSTRING(Applicant_DOB,3,2) > '25' AND SUBSTRING(Applicant_DOB,6,2) >= '01' AND SUBSTRING(Applicant_DOB,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(Applicant_DOB,3,2))*1
+							   WHEN SUBSTRING(Applicant_DOB,3,2) < '25' AND SUBSTRING(Applicant_DOB,6,2) >= '01' AND SUBSTRING(Applicant_DOB,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(Applicant_DOB,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
- INTO #Y2025_P1_NoKinNoSpouse_OKU
-  FROM Y2025_P1_TYPE_1
+ INTO #P1_NoKinNoSpouse_Disabled
+  FROM SRC_P1_TYPE_1
   WHERE Spouse_NRICNumber = '' AND Category = 'Senior Citizen No Kin' AND Applicant_DisabilityStatus ='Y'
-  --#TEMP_NoKinNoSpouse_OKU: 32,939 
+  --#TEMP_NoKinNoSpouse_Disabled
 
 
 /*
-	Household Category|3357471
-		SELECT * FROM Y2025_P1_TYPE_1 WHERE Category = 'Household Category' 	
+		SELECT * FROM SRC_P1_TYPE_1 WHERE Category = 'Household Category'
 */			
 
-			SELECT NRICPoliceMilitaryIDNumber AS NRIC,--(1)
-							FullName AS FullName, 	--(2)							
-							Tkh_lahir AS DateofBirth,--(3)
+			SELECT Applicant_IDNumber AS NRIC,--(1)
+							FullName AS FullName, 	--(2)
+							Applicant_DOB AS DateofBirth,--(3)
 							CASE 
 								WHEN Gender = 'L' THEN '1'
 								ELSE '2'
@@ -329,60 +308,60 @@ NRICPoliceMilitaryIDNumber|FullName|Tkh_lahir|Gender|Category|Spouse_NRICNumber|
 							MobileNumber_Applicant AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-								WHEN Applicant_BankName = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-								WHEN Applicant_BankName = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-								WHEN Applicant_BankName = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-								WHEN Applicant_BankName = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-								WHEN Applicant_BankName = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-								WHEN Applicant_BankName = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-								WHEN Applicant_BankName = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-								WHEN Applicant_BankName = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-								WHEN Applicant_BankName = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-								WHEN Applicant_BankName = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-								WHEN Applicant_BankName = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-								WHEN Applicant_BankName = 'CITIBANK BERHAD' THEN  '13'
-								WHEN Applicant_BankName = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-								WHEN Applicant_BankName = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-								WHEN Applicant_BankName = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-								WHEN Applicant_BankName = 'BANK SIMPANAN NASIONAL' THEN  '17'
-								WHEN Applicant_BankName = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-								WHEN Applicant_BankName = 'AGRO BANK BERHAD' THEN  '22'
-								WHEN Applicant_BankName = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-								WHEN Applicant_BankName = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-								WHEN Applicant_BankName = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-								WHEN Applicant_BankName = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-								WHEN Applicant_BankName = 'MBSB BANK BERHAD' THEN  '29'
+								WHEN Applicant_BankName = 'BANK 01' THEN  '01'
+								WHEN Applicant_BankName = 'BANK 02' THEN  '02'
+								WHEN Applicant_BankName = 'BANK 03' THEN  '03'
+								WHEN Applicant_BankName = 'BANK 04' THEN  '04'
+								WHEN Applicant_BankName = 'BANK 05' THEN  '05'
+								WHEN Applicant_BankName = 'BANK 06' THEN  '06'
+								WHEN Applicant_BankName = 'BANK 07' THEN  '07'
+								WHEN Applicant_BankName = 'BANK 09' THEN  '09'
+								WHEN Applicant_BankName = 'BANK 10' THEN  '10'
+								WHEN Applicant_BankName = 'BANK 11' THEN  '11'
+								WHEN Applicant_BankName = 'BANK 12' THEN  '12'
+								WHEN Applicant_BankName = 'BANK 13' THEN  '13'
+								WHEN Applicant_BankName = 'BANK 14' THEN  '14'
+								WHEN Applicant_BankName = 'BANK 15' THEN  '15'
+								WHEN Applicant_BankName = 'BANK 16' THEN  '16'
+								WHEN Applicant_BankName = 'BANK 17' THEN  '17'
+								WHEN Applicant_BankName = 'BANK 18' THEN  '18'
+								WHEN Applicant_BankName = 'BANK 22' THEN  '22'
+								WHEN Applicant_BankName = 'BANK 23' THEN  '23'
+								WHEN Applicant_BankName = 'BANK 24' THEN  '24'
+								WHEN Applicant_BankName = 'BANK 27' THEN  '27'
+								WHEN Applicant_BankName = 'BANK 28' THEN  '28'
+								WHEN Applicant_BankName = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
 							Applicant_BankAccountNumber AS BankAccountNumber,--(14)
 							'1' AS MaritalStatus,--(15)
-							 'DATA The Scheme TERKINI AFTER RAYA V1' AS SourceFile,--(16)
+							 'P1_Batch' AS SourceFile,--(16)
 							CASE 
 								WHEN Applicant_DisabilityStatus = 'Y' THEN  'Y'
 								ELSE 'N'
 								END	AS  Indicator_DisabilityStatus_,--(17)
-							 CASE WHEN substring(NRICPoliceMilitaryIDNumber, 3, 2) = '01' AND substring (NRICPoliceMilitaryIDNumber, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 END
+							 CASE WHEN substring(Applicant_IDNumber, 3, 2) = '01' AND substring (Applicant_IDNumber, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
-							CASE WHEN SUBSTRING(Tkh_lahir,3,2) > '25' AND SUBSTRING(Tkh_lahir,6,2) = '01' AND SUBSTRING(Tkh_lahir,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(Tkh_lahir,3,2))*1 + 1
-							   WHEN SUBSTRING(Tkh_lahir,3,2) < '25' AND SUBSTRING(Tkh_lahir,6,2) = '01' AND SUBSTRING(Tkh_lahir,9,2) = '01' THEN '2026' - CONCAT('20',SUBSTRING(Tkh_lahir,3,2))*1 + 1
-							   WHEN SUBSTRING(Tkh_lahir,3,2) > '25' AND SUBSTRING(Tkh_lahir,6,2) >= '01' AND SUBSTRING(Tkh_lahir,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(Tkh_lahir,3,2))*1
-							   WHEN SUBSTRING(Tkh_lahir,3,2) < '25' AND SUBSTRING(Tkh_lahir,6,2) >= '01' AND SUBSTRING(Tkh_lahir,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(Tkh_lahir,3,2))*1
+							CASE WHEN SUBSTRING(Applicant_DOB,3,2) > '25' AND SUBSTRING(Applicant_DOB,6,2) = '01' AND SUBSTRING(Applicant_DOB,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(Applicant_DOB,3,2))*1 + 1
+							   WHEN SUBSTRING(Applicant_DOB,3,2) < '25' AND SUBSTRING(Applicant_DOB,6,2) = '01' AND SUBSTRING(Applicant_DOB,9,2) = '01' THEN '2026' - CONCAT('20',SUBSTRING(Applicant_DOB,3,2))*1 + 1
+							   WHEN SUBSTRING(Applicant_DOB,3,2) > '25' AND SUBSTRING(Applicant_DOB,6,2) >= '01' AND SUBSTRING(Applicant_DOB,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(Applicant_DOB,3,2))*1
+							   WHEN SUBSTRING(Applicant_DOB,3,2) < '25' AND SUBSTRING(Applicant_DOB,6,2) >= '01' AND SUBSTRING(Applicant_DOB,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(Applicant_DOB,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
- INTO #Y2025_P1_Household_AllApplicant
-  FROM Y2025_P1_TYPE_1
- WHERE Category = 'Household Category' AND NRICPoliceMilitaryIDNumber !=''
-  --##Y2025_P1_Household_AllApplicant : 3,155,363
+ INTO #P1_Household_AllApplicant
+  FROM SRC_P1_TYPE_1
+ WHERE Category = 'Household Category' AND Applicant_IDNumber !=''
+  --##P1_Household_AllApplicant
 
-			SELECT NRICPoliceMilitaryIDNumber AS NRIC,--(1)
-							FullName AS FullName, 	--(2)							
-							Tkh_lahir AS DateofBirth,--(3)
+			SELECT Applicant_IDNumber AS NRIC,--(1)
+							FullName AS FullName, 	--(2)
+							Applicant_DOB AS DateofBirth,--(3)
 							CASE 
 								WHEN Gender = 'L' THEN '1'
 								ELSE '2'
@@ -396,60 +375,60 @@ NRICPoliceMilitaryIDNumber|FullName|Tkh_lahir|Gender|Category|Spouse_NRICNumber|
 							MobileNumber_Applicant AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-								WHEN Applicant_BankName = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-								WHEN Applicant_BankName = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-								WHEN Applicant_BankName = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-								WHEN Applicant_BankName = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-								WHEN Applicant_BankName = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-								WHEN Applicant_BankName = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-								WHEN Applicant_BankName = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-								WHEN Applicant_BankName = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-								WHEN Applicant_BankName = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-								WHEN Applicant_BankName = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-								WHEN Applicant_BankName = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-								WHEN Applicant_BankName = 'CITIBANK BERHAD' THEN  '13'
-								WHEN Applicant_BankName = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-								WHEN Applicant_BankName = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-								WHEN Applicant_BankName = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-								WHEN Applicant_BankName = 'BANK SIMPANAN NASIONAL' THEN  '17'
-								WHEN Applicant_BankName = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-								WHEN Applicant_BankName = 'AGRO BANK BERHAD' THEN  '22'
-								WHEN Applicant_BankName = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-								WHEN Applicant_BankName = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-								WHEN Applicant_BankName = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-								WHEN Applicant_BankName = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-								WHEN Applicant_BankName = 'MBSB BANK BERHAD' THEN  '29'
+								WHEN Applicant_BankName = 'BANK 01' THEN  '01'
+								WHEN Applicant_BankName = 'BANK 02' THEN  '02'
+								WHEN Applicant_BankName = 'BANK 03' THEN  '03'
+								WHEN Applicant_BankName = 'BANK 04' THEN  '04'
+								WHEN Applicant_BankName = 'BANK 05' THEN  '05'
+								WHEN Applicant_BankName = 'BANK 06' THEN  '06'
+								WHEN Applicant_BankName = 'BANK 07' THEN  '07'
+								WHEN Applicant_BankName = 'BANK 09' THEN  '09'
+								WHEN Applicant_BankName = 'BANK 10' THEN  '10'
+								WHEN Applicant_BankName = 'BANK 11' THEN  '11'
+								WHEN Applicant_BankName = 'BANK 12' THEN  '12'
+								WHEN Applicant_BankName = 'BANK 13' THEN  '13'
+								WHEN Applicant_BankName = 'BANK 14' THEN  '14'
+								WHEN Applicant_BankName = 'BANK 15' THEN  '15'
+								WHEN Applicant_BankName = 'BANK 16' THEN  '16'
+								WHEN Applicant_BankName = 'BANK 17' THEN  '17'
+								WHEN Applicant_BankName = 'BANK 18' THEN  '18'
+								WHEN Applicant_BankName = 'BANK 22' THEN  '22'
+								WHEN Applicant_BankName = 'BANK 23' THEN  '23'
+								WHEN Applicant_BankName = 'BANK 24' THEN  '24'
+								WHEN Applicant_BankName = 'BANK 27' THEN  '27'
+								WHEN Applicant_BankName = 'BANK 28' THEN  '28'
+								WHEN Applicant_BankName = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
 							Applicant_BankAccountNumber AS BankAccountNumber,--(14)
 							'1' AS MaritalStatus,--(15)
-							 'DATA The Scheme TERKINI AFTER RAYA V1' AS SourceFile,--(16)
+							 'P1_Batch' AS SourceFile,--(16)
 							CASE 
 								WHEN Applicant_DisabilityStatus = 'Y' THEN  'Y'
 								ELSE 'N'
 								END	AS  Indicator_DisabilityStatus_,--(17)
-							 CASE WHEN substring(NRICPoliceMilitaryIDNumber, 3, 2) = '01' AND substring (NRICPoliceMilitaryIDNumber, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 END
+							 CASE WHEN substring(Applicant_IDNumber, 3, 2) = '01' AND substring (Applicant_IDNumber, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
-							CASE WHEN SUBSTRING(Tkh_lahir,3,2) > '25' AND SUBSTRING(Tkh_lahir,6,2) = '01' AND SUBSTRING(Tkh_lahir,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(Tkh_lahir,3,2))*1 + 1
-							   WHEN SUBSTRING(Tkh_lahir,3,2) < '25' AND SUBSTRING(Tkh_lahir,6,2) = '01' AND SUBSTRING(Tkh_lahir,9,2) = '01' THEN '2026' - CONCAT('20',SUBSTRING(Tkh_lahir,3,2))*1 + 1
-							   WHEN SUBSTRING(Tkh_lahir,3,2) > '25' AND SUBSTRING(Tkh_lahir,6,2) >= '01' AND SUBSTRING(Tkh_lahir,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(Tkh_lahir,3,2))*1
-							   WHEN SUBSTRING(Tkh_lahir,3,2) < '25' AND SUBSTRING(Tkh_lahir,6,2) >= '01' AND SUBSTRING(Tkh_lahir,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(Tkh_lahir,3,2))*1
+							CASE WHEN SUBSTRING(Applicant_DOB,3,2) > '25' AND SUBSTRING(Applicant_DOB,6,2) = '01' AND SUBSTRING(Applicant_DOB,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(Applicant_DOB,3,2))*1 + 1
+							   WHEN SUBSTRING(Applicant_DOB,3,2) < '25' AND SUBSTRING(Applicant_DOB,6,2) = '01' AND SUBSTRING(Applicant_DOB,9,2) = '01' THEN '2026' - CONCAT('20',SUBSTRING(Applicant_DOB,3,2))*1 + 1
+							   WHEN SUBSTRING(Applicant_DOB,3,2) > '25' AND SUBSTRING(Applicant_DOB,6,2) >= '01' AND SUBSTRING(Applicant_DOB,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(Applicant_DOB,3,2))*1
+							   WHEN SUBSTRING(Applicant_DOB,3,2) < '25' AND SUBSTRING(Applicant_DOB,6,2) >= '01' AND SUBSTRING(Applicant_DOB,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(Applicant_DOB,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
- INTO #Y2025_P1_Household_Applicant_with_NoSpouse
-  FROM Y2025_P1_TYPE_1
+ INTO #P1_Household_Applicant_with_NoSpouse
+  FROM SRC_P1_TYPE_1
  WHERE Category = 'Household Category' and Spouse_NRICNumber = ''
-  --#Y2025_P1_Household_Applicant_with_NoSpouse : 591,785 591785
+  --#P1_Household_Applicant_with_NoSpouse
 			
-			SELECT NRICPoliceMilitaryIDNumber AS NRIC,--(1)
-							FullName AS FullName, 	--(2)							
-							Tkh_lahir AS DateofBirth,--(3)
+			SELECT Applicant_IDNumber AS NRIC,--(1)
+							FullName AS FullName, 	--(2)
+							Applicant_DOB AS DateofBirth,--(3)
 							CASE 
 								WHEN Gender = 'L' THEN '1'
 								ELSE '2'
@@ -463,60 +442,60 @@ NRICPoliceMilitaryIDNumber|FullName|Tkh_lahir|Gender|Category|Spouse_NRICNumber|
 							MobileNumber_Applicant AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-								WHEN Applicant_BankName = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-								WHEN Applicant_BankName = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-								WHEN Applicant_BankName = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-								WHEN Applicant_BankName = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-								WHEN Applicant_BankName = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-								WHEN Applicant_BankName = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-								WHEN Applicant_BankName = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-								WHEN Applicant_BankName = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-								WHEN Applicant_BankName = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-								WHEN Applicant_BankName = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-								WHEN Applicant_BankName = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-								WHEN Applicant_BankName = 'CITIBANK BERHAD' THEN  '13'
-								WHEN Applicant_BankName = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-								WHEN Applicant_BankName = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-								WHEN Applicant_BankName = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-								WHEN Applicant_BankName = 'BANK SIMPANAN NASIONAL' THEN  '17'
-								WHEN Applicant_BankName = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-								WHEN Applicant_BankName = 'AGRO BANK BERHAD' THEN  '22'
-								WHEN Applicant_BankName = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-								WHEN Applicant_BankName = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-								WHEN Applicant_BankName = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-								WHEN Applicant_BankName = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-								WHEN Applicant_BankName = 'MBSB BANK BERHAD' THEN  '29'
+								WHEN Applicant_BankName = 'BANK 01' THEN  '01'
+								WHEN Applicant_BankName = 'BANK 02' THEN  '02'
+								WHEN Applicant_BankName = 'BANK 03' THEN  '03'
+								WHEN Applicant_BankName = 'BANK 04' THEN  '04'
+								WHEN Applicant_BankName = 'BANK 05' THEN  '05'
+								WHEN Applicant_BankName = 'BANK 06' THEN  '06'
+								WHEN Applicant_BankName = 'BANK 07' THEN  '07'
+								WHEN Applicant_BankName = 'BANK 09' THEN  '09'
+								WHEN Applicant_BankName = 'BANK 10' THEN  '10'
+								WHEN Applicant_BankName = 'BANK 11' THEN  '11'
+								WHEN Applicant_BankName = 'BANK 12' THEN  '12'
+								WHEN Applicant_BankName = 'BANK 13' THEN  '13'
+								WHEN Applicant_BankName = 'BANK 14' THEN  '14'
+								WHEN Applicant_BankName = 'BANK 15' THEN  '15'
+								WHEN Applicant_BankName = 'BANK 16' THEN  '16'
+								WHEN Applicant_BankName = 'BANK 17' THEN  '17'
+								WHEN Applicant_BankName = 'BANK 18' THEN  '18'
+								WHEN Applicant_BankName = 'BANK 22' THEN  '22'
+								WHEN Applicant_BankName = 'BANK 23' THEN  '23'
+								WHEN Applicant_BankName = 'BANK 24' THEN  '24'
+								WHEN Applicant_BankName = 'BANK 27' THEN  '27'
+								WHEN Applicant_BankName = 'BANK 28' THEN  '28'
+								WHEN Applicant_BankName = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
 							Applicant_BankAccountNumber AS BankAccountNumber,--(14)
 							'1' AS MaritalStatus,--(15)
-							 'DATA The Scheme TERKINI AFTER RAYA V1' AS SourceFile,--(16)
+							 'P1_Batch' AS SourceFile,--(16)
 							CASE 
 								WHEN Applicant_DisabilityStatus = 'Y' THEN  'Y'
 								ELSE 'N'
 								END	AS  Indicator_DisabilityStatus_,--(17)
-							 CASE WHEN substring(NRICPoliceMilitaryIDNumber, 3, 2) = '01' AND substring (NRICPoliceMilitaryIDNumber, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 END
+							 CASE WHEN substring(Applicant_IDNumber, 3, 2) = '01' AND substring (Applicant_IDNumber, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
-							CASE WHEN SUBSTRING(Tkh_lahir,3,2) > '25' AND SUBSTRING(Tkh_lahir,6,2) = '01' AND SUBSTRING(Tkh_lahir,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(Tkh_lahir,3,2))*1 + 1
-							   WHEN SUBSTRING(Tkh_lahir,3,2) < '25' AND SUBSTRING(Tkh_lahir,6,2) = '01' AND SUBSTRING(Tkh_lahir,9,2) = '01' THEN '2026' - CONCAT('20',SUBSTRING(Tkh_lahir,3,2))*1 + 1
-							   WHEN SUBSTRING(Tkh_lahir,3,2) > '25' AND SUBSTRING(Tkh_lahir,6,2) >= '01' AND SUBSTRING(Tkh_lahir,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(Tkh_lahir,3,2))*1
-							   WHEN SUBSTRING(Tkh_lahir,3,2) < '25' AND SUBSTRING(Tkh_lahir,6,2) >= '01' AND SUBSTRING(Tkh_lahir,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(Tkh_lahir,3,2))*1
+							CASE WHEN SUBSTRING(Applicant_DOB,3,2) > '25' AND SUBSTRING(Applicant_DOB,6,2) = '01' AND SUBSTRING(Applicant_DOB,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(Applicant_DOB,3,2))*1 + 1
+							   WHEN SUBSTRING(Applicant_DOB,3,2) < '25' AND SUBSTRING(Applicant_DOB,6,2) = '01' AND SUBSTRING(Applicant_DOB,9,2) = '01' THEN '2026' - CONCAT('20',SUBSTRING(Applicant_DOB,3,2))*1 + 1
+							   WHEN SUBSTRING(Applicant_DOB,3,2) > '25' AND SUBSTRING(Applicant_DOB,6,2) >= '01' AND SUBSTRING(Applicant_DOB,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(Applicant_DOB,3,2))*1
+							   WHEN SUBSTRING(Applicant_DOB,3,2) < '25' AND SUBSTRING(Applicant_DOB,6,2) >= '01' AND SUBSTRING(Applicant_DOB,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(Applicant_DOB,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
- INTO #Y2025_P1_Household_Applicant_with_Spouse
-  FROM Y2025_P1_TYPE_1
- where NRICPoliceMilitaryIDNumber !='' AND  Spouse_Citizenship = 'MalaysianCitizen' AND Category = 'Household Category' 
-  --#Y2025_P1_Household_Applicant_with_Spouse : 2,535,696 
+ INTO #P1_Household_Applicant_with_Spouse
+  FROM SRC_P1_TYPE_1
+ where Applicant_IDNumber !='' AND  Spouse_Citizenship = 'MalaysianCitizen' AND Category = 'Household Category' 
+  --#P1_Household_Applicant_with_Spouse
 
-  			SELECT NRICPoliceMilitaryIDNumber AS NRIC,--(1)
-							FullName AS FullName, 	--(2)							
-							Tkh_lahir AS DateofBirth,--(3)
+  			SELECT Applicant_IDNumber AS NRIC,--(1)
+							FullName AS FullName, 	--(2)
+							Applicant_DOB AS DateofBirth,--(3)
 							CASE 
 								WHEN Gender = 'L' THEN '1'
 								ELSE '2'
@@ -530,60 +509,60 @@ NRICPoliceMilitaryIDNumber|FullName|Tkh_lahir|Gender|Category|Spouse_NRICNumber|
 							MobileNumber_Applicant AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-								WHEN Applicant_BankName = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-								WHEN Applicant_BankName = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-								WHEN Applicant_BankName = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-								WHEN Applicant_BankName = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-								WHEN Applicant_BankName = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-								WHEN Applicant_BankName = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-								WHEN Applicant_BankName = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-								WHEN Applicant_BankName = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-								WHEN Applicant_BankName = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-								WHEN Applicant_BankName = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-								WHEN Applicant_BankName = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-								WHEN Applicant_BankName = 'CITIBANK BERHAD' THEN  '13'
-								WHEN Applicant_BankName = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-								WHEN Applicant_BankName = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-								WHEN Applicant_BankName = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-								WHEN Applicant_BankName = 'BANK SIMPANAN NASIONAL' THEN  '17'
-								WHEN Applicant_BankName = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-								WHEN Applicant_BankName = 'AGRO BANK BERHAD' THEN  '22'
-								WHEN Applicant_BankName = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-								WHEN Applicant_BankName = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-								WHEN Applicant_BankName = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-								WHEN Applicant_BankName = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-								WHEN Applicant_BankName = 'MBSB BANK BERHAD' THEN  '29'
+								WHEN Applicant_BankName = 'BANK 01' THEN  '01'
+								WHEN Applicant_BankName = 'BANK 02' THEN  '02'
+								WHEN Applicant_BankName = 'BANK 03' THEN  '03'
+								WHEN Applicant_BankName = 'BANK 04' THEN  '04'
+								WHEN Applicant_BankName = 'BANK 05' THEN  '05'
+								WHEN Applicant_BankName = 'BANK 06' THEN  '06'
+								WHEN Applicant_BankName = 'BANK 07' THEN  '07'
+								WHEN Applicant_BankName = 'BANK 09' THEN  '09'
+								WHEN Applicant_BankName = 'BANK 10' THEN  '10'
+								WHEN Applicant_BankName = 'BANK 11' THEN  '11'
+								WHEN Applicant_BankName = 'BANK 12' THEN  '12'
+								WHEN Applicant_BankName = 'BANK 13' THEN  '13'
+								WHEN Applicant_BankName = 'BANK 14' THEN  '14'
+								WHEN Applicant_BankName = 'BANK 15' THEN  '15'
+								WHEN Applicant_BankName = 'BANK 16' THEN  '16'
+								WHEN Applicant_BankName = 'BANK 17' THEN  '17'
+								WHEN Applicant_BankName = 'BANK 18' THEN  '18'
+								WHEN Applicant_BankName = 'BANK 22' THEN  '22'
+								WHEN Applicant_BankName = 'BANK 23' THEN  '23'
+								WHEN Applicant_BankName = 'BANK 24' THEN  '24'
+								WHEN Applicant_BankName = 'BANK 27' THEN  '27'
+								WHEN Applicant_BankName = 'BANK 28' THEN  '28'
+								WHEN Applicant_BankName = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
 							Applicant_BankAccountNumber AS BankAccountNumber,--(14)
 							'1' AS MaritalStatus,--(15)
-							 'DATA The Scheme TERKINI AFTER RAYA V1' AS SourceFile,--(16)
+							 'P1_Batch' AS SourceFile,--(16)
 							CASE 
 								WHEN Applicant_DisabilityStatus = 'Y' THEN  'Y'
 								ELSE 'N'
 								END	AS  Indicator_DisabilityStatus_,--(17)
-							 CASE WHEN substring(NRICPoliceMilitaryIDNumber, 3, 2) = '01' AND substring (NRICPoliceMilitaryIDNumber, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 END
+							 CASE WHEN substring(Applicant_IDNumber, 3, 2) = '01' AND substring (Applicant_IDNumber, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
-							CASE WHEN SUBSTRING(Tkh_lahir,3,2) > '25' AND SUBSTRING(Tkh_lahir,6,2) = '01' AND SUBSTRING(Tkh_lahir,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(Tkh_lahir,3,2))*1 + 1
-							   WHEN SUBSTRING(Tkh_lahir,3,2) < '25' AND SUBSTRING(Tkh_lahir,6,2) = '01' AND SUBSTRING(Tkh_lahir,9,2) = '01' THEN '2026' - CONCAT('20',SUBSTRING(Tkh_lahir,3,2))*1 + 1
-							   WHEN SUBSTRING(Tkh_lahir,3,2) > '25' AND SUBSTRING(Tkh_lahir,6,2) >= '01' AND SUBSTRING(Tkh_lahir,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(Tkh_lahir,3,2))*1
-							   WHEN SUBSTRING(Tkh_lahir,3,2) < '25' AND SUBSTRING(Tkh_lahir,6,2) >= '01' AND SUBSTRING(Tkh_lahir,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(Tkh_lahir,3,2))*1
+							CASE WHEN SUBSTRING(Applicant_DOB,3,2) > '25' AND SUBSTRING(Applicant_DOB,6,2) = '01' AND SUBSTRING(Applicant_DOB,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(Applicant_DOB,3,2))*1 + 1
+							   WHEN SUBSTRING(Applicant_DOB,3,2) < '25' AND SUBSTRING(Applicant_DOB,6,2) = '01' AND SUBSTRING(Applicant_DOB,9,2) = '01' THEN '2026' - CONCAT('20',SUBSTRING(Applicant_DOB,3,2))*1 + 1
+							   WHEN SUBSTRING(Applicant_DOB,3,2) > '25' AND SUBSTRING(Applicant_DOB,6,2) >= '01' AND SUBSTRING(Applicant_DOB,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(Applicant_DOB,3,2))*1
+							   WHEN SUBSTRING(Applicant_DOB,3,2) < '25' AND SUBSTRING(Applicant_DOB,6,2) >= '01' AND SUBSTRING(Applicant_DOB,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(Applicant_DOB,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
- INTO #Y2025_P1_Household_Applicant_with_SpouseNonMalaysian
-  FROM Y2025_P1_TYPE_1
- where NRICPoliceMilitaryIDNumber !='' AND  Spouse_Citizenship = 'Permanent Resident' or Spouse_Citizenship = 'NonCitizen and Non Permanent Resident' AND Category = 'Household Category' 
-  --#Y2025_P1_Household_Applicant_with_SpouseNonMalaysian : 27,882  
+ INTO #P1_Household_Applicant_with_SpouseNonMalaysian
+  FROM SRC_P1_TYPE_1
+ where Applicant_IDNumber !='' AND  Spouse_Citizenship = 'Permanent Resident' or Spouse_Citizenship = 'NonCitizen and Non Permanent Resident' AND Category = 'Household Category' 
+  --#P1_Household_Applicant_with_SpouseNonMalaysian
 
 
 			SELECT Spouse_NRICNumber AS NRIC,--(1)
-							Spouse_FullName AS FullName, 	--(2)							
+							Spouse_FullName AS FullName, 	--(2)
 							Spouse_DateofBirth AS DateofBirth,--(3)
 							CASE 
 								WHEN Spouse_Gender = 'L' THEN '1'
@@ -598,36 +577,36 @@ NRICPoliceMilitaryIDNumber|FullName|Tkh_lahir|Gender|Category|Spouse_NRICNumber|
 							MobileNumber_Spouse AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-								WHEN FullName_Bank_Spouse = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-								WHEN FullName_Bank_Spouse = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-								WHEN FullName_Bank_Spouse = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-								WHEN FullName_Bank_Spouse = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-								WHEN FullName_Bank_Spouse = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-								WHEN FullName_Bank_Spouse = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-								WHEN FullName_Bank_Spouse = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-								WHEN FullName_Bank_Spouse = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-								WHEN FullName_Bank_Spouse = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-								WHEN FullName_Bank_Spouse = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-								WHEN FullName_Bank_Spouse = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-								WHEN FullName_Bank_Spouse = 'CITIBANK BERHAD' THEN  '13'
-								WHEN FullName_Bank_Spouse = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-								WHEN FullName_Bank_Spouse = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-								WHEN FullName_Bank_Spouse = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-								WHEN FullName_Bank_Spouse = 'BANK SIMPANAN NASIONAL' THEN  '17'
-								WHEN FullName_Bank_Spouse = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-								WHEN FullName_Bank_Spouse = 'AGRO BANK BERHAD' THEN  '22'
-								WHEN FullName_Bank_Spouse = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-								WHEN FullName_Bank_Spouse = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-								WHEN FullName_Bank_Spouse = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-								WHEN FullName_Bank_Spouse = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-								WHEN FullName_Bank_Spouse = 'MBSB BANK BERHAD' THEN  '29'
+								WHEN FullName_Bank_Spouse = 'BANK 01' THEN  '01'
+								WHEN FullName_Bank_Spouse = 'BANK 02' THEN  '02'
+								WHEN FullName_Bank_Spouse = 'BANK 03' THEN  '03'
+								WHEN FullName_Bank_Spouse = 'BANK 04' THEN  '04'
+								WHEN FullName_Bank_Spouse = 'BANK 05' THEN  '05'
+								WHEN FullName_Bank_Spouse = 'BANK 06' THEN  '06'
+								WHEN FullName_Bank_Spouse = 'BANK 07' THEN  '07'
+								WHEN FullName_Bank_Spouse = 'BANK 09' THEN  '09'
+								WHEN FullName_Bank_Spouse = 'BANK 10' THEN  '10'
+								WHEN FullName_Bank_Spouse = 'BANK 11' THEN  '11'
+								WHEN FullName_Bank_Spouse = 'BANK 12' THEN  '12'
+								WHEN FullName_Bank_Spouse = 'BANK 13' THEN  '13'
+								WHEN FullName_Bank_Spouse = 'BANK 14' THEN  '14'
+								WHEN FullName_Bank_Spouse = 'BANK 15' THEN  '15'
+								WHEN FullName_Bank_Spouse = 'BANK 16' THEN  '16'
+								WHEN FullName_Bank_Spouse = 'BANK 17' THEN  '17'
+								WHEN FullName_Bank_Spouse = 'BANK 18' THEN  '18'
+								WHEN FullName_Bank_Spouse = 'BANK 22' THEN  '22'
+								WHEN FullName_Bank_Spouse = 'BANK 23' THEN  '23'
+								WHEN FullName_Bank_Spouse = 'BANK 24' THEN  '24'
+								WHEN FullName_Bank_Spouse = 'BANK 27' THEN  '27'
+								WHEN FullName_Bank_Spouse = 'BANK 28' THEN  '28'
+								WHEN FullName_Bank_Spouse = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
-							Spouse_BankAccountNumber AS BankAccountNumber,--(14) FullName_Bank_Spouse|Spouse_BankAccountNumber
+							Spouse_BankAccountNumber AS BankAccountNumber,--(14) FullName_Bank_Spouse Spouse_BankAccountNumber
 							'1' AS MaritalStatus,--(15)
-							 'DATA The Scheme TERKINI AFTER RAYA V1' AS SourceFile,--(16)
+							 'P1_Batch' AS SourceFile,--(16)
 							CASE 
 								WHEN Spouse_DisabilityStatus = 'Y' THEN  'Y'
 								ELSE 'N'
@@ -644,14 +623,14 @@ NRICPoliceMilitaryIDNumber|FullName|Tkh_lahir|Gender|Category|Spouse_NRICNumber|
 							   WHEN SUBSTRING(Spouse_DateofBirth,3,2) > '25' AND SUBSTRING(Spouse_DateofBirth,6,2) >= '01' AND SUBSTRING(Spouse_DateofBirth,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(Spouse_DateofBirth,3,2))*1
 							   WHEN SUBSTRING(Spouse_DateofBirth,3,2) < '25' AND SUBSTRING(Spouse_DateofBirth,6,2) >= '01' AND SUBSTRING(Spouse_DateofBirth,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(Spouse_DateofBirth,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
- INTO #Y2025_P1_Household_Spouse_with_Applicant 
-  FROM Y2025_P1_TYPE_1
-  where NRICPoliceMilitaryIDNumber !='' AND  Spouse_Citizenship = 'MalaysianCitizen' AND Category = 'Household Category' 
-  --#Y2025_P1_Household_Spouse_with_Applicant : 2,535,696 
+ INTO #P1_Household_Spouse_with_Applicant 
+  FROM SRC_P1_TYPE_1
+  where Applicant_IDNumber !='' AND  Spouse_Citizenship = 'MalaysianCitizen' AND Category = 'Household Category' 
+  --#P1_Household_Spouse_with_Applicant
 
 
 			SELECT Spouse_NRICNumber AS NRIC,--(1)
-							Spouse_FullName AS FullName, 	--(2)							
+							Spouse_FullName AS FullName, 	--(2)
 							Spouse_DateofBirth AS DateofBirth,--(3)
 							CASE 
 								WHEN Spouse_Gender = 'L' THEN '1'
@@ -666,36 +645,36 @@ NRICPoliceMilitaryIDNumber|FullName|Tkh_lahir|Gender|Category|Spouse_NRICNumber|
 							MobileNumber_Spouse AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-								WHEN FullName_Bank_Spouse = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-								WHEN FullName_Bank_Spouse = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-								WHEN FullName_Bank_Spouse = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-								WHEN FullName_Bank_Spouse = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-								WHEN FullName_Bank_Spouse = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-								WHEN FullName_Bank_Spouse = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-								WHEN FullName_Bank_Spouse = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-								WHEN FullName_Bank_Spouse = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-								WHEN FullName_Bank_Spouse = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-								WHEN FullName_Bank_Spouse = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-								WHEN FullName_Bank_Spouse = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-								WHEN FullName_Bank_Spouse = 'CITIBANK BERHAD' THEN  '13'
-								WHEN FullName_Bank_Spouse = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-								WHEN FullName_Bank_Spouse = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-								WHEN FullName_Bank_Spouse = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-								WHEN FullName_Bank_Spouse = 'BANK SIMPANAN NASIONAL' THEN  '17'
-								WHEN FullName_Bank_Spouse = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-								WHEN FullName_Bank_Spouse = 'AGRO BANK BERHAD' THEN  '22'
-								WHEN FullName_Bank_Spouse = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-								WHEN FullName_Bank_Spouse = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-								WHEN FullName_Bank_Spouse = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-								WHEN FullName_Bank_Spouse = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-								WHEN FullName_Bank_Spouse = 'MBSB BANK BERHAD' THEN  '29'
+								WHEN FullName_Bank_Spouse = 'BANK 01' THEN  '01'
+								WHEN FullName_Bank_Spouse = 'BANK 02' THEN  '02'
+								WHEN FullName_Bank_Spouse = 'BANK 03' THEN  '03'
+								WHEN FullName_Bank_Spouse = 'BANK 04' THEN  '04'
+								WHEN FullName_Bank_Spouse = 'BANK 05' THEN  '05'
+								WHEN FullName_Bank_Spouse = 'BANK 06' THEN  '06'
+								WHEN FullName_Bank_Spouse = 'BANK 07' THEN  '07'
+								WHEN FullName_Bank_Spouse = 'BANK 09' THEN  '09'
+								WHEN FullName_Bank_Spouse = 'BANK 10' THEN  '10'
+								WHEN FullName_Bank_Spouse = 'BANK 11' THEN  '11'
+								WHEN FullName_Bank_Spouse = 'BANK 12' THEN  '12'
+								WHEN FullName_Bank_Spouse = 'BANK 13' THEN  '13'
+								WHEN FullName_Bank_Spouse = 'BANK 14' THEN  '14'
+								WHEN FullName_Bank_Spouse = 'BANK 15' THEN  '15'
+								WHEN FullName_Bank_Spouse = 'BANK 16' THEN  '16'
+								WHEN FullName_Bank_Spouse = 'BANK 17' THEN  '17'
+								WHEN FullName_Bank_Spouse = 'BANK 18' THEN  '18'
+								WHEN FullName_Bank_Spouse = 'BANK 22' THEN  '22'
+								WHEN FullName_Bank_Spouse = 'BANK 23' THEN  '23'
+								WHEN FullName_Bank_Spouse = 'BANK 24' THEN  '24'
+								WHEN FullName_Bank_Spouse = 'BANK 27' THEN  '27'
+								WHEN FullName_Bank_Spouse = 'BANK 28' THEN  '28'
+								WHEN FullName_Bank_Spouse = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
-							Spouse_BankAccountNumber AS BankAccountNumber,--(14) FullName_Bank_Spouse|Spouse_BankAccountNumber
+							Spouse_BankAccountNumber AS BankAccountNumber,--(14) FullName_Bank_Spouse Spouse_BankAccountNumber
 							'1' AS MaritalStatus,--(15)
-							 'DATA The Scheme TERKINI AFTER RAYA V1' AS SourceFile,--(16)
+							 'P1_Batch' AS SourceFile,--(16)
 							CASE 
 								WHEN Spouse_DisabilityStatus = 'Y' THEN  'Y'
 								ELSE 'N'
@@ -712,61 +691,61 @@ NRICPoliceMilitaryIDNumber|FullName|Tkh_lahir|Gender|Category|Spouse_NRICNumber|
 							   WHEN SUBSTRING(Spouse_DateofBirth,3,2) > '25' AND SUBSTRING(Spouse_DateofBirth,6,2) >= '01' AND SUBSTRING(Spouse_DateofBirth,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(Spouse_DateofBirth,3,2))*1
 							   WHEN SUBSTRING(Spouse_DateofBirth,3,2) < '25' AND SUBSTRING(Spouse_DateofBirth,6,2) >= '01' AND SUBSTRING(Spouse_DateofBirth,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(Spouse_DateofBirth,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
- INTO #Y2025_P1_Spouse_with_blank_Applicant 
-  FROM Y2025_P1_TYPE_1
-  WHERE Category = 'Household Category' AND NRICPoliceMilitaryIDNumber = '' AND  Spouse_Citizenship = 'MalaysianCitizen'
-  --#Y2025_P1_Spouse_with_blank_Applicant: 202,018 
+ INTO #P1_Spouse_with_blank_Applicant 
+  FROM SRC_P1_TYPE_1
+  WHERE Category = 'Household Category' AND Applicant_IDNumber = '' AND  Spouse_Citizenship = 'MalaysianCitizen'
+  --#P1_Spouse_with_blank_Applicant
 
 
-	 	SELECT x.* INTO  #Y2025_P1_AllEligibilityCriteriaCombined /*(9328547 rows affected)*/ 
+	 	SELECT x.* INTO  #P1_AllEligibilityCriteriaCombined  
 
 	FROM 
 	(
-	SELECT * FROM #Y2025_P1_SingleNoSpouse WHERE ANB_FromDateofBirth >= 22 AND ANB_FromDateofBirth <=66 
+	SELECT * FROM #P1_SingleNoSpouse WHERE ANB_FromDateofBirth >= 22 AND ANB_FromDateofBirth <=66 
 	UNION
-	SELECT * FROM #Y2025_P1_SingleNoSpouse_OKU WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 AND Indicator_DisabilityStatus_ ='Y' 
+	SELECT * FROM #P1_SingleNoSpouse_Disabled WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 AND Indicator_DisabilityStatus_ ='Y' 
 	UNION
-	SELECT * FROM #Y2025_P1_NoKinNoSpouse WHERE ANB_FromDateofBirth >= 22 AND ANB_FromDateofBirth <=66
+	SELECT * FROM #P1_NoKinNoSpouse WHERE ANB_FromDateofBirth >= 22 AND ANB_FromDateofBirth <=66
 	UNION
-	SELECT * FROM #Y2025_P1_NoKinNoSpouse_OKU WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 AND Indicator_DisabilityStatus_ ='Y' 
+	SELECT * FROM #P1_NoKinNoSpouse_Disabled WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 AND Indicator_DisabilityStatus_ ='Y' 
 	UNION
-	SELECT * FROM #Y2025_P1_Household_AllApplicant WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 
+	SELECT * FROM #P1_Household_AllApplicant WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 
 	UNION
-	SELECT * FROM #Y2025_P1_Household_Applicant_with_NoSpouse WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 
+	SELECT * FROM #P1_Household_Applicant_with_NoSpouse WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 
 	UNION
-	SELECT * FROM #Y2025_P1_Household_Applicant_with_Spouse WHERE ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 
+	SELECT * FROM #P1_Household_Applicant_with_Spouse WHERE ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 
 	UNION
-	SELECT * FROM #Y2025_P1_Household_Applicant_with_SpouseNonMalaysian WHERE ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 
+	SELECT * FROM #P1_Household_Applicant_with_SpouseNonMalaysian WHERE ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 
 	UNION
-	SELECT * FROM #Y2025_P1_Household_Spouse_with_Applicant WHERE ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 
+	SELECT * FROM #P1_Household_Spouse_with_Applicant WHERE ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 
 	UNION
-	SELECT * FROM #Y2025_P1_Spouse_with_blank_Applicant WHERE ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 
+	SELECT * FROM #P1_Spouse_with_blank_Applicant WHERE ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 
 	) x
 
 
  /*
- B) Y2025_P2 
- /*REDACTED FOR OPSEC*/
-SELECT * FROM Y2025_P2_TYPE_1   --376,091 Senior Citizen
-SELECT * FROM Y2025_P2_TYPE_2  -- 3,367,434 Single Applicant
-SELECT * FROM Y2025_P2_TYPE_3 --402,086 Ibu Bapa Tunggal Tiada Anak
-SELECT * FROM Y2025_P2_TYPE_4 --2,591,905 Applicant 2,591,905 Spouse
-SELECT * FROM Y2025_P2_TYPE_5--166,338 Applicant , Spouse NonMalaysian
-SELECT * FROM Y2025_P2_TYPE_6 --64,503 Applicant , Spouse MalaysianCitizen
-SELECT * FROM Y2025_P2_TYPE_7 --202,857 Spouse MalaysianCitizen
+ B) P2
+
+SELECT * FROM SRC_P2_TYPE_1   -- Senior Citizen
+SELECT * FROM SRC_P2_TYPE_2  --  Single Applicant
+SELECT * FROM SRC_P2_TYPE_3 -- Single Parent No Children
+SELECT * FROM SRC_P2_TYPE_4 -- Applicant and Spouse
+SELECT * FROM SRC_P2_TYPE_5-- Applicant , Spouse NonMalaysian
+SELECT * FROM SRC_P2_TYPE_6 -- Applicant , Spouse MalaysianCitizen
+SELECT * FROM SRC_P2_TYPE_7 -- Spouse MalaysianCitizen
  */
 
- 	/****** Y2025_P2 Processing ******/
+ 	/****** P2 Processing ******/
 	
-		/****** Y2025_P2 Processing ******/
+		/****** P2 Processing ******/
 
 o
 
---1|Single. 
+--Type 1: Single
 
 
- SELECT NRICPoliceMilitaryIDNumber AS NRIC,--(1)
-							FullName AS FullName, 	--(2)							
+ SELECT Applicant_IDNumber AS NRIC,--(1)
+							FullName AS FullName, 	--(2)
 							DateofBirth_Applicant AS DateofBirth,--(3)
 							CASE 
 								WHEN Gender = 'L' THEN '1'
@@ -781,45 +760,45 @@ o
 							NoTel_Applicant AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-								WHEN Applicant_BankName  = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-								WHEN Applicant_BankName  = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-								WHEN Applicant_BankName  = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-								WHEN Applicant_BankName  = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-								WHEN Applicant_BankName  = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-								WHEN Applicant_BankName  = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-								WHEN Applicant_BankName  = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-								WHEN Applicant_BankName  = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-								WHEN Applicant_BankName  = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-								WHEN Applicant_BankName  = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-								WHEN Applicant_BankName  = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-								WHEN Applicant_BankName  = 'CITIBANK BERHAD' THEN  '13'
-								WHEN Applicant_BankName  = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-								WHEN Applicant_BankName  = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-								WHEN Applicant_BankName  = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-								WHEN Applicant_BankName  = 'BANK SIMPANAN NASIONAL' THEN  '17'
-								WHEN Applicant_BankName  = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-								WHEN Applicant_BankName  = 'AGRO BANK BERHAD' THEN  '22'
-								WHEN Applicant_BankName  = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-								WHEN Applicant_BankName  = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-								WHEN Applicant_BankName  = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-								WHEN Applicant_BankName  = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-								WHEN Applicant_BankName  = 'MBSB BANK BERHAD' THEN  '29'
+								WHEN Applicant_BankName  = 'BANK 01' THEN  '01'
+								WHEN Applicant_BankName  = 'BANK 02' THEN  '02'
+								WHEN Applicant_BankName  = 'BANK 03' THEN  '03'
+								WHEN Applicant_BankName  = 'BANK 04' THEN  '04'
+								WHEN Applicant_BankName  = 'BANK 05' THEN  '05'
+								WHEN Applicant_BankName  = 'BANK 06' THEN  '06'
+								WHEN Applicant_BankName  = 'BANK 07' THEN  '07'
+								WHEN Applicant_BankName  = 'BANK 09' THEN  '09'
+								WHEN Applicant_BankName  = 'BANK 10' THEN  '10'
+								WHEN Applicant_BankName  = 'BANK 11' THEN  '11'
+								WHEN Applicant_BankName  = 'BANK 12' THEN  '12'
+								WHEN Applicant_BankName  = 'BANK 13' THEN  '13'
+								WHEN Applicant_BankName  = 'BANK 14' THEN  '14'
+								WHEN Applicant_BankName  = 'BANK 15' THEN  '15'
+								WHEN Applicant_BankName  = 'BANK 16' THEN  '16'
+								WHEN Applicant_BankName  = 'BANK 17' THEN  '17'
+								WHEN Applicant_BankName  = 'BANK 18' THEN  '18'
+								WHEN Applicant_BankName  = 'BANK 22' THEN  '22'
+								WHEN Applicant_BankName  = 'BANK 23' THEN  '23'
+								WHEN Applicant_BankName  = 'BANK 24' THEN  '24'
+								WHEN Applicant_BankName  = 'BANK 27' THEN  '27'
+								WHEN Applicant_BankName  = 'BANK 28' THEN  '28'
+								WHEN Applicant_BankName  = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
 							BankAccountNumber_Applicant AS BankAccountNumber,--(14)
 							'3' AS MaritalStatus,--(15)
-							 'The Scheme Fasa 2 V1 20052025 Single' AS SourceFile,--(16)
+							 'P2_Single' AS SourceFile,--(16)
 							CASE 
-								WHEN OKUApplicant  = 'Y' THEN  'Y'
+								WHEN DisabledApplicant  = 'Y' THEN  'Y'
 								ELSE 'N'
 								END	AS  Indicator_DisabilityStatus_,--(17),--(17)
-							 CASE WHEN substring(NRICPoliceMilitaryIDNumber, 3, 2) = '01' AND substring (NRICPoliceMilitaryIDNumber, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 END
+							 CASE WHEN substring(Applicant_IDNumber, 3, 2) = '01' AND substring (Applicant_IDNumber, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
 							CASE WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) = '01' AND SUBSTRING(DateofBirth_Applicant,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1 + 1
@@ -827,14 +806,14 @@ o
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) < '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
-INTO #Y2025_P2_SingleNoSpouse
-  FROM Y2025_P2_TYPE_2  
-  WHERE NoICSpouse  = '' 
-  -- #Y2025_P2_SingleNoSpouse: 3,367,434 3367434
+INTO #P2_SingleNoSpouse
+  FROM SRC_P2_TYPE_2  
+  WHERE Spouse_ICNo  = '' 
+  -- #P2_SingleNoSpouse
 
 
-   SELECT NRICPoliceMilitaryIDNumber AS NRIC,--(1)
-							FullName AS FullName, 	--(2)							
+   SELECT Applicant_IDNumber AS NRIC,--(1)
+							FullName AS FullName, 	--(2)
 							DateofBirth_Applicant AS DateofBirth,--(3)
 							CASE 
 								WHEN Gender = 'L' THEN '1'
@@ -849,45 +828,45 @@ INTO #Y2025_P2_SingleNoSpouse
 							NoTel_Applicant AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-								WHEN Applicant_BankName = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-								WHEN Applicant_BankName = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-								WHEN Applicant_BankName  = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-								WHEN Applicant_BankName  = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-								WHEN Applicant_BankName  = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-								WHEN Applicant_BankName  = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-								WHEN Applicant_BankName  = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-								WHEN Applicant_BankName  = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-								WHEN Applicant_BankName  = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-								WHEN Applicant_BankName  = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-								WHEN Applicant_BankName  = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-								WHEN Applicant_BankName  = 'CITIBANK BERHAD' THEN  '13'
-								WHEN Applicant_BankName  = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-								WHEN Applicant_BankName  = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-								WHEN Applicant_BankName  = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-								WHEN Applicant_BankName  = 'BANK SIMPANAN NASIONAL' THEN  '17'
-								WHEN Applicant_BankName  = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-								WHEN Applicant_BankName  = 'AGRO BANK BERHAD' THEN  '22'
-								WHEN Applicant_BankName  = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-								WHEN Applicant_BankName  = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-								WHEN Applicant_BankName  = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-								WHEN Applicant_BankName  = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-								WHEN Applicant_BankName  = 'MBSB BANK BERHAD' THEN  '29'
+								WHEN Applicant_BankName = 'BANK 01' THEN  '01'
+								WHEN Applicant_BankName = 'BANK 02' THEN  '02'
+								WHEN Applicant_BankName  = 'BANK 03' THEN  '03'
+								WHEN Applicant_BankName  = 'BANK 04' THEN  '04'
+								WHEN Applicant_BankName  = 'BANK 05' THEN  '05'
+								WHEN Applicant_BankName  = 'BANK 06' THEN  '06'
+								WHEN Applicant_BankName  = 'BANK 07' THEN  '07'
+								WHEN Applicant_BankName  = 'BANK 09' THEN  '09'
+								WHEN Applicant_BankName  = 'BANK 10' THEN  '10'
+								WHEN Applicant_BankName  = 'BANK 11' THEN  '11'
+								WHEN Applicant_BankName  = 'BANK 12' THEN  '12'
+								WHEN Applicant_BankName  = 'BANK 13' THEN  '13'
+								WHEN Applicant_BankName  = 'BANK 14' THEN  '14'
+								WHEN Applicant_BankName  = 'BANK 15' THEN  '15'
+								WHEN Applicant_BankName  = 'BANK 16' THEN  '16'
+								WHEN Applicant_BankName  = 'BANK 17' THEN  '17'
+								WHEN Applicant_BankName  = 'BANK 18' THEN  '18'
+								WHEN Applicant_BankName  = 'BANK 22' THEN  '22'
+								WHEN Applicant_BankName  = 'BANK 23' THEN  '23'
+								WHEN Applicant_BankName  = 'BANK 24' THEN  '24'
+								WHEN Applicant_BankName  = 'BANK 27' THEN  '27'
+								WHEN Applicant_BankName  = 'BANK 28' THEN  '28'
+								WHEN Applicant_BankName  = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
 							BankAccountNumber_Applicant AS BankAccountNumber,--(14)
 							'3' AS MaritalStatus,--(15)
-							 'The Scheme Fasa 2 V1 20052025 Single' AS SourceFile,--(16)
+							 'P2_Single' AS SourceFile,--(16)
 							CASE 
-								WHEN OKUApplicant  = 'Y' THEN  'Y'
+								WHEN DisabledApplicant  = 'Y' THEN  'Y'
 								ELSE 'N'
 								END	AS  Indicator_DisabilityStatus_,--(17),--(17),--(17)
-							 CASE WHEN substring(NRICPoliceMilitaryIDNumber, 3, 2) = '01' AND substring (NRICPoliceMilitaryIDNumber, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 END
+							 CASE WHEN substring(Applicant_IDNumber, 3, 2) = '01' AND substring (Applicant_IDNumber, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
 							CASE WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) = '01' AND SUBSTRING(DateofBirth_Applicant,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1 + 1
@@ -895,15 +874,15 @@ INTO #Y2025_P2_SingleNoSpouse
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) < '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
- INTO  #Y2025_P2_SingleNoSpouse_OKU
-   FROM Y2025_P2_TYPE_2  
-  WHERE NoICSpouse  = '' AND OKUApplicant ='Y' 
-  -- #Y2025_P2_SingleNoSpouse_OKU: 203,080 203080
+ INTO  #P2_SingleNoSpouse_Disabled
+   FROM SRC_P2_TYPE_2  
+  WHERE Spouse_ICNo  = '' AND DisabledApplicant ='Y' 
+  -- #P2_SingleNoSpouse_Disabled
 
---2|Senior Citizen No Spouse. 
+--Type 2: Senior Citizen No Spouse
 
-				SELECT NRICPoliceMilitaryIDNumber AS NRIC,--(1)
-							FullName AS FullName, 	--(2)							
+				SELECT Applicant_IDNumber AS NRIC,--(1)
+							FullName AS FullName, 	--(2)
 							DateofBirth_Applicant AS DateofBirth,--(3)
 							CASE 
 								WHEN Gender = 'L' THEN '1'
@@ -918,45 +897,45 @@ INTO #Y2025_P2_SingleNoSpouse
 							MobileNumber_Applicant AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-								WHEN Applicant_BankName = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-								WHEN Applicant_BankName = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-								WHEN Applicant_BankName = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-								WHEN Applicant_BankName = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-								WHEN Applicant_BankName = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-								WHEN Applicant_BankName = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-								WHEN Applicant_BankName = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-								WHEN Applicant_BankName = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-								WHEN Applicant_BankName = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-								WHEN Applicant_BankName = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-								WHEN Applicant_BankName = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-								WHEN Applicant_BankName = 'CITIBANK BERHAD' THEN  '13'
-								WHEN Applicant_BankName = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-								WHEN Applicant_BankName = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-								WHEN Applicant_BankName = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-								WHEN Applicant_BankName = 'BANK SIMPANAN NASIONAL' THEN  '17'
-								WHEN Applicant_BankName = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-								WHEN Applicant_BankName = 'AGRO BANK BERHAD' THEN  '22'
-								WHEN Applicant_BankName = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-								WHEN Applicant_BankName = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-								WHEN Applicant_BankName = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-								WHEN Applicant_BankName = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-								WHEN Applicant_BankName = 'MBSB BANK BERHAD' THEN  '29'
+								WHEN Applicant_BankName = 'BANK 01' THEN  '01'
+								WHEN Applicant_BankName = 'BANK 02' THEN  '02'
+								WHEN Applicant_BankName = 'BANK 03' THEN  '03'
+								WHEN Applicant_BankName = 'BANK 04' THEN  '04'
+								WHEN Applicant_BankName = 'BANK 05' THEN  '05'
+								WHEN Applicant_BankName = 'BANK 06' THEN  '06'
+								WHEN Applicant_BankName = 'BANK 07' THEN  '07'
+								WHEN Applicant_BankName = 'BANK 09' THEN  '09'
+								WHEN Applicant_BankName = 'BANK 10' THEN  '10'
+								WHEN Applicant_BankName = 'BANK 11' THEN  '11'
+								WHEN Applicant_BankName = 'BANK 12' THEN  '12'
+								WHEN Applicant_BankName = 'BANK 13' THEN  '13'
+								WHEN Applicant_BankName = 'BANK 14' THEN  '14'
+								WHEN Applicant_BankName = 'BANK 15' THEN  '15'
+								WHEN Applicant_BankName = 'BANK 16' THEN  '16'
+								WHEN Applicant_BankName = 'BANK 17' THEN  '17'
+								WHEN Applicant_BankName = 'BANK 18' THEN  '18'
+								WHEN Applicant_BankName = 'BANK 22' THEN  '22'
+								WHEN Applicant_BankName = 'BANK 23' THEN  '23'
+								WHEN Applicant_BankName = 'BANK 24' THEN  '24'
+								WHEN Applicant_BankName = 'BANK 27' THEN  '27'
+								WHEN Applicant_BankName = 'BANK 28' THEN  '28'
+								WHEN Applicant_BankName = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
 							BankAccountNumber_Applicant AS BankAccountNumber,--(14)
 							'3' AS MaritalStatus,--(15)
-							 'The Scheme WE Fasa 2 2025' AS SourceFile,--(16)
+							 'P2_Batch' AS SourceFile,--(16)
 							CASE 
-								WHEN OKUApplicant = 'Y' THEN  'Y'
+								WHEN DisabledApplicant = 'Y' THEN  'Y'
 								ELSE 'N'
 								END	AS Indicator_DisabilityStatus_,--(17)
-							 CASE WHEN substring(NRICPoliceMilitaryIDNumber, 3, 2) = '01' AND substring (NRICPoliceMilitaryIDNumber, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 END
+							 CASE WHEN substring(Applicant_IDNumber, 3, 2) = '01' AND substring (Applicant_IDNumber, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
 							CASE WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) = '01' AND SUBSTRING(DateofBirth_Applicant,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1 + 1
@@ -964,13 +943,13 @@ INTO #Y2025_P2_SingleNoSpouse
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) < '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
- INTO  #Y2025_P2_NoKinNoSpouse
-  FROM Y2025_P2_TYPE_1    
-  WHERE NoICSpouse  = '' 
-  -- #Y2025_P2_NoKinNoSpouse: 376,091  376091
+ INTO  #P2_NoKinNoSpouse
+  FROM SRC_P2_TYPE_1    
+  WHERE Spouse_ICNo  = '' 
+  -- #P2_NoKinNoSpouse
 
-			SELECT NRICPoliceMilitaryIDNumber AS NRIC,--(1)
-							FullName AS FullName, 	--(2)							
+			SELECT Applicant_IDNumber AS NRIC,--(1)
+							FullName AS FullName, 	--(2)
 							DateofBirth_Applicant AS DateofBirth,--(3)
 							CASE 
 								WHEN Gender = 'L' THEN '1'
@@ -985,45 +964,45 @@ INTO #Y2025_P2_SingleNoSpouse
 							MobileNumber_Applicant AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-								WHEN Applicant_BankName = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-								WHEN Applicant_BankName = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-								WHEN Applicant_BankName = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-								WHEN Applicant_BankName = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-								WHEN Applicant_BankName = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-								WHEN Applicant_BankName = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-								WHEN Applicant_BankName = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-								WHEN Applicant_BankName = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-								WHEN Applicant_BankName = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-								WHEN Applicant_BankName = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-								WHEN Applicant_BankName = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-								WHEN Applicant_BankName = 'CITIBANK BERHAD' THEN  '13'
-								WHEN Applicant_BankName = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-								WHEN Applicant_BankName = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-								WHEN Applicant_BankName = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-								WHEN Applicant_BankName = 'BANK SIMPANAN NASIONAL' THEN  '17'
-								WHEN Applicant_BankName = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-								WHEN Applicant_BankName = 'AGRO BANK BERHAD' THEN  '22'
-								WHEN Applicant_BankName = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-								WHEN Applicant_BankName = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-								WHEN Applicant_BankName = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-								WHEN Applicant_BankName = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-								WHEN Applicant_BankName = 'MBSB BANK BERHAD' THEN  '29'
+								WHEN Applicant_BankName = 'BANK 01' THEN  '01'
+								WHEN Applicant_BankName = 'BANK 02' THEN  '02'
+								WHEN Applicant_BankName = 'BANK 03' THEN  '03'
+								WHEN Applicant_BankName = 'BANK 04' THEN  '04'
+								WHEN Applicant_BankName = 'BANK 05' THEN  '05'
+								WHEN Applicant_BankName = 'BANK 06' THEN  '06'
+								WHEN Applicant_BankName = 'BANK 07' THEN  '07'
+								WHEN Applicant_BankName = 'BANK 09' THEN  '09'
+								WHEN Applicant_BankName = 'BANK 10' THEN  '10'
+								WHEN Applicant_BankName = 'BANK 11' THEN  '11'
+								WHEN Applicant_BankName = 'BANK 12' THEN  '12'
+								WHEN Applicant_BankName = 'BANK 13' THEN  '13'
+								WHEN Applicant_BankName = 'BANK 14' THEN  '14'
+								WHEN Applicant_BankName = 'BANK 15' THEN  '15'
+								WHEN Applicant_BankName = 'BANK 16' THEN  '16'
+								WHEN Applicant_BankName = 'BANK 17' THEN  '17'
+								WHEN Applicant_BankName = 'BANK 18' THEN  '18'
+								WHEN Applicant_BankName = 'BANK 22' THEN  '22'
+								WHEN Applicant_BankName = 'BANK 23' THEN  '23'
+								WHEN Applicant_BankName = 'BANK 24' THEN  '24'
+								WHEN Applicant_BankName = 'BANK 27' THEN  '27'
+								WHEN Applicant_BankName = 'BANK 28' THEN  '28'
+								WHEN Applicant_BankName = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
 							BankAccountNumber_Applicant AS BankAccountNumber,--(14)
 							'3' AS MaritalStatus,--(15)
-							 'The Scheme WE Fasa 2 2025' AS SourceFile,--(16)
+							 'P2_Batch' AS SourceFile,--(16)
 							CASE 
-								WHEN OKUApplicant = 'Y' THEN  'Y'
+								WHEN DisabledApplicant = 'Y' THEN  'Y'
 								ELSE 'N'
 								END	AS  Indicator_DisabilityStatus_,--(17)
-							 CASE WHEN substring(NRICPoliceMilitaryIDNumber, 3, 2) = '01' AND substring (NRICPoliceMilitaryIDNumber, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 END
+							 CASE WHEN substring(Applicant_IDNumber, 3, 2) = '01' AND substring (Applicant_IDNumber, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
 							CASE WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) = '01' AND SUBSTRING(DateofBirth_Applicant,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1 + 1
@@ -1031,16 +1010,16 @@ INTO #Y2025_P2_SingleNoSpouse
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) < '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
- INTO  #Y2025_P2_NoKinNoSpouse_OKU
-  FROM Y2025_P2_TYPE_1    
-  WHERE NoICSpouse  = '' AND OKUApplicant ='Y'
-  -- #Y2025_P2_NoKinNoSpouse_OKU: 22,338 22338
+ INTO  #P2_NoKinNoSpouse_Disabled
+  FROM SRC_P2_TYPE_1    
+  WHERE Spouse_ICNo  = '' AND DisabledApplicant ='Y'
+  -- #P2_NoKinNoSpouse_Disabled
 
 
---3|Household Category.  
+--Type 3: Household Category
 
-				SELECT NRICPoliceMilitaryIDNumber AS NRIC,--(1)
-							FullName AS FullName, 	--(2)							
+				SELECT Applicant_IDNumber AS NRIC,--(1)
+							FullName AS FullName, 	--(2)
 							DateofBirth_Applicant AS DateofBirth,--(3)
 							CASE 
 								WHEN Gender = 'L' THEN '1'
@@ -1055,45 +1034,45 @@ INTO #Y2025_P2_SingleNoSpouse
 							MobileNumber_Applicant AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-								WHEN Applicant_BankName = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-								WHEN Applicant_BankName = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-								WHEN Applicant_BankName = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-								WHEN Applicant_BankName = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-								WHEN Applicant_BankName = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-								WHEN Applicant_BankName = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-								WHEN Applicant_BankName = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-								WHEN Applicant_BankName = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-								WHEN Applicant_BankName = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-								WHEN Applicant_BankName = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-								WHEN Applicant_BankName = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-								WHEN Applicant_BankName = 'CITIBANK BERHAD' THEN  '13'
-								WHEN Applicant_BankName = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-								WHEN Applicant_BankName = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-								WHEN Applicant_BankName = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-								WHEN Applicant_BankName = 'BANK SIMPANAN NASIONAL' THEN  '17'
-								WHEN Applicant_BankName = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-								WHEN Applicant_BankName = 'AGRO BANK BERHAD' THEN  '22'
-								WHEN Applicant_BankName = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-								WHEN Applicant_BankName = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-								WHEN Applicant_BankName = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-								WHEN Applicant_BankName = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-								WHEN Applicant_BankName = 'MBSB BANK BERHAD' THEN  '29'
+								WHEN Applicant_BankName = 'BANK 01' THEN  '01'
+								WHEN Applicant_BankName = 'BANK 02' THEN  '02'
+								WHEN Applicant_BankName = 'BANK 03' THEN  '03'
+								WHEN Applicant_BankName = 'BANK 04' THEN  '04'
+								WHEN Applicant_BankName = 'BANK 05' THEN  '05'
+								WHEN Applicant_BankName = 'BANK 06' THEN  '06'
+								WHEN Applicant_BankName = 'BANK 07' THEN  '07'
+								WHEN Applicant_BankName = 'BANK 09' THEN  '09'
+								WHEN Applicant_BankName = 'BANK 10' THEN  '10'
+								WHEN Applicant_BankName = 'BANK 11' THEN  '11'
+								WHEN Applicant_BankName = 'BANK 12' THEN  '12'
+								WHEN Applicant_BankName = 'BANK 13' THEN  '13'
+								WHEN Applicant_BankName = 'BANK 14' THEN  '14'
+								WHEN Applicant_BankName = 'BANK 15' THEN  '15'
+								WHEN Applicant_BankName = 'BANK 16' THEN  '16'
+								WHEN Applicant_BankName = 'BANK 17' THEN  '17'
+								WHEN Applicant_BankName = 'BANK 18' THEN  '18'
+								WHEN Applicant_BankName = 'BANK 22' THEN  '22'
+								WHEN Applicant_BankName = 'BANK 23' THEN  '23'
+								WHEN Applicant_BankName = 'BANK 24' THEN  '24'
+								WHEN Applicant_BankName = 'BANK 27' THEN  '27'
+								WHEN Applicant_BankName = 'BANK 28' THEN  '28'
+								WHEN Applicant_BankName = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
 							BankAccountNumber_Applicant AS BankAccountNumber,--(14)
 							'1' AS MaritalStatus,--(15)
-							 'The Scheme Fasa 2 V1 16052025 IBT' AS SourceFile,--(16)
+							 'P2_SingleParent' AS SourceFile,--(16)
 							CASE 
-								WHEN OKUApplicant  = 'Y' THEN  'Y'
+								WHEN DisabledApplicant  = 'Y' THEN  'Y'
 								ELSE 'N'
 								END	AS  Indicator_DisabilityStatus_,--(17)
-							 CASE WHEN substring(NRICPoliceMilitaryIDNumber, 3, 2) = '01' AND substring (NRICPoliceMilitaryIDNumber, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 END
+							 CASE WHEN substring(Applicant_IDNumber, 3, 2) = '01' AND substring (Applicant_IDNumber, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
 							CASE WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) = '01' AND SUBSTRING(DateofBirth_Applicant,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1 + 1
@@ -1101,16 +1080,16 @@ INTO #Y2025_P2_SingleNoSpouse
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) < '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
- INTO  #Y2025_P2_Household_Applicant_with_NoSpouse
- FROM Y2025_P2_TYPE_3
- WHERE  NoICSpouse = ''
-  -- #Y2025_P2_Household_Applicant_with_NoSpouse : 402,086 402086
+ INTO  #P2_Household_Applicant_with_NoSpouse
+ FROM SRC_P2_TYPE_3
+ WHERE  Spouse_ICNo = ''
+  -- #P2_Household_Applicant_with_NoSpouse
 
 
---4|Household Category.  Applicant dan Spouse MalaysianCitizen
+--Type 4: Household Category. Applicant and Spouse MalaysianCitizen
 
-					SELECT NRICPoliceMilitaryIDNumber AS NRIC,--(1)
-							FullName AS FullName, 	--(2)							
+					SELECT Applicant_IDNumber AS NRIC,--(1)
+							FullName AS FullName, 	--(2)
 							DateofBirth_Applicant AS DateofBirth,--(3)
 							CASE 
 								WHEN Gender = 'L' THEN '1'
@@ -1125,45 +1104,45 @@ INTO #Y2025_P2_SingleNoSpouse
 							MobileNumber_Applicant AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-								WHEN Applicant_BankName = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-								WHEN Applicant_BankName = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-								WHEN Applicant_BankName = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-								WHEN Applicant_BankName = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-								WHEN Applicant_BankName = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-								WHEN Applicant_BankName = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-								WHEN Applicant_BankName = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-								WHEN Applicant_BankName = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-								WHEN Applicant_BankName = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-								WHEN Applicant_BankName = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-								WHEN Applicant_BankName = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-								WHEN Applicant_BankName = 'CITIBANK BERHAD' THEN  '13'
-								WHEN Applicant_BankName = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-								WHEN Applicant_BankName = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-								WHEN Applicant_BankName = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-								WHEN Applicant_BankName = 'BANK SIMPANAN NASIONAL' THEN  '17'
-								WHEN Applicant_BankName = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-								WHEN Applicant_BankName = 'AGRO BANK BERHAD' THEN  '22'
-								WHEN Applicant_BankName = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-								WHEN Applicant_BankName = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-								WHEN Applicant_BankName = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-								WHEN Applicant_BankName = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-								WHEN Applicant_BankName = 'MBSB BANK BERHAD' THEN  '29'
+								WHEN Applicant_BankName = 'BANK 01' THEN  '01'
+								WHEN Applicant_BankName = 'BANK 02' THEN  '02'
+								WHEN Applicant_BankName = 'BANK 03' THEN  '03'
+								WHEN Applicant_BankName = 'BANK 04' THEN  '04'
+								WHEN Applicant_BankName = 'BANK 05' THEN  '05'
+								WHEN Applicant_BankName = 'BANK 06' THEN  '06'
+								WHEN Applicant_BankName = 'BANK 07' THEN  '07'
+								WHEN Applicant_BankName = 'BANK 09' THEN  '09'
+								WHEN Applicant_BankName = 'BANK 10' THEN  '10'
+								WHEN Applicant_BankName = 'BANK 11' THEN  '11'
+								WHEN Applicant_BankName = 'BANK 12' THEN  '12'
+								WHEN Applicant_BankName = 'BANK 13' THEN  '13'
+								WHEN Applicant_BankName = 'BANK 14' THEN  '14'
+								WHEN Applicant_BankName = 'BANK 15' THEN  '15'
+								WHEN Applicant_BankName = 'BANK 16' THEN  '16'
+								WHEN Applicant_BankName = 'BANK 17' THEN  '17'
+								WHEN Applicant_BankName = 'BANK 18' THEN  '18'
+								WHEN Applicant_BankName = 'BANK 22' THEN  '22'
+								WHEN Applicant_BankName = 'BANK 23' THEN  '23'
+								WHEN Applicant_BankName = 'BANK 24' THEN  '24'
+								WHEN Applicant_BankName = 'BANK 27' THEN  '27'
+								WHEN Applicant_BankName = 'BANK 28' THEN  '28'
+								WHEN Applicant_BankName = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
 							BankAccountNumber_Applicant AS BankAccountNumber,--(14)
 							'1' AS MaritalStatus,--(15)
-							 'The Scheme Fasa 2 V1 16052025 ISR CASE 4' AS SourceFile,--(16)
+							 'P2_HH_Case4' AS SourceFile,--(16)
 							CASE 
-								WHEN OKUApplicant  = 'Y' THEN  'Y'
+								WHEN DisabledApplicant  = 'Y' THEN  'Y'
 								ELSE 'N'
 								END	AS  Indicator_DisabilityStatus_,--(17)
-							 CASE WHEN substring(NRICPoliceMilitaryIDNumber, 3, 2) = '01' AND substring (NRICPoliceMilitaryIDNumber, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 END
+							 CASE WHEN substring(Applicant_IDNumber, 3, 2) = '01' AND substring (Applicant_IDNumber, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
 							CASE WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) = '01' AND SUBSTRING(DateofBirth_Applicant,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1 + 1
@@ -1171,14 +1150,14 @@ INTO #Y2025_P2_SingleNoSpouse
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) < '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
- INTO  #Y2025_P2_Household_AllApplicant
- FROM Y2025_P2_TYPE_4
- where NRICPoliceMilitaryIDNumber !='' 
-  -- ##Y2025_P2_Household_AllApplicant : 2,591,905 
+ INTO  #P2_Household_AllApplicant
+ FROM SRC_P2_TYPE_4
+ where Applicant_IDNumber !='' 
+  -- ##P2_Household_AllApplicant
 
 
-					SELECT NRICPoliceMilitaryIDNumber AS NRIC,--(1)
-							FullName AS FullName, 	--(2)							
+					SELECT Applicant_IDNumber AS NRIC,--(1)
+							FullName AS FullName, 	--(2)
 							DateofBirth_Applicant AS DateofBirth,--(3)
 							CASE 
 								WHEN Gender = 'L' THEN '1'
@@ -1193,45 +1172,45 @@ INTO #Y2025_P2_SingleNoSpouse
 							MobileNumber_Applicant AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-								WHEN Applicant_BankName = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-								WHEN Applicant_BankName = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-								WHEN Applicant_BankName = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-								WHEN Applicant_BankName = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-								WHEN Applicant_BankName = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-								WHEN Applicant_BankName = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-								WHEN Applicant_BankName = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-								WHEN Applicant_BankName = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-								WHEN Applicant_BankName = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-								WHEN Applicant_BankName = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-								WHEN Applicant_BankName = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-								WHEN Applicant_BankName = 'CITIBANK BERHAD' THEN  '13'
-								WHEN Applicant_BankName = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-								WHEN Applicant_BankName = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-								WHEN Applicant_BankName = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-								WHEN Applicant_BankName = 'BANK SIMPANAN NASIONAL' THEN  '17'
-								WHEN Applicant_BankName = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-								WHEN Applicant_BankName = 'AGRO BANK BERHAD' THEN  '22'
-								WHEN Applicant_BankName = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-								WHEN Applicant_BankName = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-								WHEN Applicant_BankName = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-								WHEN Applicant_BankName = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-								WHEN Applicant_BankName = 'MBSB BANK BERHAD' THEN  '29'
+								WHEN Applicant_BankName = 'BANK 01' THEN  '01'
+								WHEN Applicant_BankName = 'BANK 02' THEN  '02'
+								WHEN Applicant_BankName = 'BANK 03' THEN  '03'
+								WHEN Applicant_BankName = 'BANK 04' THEN  '04'
+								WHEN Applicant_BankName = 'BANK 05' THEN  '05'
+								WHEN Applicant_BankName = 'BANK 06' THEN  '06'
+								WHEN Applicant_BankName = 'BANK 07' THEN  '07'
+								WHEN Applicant_BankName = 'BANK 09' THEN  '09'
+								WHEN Applicant_BankName = 'BANK 10' THEN  '10'
+								WHEN Applicant_BankName = 'BANK 11' THEN  '11'
+								WHEN Applicant_BankName = 'BANK 12' THEN  '12'
+								WHEN Applicant_BankName = 'BANK 13' THEN  '13'
+								WHEN Applicant_BankName = 'BANK 14' THEN  '14'
+								WHEN Applicant_BankName = 'BANK 15' THEN  '15'
+								WHEN Applicant_BankName = 'BANK 16' THEN  '16'
+								WHEN Applicant_BankName = 'BANK 17' THEN  '17'
+								WHEN Applicant_BankName = 'BANK 18' THEN  '18'
+								WHEN Applicant_BankName = 'BANK 22' THEN  '22'
+								WHEN Applicant_BankName = 'BANK 23' THEN  '23'
+								WHEN Applicant_BankName = 'BANK 24' THEN  '24'
+								WHEN Applicant_BankName = 'BANK 27' THEN  '27'
+								WHEN Applicant_BankName = 'BANK 28' THEN  '28'
+								WHEN Applicant_BankName = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
 							BankAccountNumber_Applicant AS BankAccountNumber,--(14)
 							'1' AS MaritalStatus,--(15)
-							 'The Scheme Fasa 2 V1 16052025 ISR CASE 4' AS SourceFile,--(16)
+							 'P2_HH_Case4' AS SourceFile,--(16)
 							CASE 
-								WHEN OKUApplicant  = 'Y' THEN  'Y'
+								WHEN DisabledApplicant  = 'Y' THEN  'Y'
 								ELSE 'N'
 								END	AS  Indicator_DisabilityStatus_,--(17)
-							 CASE WHEN substring(NRICPoliceMilitaryIDNumber, 3, 2) = '01' AND substring (NRICPoliceMilitaryIDNumber, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 END
+							 CASE WHEN substring(Applicant_IDNumber, 3, 2) = '01' AND substring (Applicant_IDNumber, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
 							CASE WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) = '01' AND SUBSTRING(DateofBirth_Applicant,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1 + 1
@@ -1239,16 +1218,15 @@ INTO #Y2025_P2_SingleNoSpouse
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) < '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
- INTO  #Y2025_P2_Household_Applicant_with_Spouse
- FROM Y2025_P2_TYPE_4
- where NRICPoliceMilitaryIDNumber !='' AND  Spouse_Citizenship = 'MalaysianCitizen' 
-  -- #Y2025_P2_Household_Applicant_with_Spouse : 2,591,905
+ INTO  #P2_Household_Applicant_with_Spouse
+ FROM SRC_P2_TYPE_4
+ where Applicant_IDNumber !='' AND  Spouse_Citizenship = 'MalaysianCitizen' 
+  -- #P2_Household_Applicant_with_Spouse
 
 
-
-				SELECT NoICSpouse  AS NRIC,--(1)
-							FullNameSpouse  AS FullName, 	--(2)							
-							TarikhLahir_Spouse AS DateofBirth,--(3)
+				SELECT Spouse_ICNo  AS NRIC,--(1)
+							FullNameSpouse  AS FullName, 	--(2)
+							Spouse_DOB AS DateofBirth,--(3)
 							CASE 
 								WHEN Spouse_Gender = 'L' THEN '1'
 								ELSE '2'
@@ -1262,63 +1240,63 @@ INTO #Y2025_P2_SingleNoSpouse
 							NoTelSpouse AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-								WHEN BankNameSpouse  = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-								WHEN BankNameSpouse  = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-								WHEN BankNameSpouse  = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-								WHEN BankNameSpouse  = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-								WHEN BankNameSpouse  = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-								WHEN BankNameSpouse  = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-								WHEN BankNameSpouse  = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-								WHEN BankNameSpouse  = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-								WHEN BankNameSpouse  = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-								WHEN BankNameSpouse  = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-								WHEN BankNameSpouse  = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-								WHEN BankNameSpouse  = 'CITIBANK BERHAD' THEN  '13'
-								WHEN BankNameSpouse  = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-								WHEN BankNameSpouse  = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-								WHEN BankNameSpouse  = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-								WHEN BankNameSpouse  = 'BANK SIMPANAN NASIONAL' THEN  '17'
-								WHEN BankNameSpouse  = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-								WHEN BankNameSpouse  = 'AGRO BANK BERHAD' THEN  '22'
-								WHEN BankNameSpouse  = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-								WHEN BankNameSpouse  = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-								WHEN BankNameSpouse  = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-								WHEN BankNameSpouse  = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-								WHEN BankNameSpouse  = 'MBSB BANK BERHAD' THEN  '29'
+								WHEN BankNameSpouse  = 'BANK 01' THEN  '01'
+								WHEN BankNameSpouse  = 'BANK 02' THEN  '02'
+								WHEN BankNameSpouse  = 'BANK 03' THEN  '03'
+								WHEN BankNameSpouse  = 'BANK 04' THEN  '04'
+								WHEN BankNameSpouse  = 'BANK 05' THEN  '05'
+								WHEN BankNameSpouse  = 'BANK 06' THEN  '06'
+								WHEN BankNameSpouse  = 'BANK 07' THEN  '07'
+								WHEN BankNameSpouse  = 'BANK 09' THEN  '09'
+								WHEN BankNameSpouse  = 'BANK 10' THEN  '10'
+								WHEN BankNameSpouse  = 'BANK 11' THEN  '11'
+								WHEN BankNameSpouse  = 'BANK 12' THEN  '12'
+								WHEN BankNameSpouse  = 'BANK 13' THEN  '13'
+								WHEN BankNameSpouse  = 'BANK 14' THEN  '14'
+								WHEN BankNameSpouse  = 'BANK 15' THEN  '15'
+								WHEN BankNameSpouse  = 'BANK 16' THEN  '16'
+								WHEN BankNameSpouse  = 'BANK 17' THEN  '17'
+								WHEN BankNameSpouse  = 'BANK 18' THEN  '18'
+								WHEN BankNameSpouse  = 'BANK 22' THEN  '22'
+								WHEN BankNameSpouse  = 'BANK 23' THEN  '23'
+								WHEN BankNameSpouse  = 'BANK 24' THEN  '24'
+								WHEN BankNameSpouse  = 'BANK 27' THEN  '27'
+								WHEN BankNameSpouse  = 'BANK 28' THEN  '28'
+								WHEN BankNameSpouse  = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
-							BankAccountNumberBankSpouse  AS BankAccountNumber,--(14) 
+							BankAccountNumberBankSpouse  AS BankAccountNumber,--(14)
 							'1' AS MaritalStatus,--(15)
-							 'The Scheme Fasa 2 V1 16052025 ISR CASE 4' AS SourceFile,--(16)
+							 'P2_HH_Case4' AS SourceFile,--(16)
 							CASE 
-								WHEN OKUSpouse  = 'Y' THEN  'Y'
+								WHEN DisabledSpouse  = 'Y' THEN  'Y'
 								ELSE 'N'
 								END	AS  Indicator_DisabilityStatus_,--(17)
-							 CASE WHEN substring(NoICSpouse, 3, 2) = '01' AND substring (NoICSpouse, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NoICSpouse, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NoICSpouse, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NoICSpouse, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NoICSpouse, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NoICSpouse, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NoICSpouse, 2))*1 END
+							 CASE WHEN substring(Spouse_ICNo, 3, 2) = '01' AND substring (Spouse_ICNo, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Spouse_ICNo, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Spouse_ICNo, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Spouse_ICNo, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Spouse_ICNo, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Spouse_ICNo, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Spouse_ICNo, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
-							CASE WHEN SUBSTRING(TarikhLahir_Spouse,3,2) > '25' AND SUBSTRING(TarikhLahir_Spouse,6,2) = '01' AND SUBSTRING(TarikhLahir_Spouse,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(TarikhLahir_Spouse,3,2))*1 + 1
-							   WHEN SUBSTRING(TarikhLahir_Spouse,3,2) < '25' AND SUBSTRING(TarikhLahir_Spouse,6,2) = '01' AND SUBSTRING(TarikhLahir_Spouse,9,2) = '01' THEN '2026' - CONCAT('20',SUBSTRING(TarikhLahir_Spouse,3,2))*1 + 1
-							   WHEN SUBSTRING(TarikhLahir_Spouse,3,2) > '25' AND SUBSTRING(TarikhLahir_Spouse,6,2) >= '01' AND SUBSTRING(TarikhLahir_Spouse,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(TarikhLahir_Spouse,3,2))*1
-							   WHEN SUBSTRING(TarikhLahir_Spouse,3,2) < '25' AND SUBSTRING(TarikhLahir_Spouse,6,2) >= '01' AND SUBSTRING(TarikhLahir_Spouse,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(TarikhLahir_Spouse,3,2))*1
+							CASE WHEN SUBSTRING(Spouse_DOB,3,2) > '25' AND SUBSTRING(Spouse_DOB,6,2) = '01' AND SUBSTRING(Spouse_DOB,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(Spouse_DOB,3,2))*1 + 1
+							   WHEN SUBSTRING(Spouse_DOB,3,2) < '25' AND SUBSTRING(Spouse_DOB,6,2) = '01' AND SUBSTRING(Spouse_DOB,9,2) = '01' THEN '2026' - CONCAT('20',SUBSTRING(Spouse_DOB,3,2))*1 + 1
+							   WHEN SUBSTRING(Spouse_DOB,3,2) > '25' AND SUBSTRING(Spouse_DOB,6,2) >= '01' AND SUBSTRING(Spouse_DOB,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(Spouse_DOB,3,2))*1
+							   WHEN SUBSTRING(Spouse_DOB,3,2) < '25' AND SUBSTRING(Spouse_DOB,6,2) >= '01' AND SUBSTRING(Spouse_DOB,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(Spouse_DOB,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
- INTO  #Y2025_P2_Household_Spouse_with_Applicant 
-  FROM Y2025_P2_TYPE_4
-  where NRICPoliceMilitaryIDNumber !='' AND  Spouse_Citizenship = 'MalaysianCitizen'  
-  -- #Y2025_P2_Household_Spouse_with_Applicant : 2,591,905 
+ INTO  #P2_Household_Spouse_with_Applicant 
+  FROM SRC_P2_TYPE_4
+  where Applicant_IDNumber !='' AND  Spouse_Citizenship = 'MalaysianCitizen'  
+  -- #P2_Household_Spouse_with_Applicant
 
  		
 
---5|Household Category, Spouse Not MalaysianCitizen  
+--Type 5: Household Category, Spouse Not MalaysianCitizen
 
-						SELECT NRICPoliceMilitaryIDNumber AS NRIC,--(1)
-							FullName AS FullName, 	--(2)							
+						SELECT Applicant_IDNumber AS NRIC,--(1)
+							FullName AS FullName, 	--(2)
 							DateofBirth_Applicant AS DateofBirth,--(3)
 							CASE 
 								WHEN Gender = 'L' THEN '1'
@@ -1333,45 +1311,45 @@ INTO #Y2025_P2_SingleNoSpouse
 							MobileNumber_Applicant AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-								WHEN Applicant_BankName = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-								WHEN Applicant_BankName = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-								WHEN Applicant_BankName = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-								WHEN Applicant_BankName = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-								WHEN Applicant_BankName = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-								WHEN Applicant_BankName = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-								WHEN Applicant_BankName = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-								WHEN Applicant_BankName = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-								WHEN Applicant_BankName = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-								WHEN Applicant_BankName = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-								WHEN Applicant_BankName = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-								WHEN Applicant_BankName = 'CITIBANK BERHAD' THEN  '13'
-								WHEN Applicant_BankName = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-								WHEN Applicant_BankName = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-								WHEN Applicant_BankName = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-								WHEN Applicant_BankName = 'BANK SIMPANAN NASIONAL' THEN  '17'
-								WHEN Applicant_BankName = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-								WHEN Applicant_BankName = 'AGRO BANK BERHAD' THEN  '22'
-								WHEN Applicant_BankName = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-								WHEN Applicant_BankName = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-								WHEN Applicant_BankName = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-								WHEN Applicant_BankName = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-								WHEN Applicant_BankName = 'MBSB BANK BERHAD' THEN  '29'
+								WHEN Applicant_BankName = 'BANK 01' THEN  '01'
+								WHEN Applicant_BankName = 'BANK 02' THEN  '02'
+								WHEN Applicant_BankName = 'BANK 03' THEN  '03'
+								WHEN Applicant_BankName = 'BANK 04' THEN  '04'
+								WHEN Applicant_BankName = 'BANK 05' THEN  '05'
+								WHEN Applicant_BankName = 'BANK 06' THEN  '06'
+								WHEN Applicant_BankName = 'BANK 07' THEN  '07'
+								WHEN Applicant_BankName = 'BANK 09' THEN  '09'
+								WHEN Applicant_BankName = 'BANK 10' THEN  '10'
+								WHEN Applicant_BankName = 'BANK 11' THEN  '11'
+								WHEN Applicant_BankName = 'BANK 12' THEN  '12'
+								WHEN Applicant_BankName = 'BANK 13' THEN  '13'
+								WHEN Applicant_BankName = 'BANK 14' THEN  '14'
+								WHEN Applicant_BankName = 'BANK 15' THEN  '15'
+								WHEN Applicant_BankName = 'BANK 16' THEN  '16'
+								WHEN Applicant_BankName = 'BANK 17' THEN  '17'
+								WHEN Applicant_BankName = 'BANK 18' THEN  '18'
+								WHEN Applicant_BankName = 'BANK 22' THEN  '22'
+								WHEN Applicant_BankName = 'BANK 23' THEN  '23'
+								WHEN Applicant_BankName = 'BANK 24' THEN  '24'
+								WHEN Applicant_BankName = 'BANK 27' THEN  '27'
+								WHEN Applicant_BankName = 'BANK 28' THEN  '28'
+								WHEN Applicant_BankName = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
 							BankAccountNumber_Applicant AS BankAccountNumber,--(14)
 							'1' AS MaritalStatus,--(15)
-							 'The Scheme Fasa 2 V1 16052025 ISR CASE 5' AS SourceFile,--(16)
+							 'P2_HH_Case5' AS SourceFile,--(16)
 							CASE 
-								WHEN OKUApplicant  = 'Y' THEN  'Y'
+								WHEN DisabledApplicant  = 'Y' THEN  'Y'
 								ELSE 'N'
 								END	AS  Indicator_DisabilityStatus_,--(17)
-							 CASE WHEN substring(NRICPoliceMilitaryIDNumber, 3, 2) = '01' AND substring (NRICPoliceMilitaryIDNumber, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 END
+							 CASE WHEN substring(Applicant_IDNumber, 3, 2) = '01' AND substring (Applicant_IDNumber, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
 							CASE WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) = '01' AND SUBSTRING(DateofBirth_Applicant,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1 + 1
@@ -1379,15 +1357,15 @@ INTO #Y2025_P2_SingleNoSpouse
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) < '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
- INTO  #Y2025_P2_Household_Applicant_with_NonMalSpouse
- FROM [IRB RawData - Y2025].[dbo].[The Scheme Fasa 2 V1 16052025 ISR CASE 5]
- where NRICPoliceMilitaryIDNumber !='' 
-  -- #Y2025_P2_Household_Applicant_with_NonMalSpouse : 137,888 
+ INTO  #P2_Household_Applicant_with_NonMalSpouse
+ FROM [RawDataDB].[dbo].[P2_HH_Case5]
+ where Applicant_IDNumber !='' 
+  -- #P2_Household_Applicant_with_NonMalSpouse
 
 
---6|Household Category,  Spouse MalaysianCitizen 
-					SELECT NRICPoliceMilitaryIDNumber AS NRIC,--(1)
-							FullName AS FullName, 	--(2)							
+--Type 6: Household Category, Spouse MalaysianCitizen
+					SELECT Applicant_IDNumber AS NRIC,--(1)
+							FullName AS FullName, 	--(2)
 							DateofBirth_Applicant AS DateofBirth,--(3)
 							CASE 
 								WHEN Gender = 'L' THEN '1'
@@ -1402,45 +1380,45 @@ INTO #Y2025_P2_SingleNoSpouse
 							MobileNumber_Applicant AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-								WHEN Applicant_BankName = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-								WHEN Applicant_BankName = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-								WHEN Applicant_BankName = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-								WHEN Applicant_BankName = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-								WHEN Applicant_BankName = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-								WHEN Applicant_BankName = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-								WHEN Applicant_BankName = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-								WHEN Applicant_BankName = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-								WHEN Applicant_BankName = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-								WHEN Applicant_BankName = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-								WHEN Applicant_BankName = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-								WHEN Applicant_BankName = 'CITIBANK BERHAD' THEN  '13'
-								WHEN Applicant_BankName = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-								WHEN Applicant_BankName = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-								WHEN Applicant_BankName = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-								WHEN Applicant_BankName = 'BANK SIMPANAN NASIONAL' THEN  '17'
-								WHEN Applicant_BankName = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-								WHEN Applicant_BankName = 'AGRO BANK BERHAD' THEN  '22'
-								WHEN Applicant_BankName = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-								WHEN Applicant_BankName = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-								WHEN Applicant_BankName = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-								WHEN Applicant_BankName = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-								WHEN Applicant_BankName = 'MBSB BANK BERHAD' THEN  '29'
+								WHEN Applicant_BankName = 'BANK 01' THEN  '01'
+								WHEN Applicant_BankName = 'BANK 02' THEN  '02'
+								WHEN Applicant_BankName = 'BANK 03' THEN  '03'
+								WHEN Applicant_BankName = 'BANK 04' THEN  '04'
+								WHEN Applicant_BankName = 'BANK 05' THEN  '05'
+								WHEN Applicant_BankName = 'BANK 06' THEN  '06'
+								WHEN Applicant_BankName = 'BANK 07' THEN  '07'
+								WHEN Applicant_BankName = 'BANK 09' THEN  '09'
+								WHEN Applicant_BankName = 'BANK 10' THEN  '10'
+								WHEN Applicant_BankName = 'BANK 11' THEN  '11'
+								WHEN Applicant_BankName = 'BANK 12' THEN  '12'
+								WHEN Applicant_BankName = 'BANK 13' THEN  '13'
+								WHEN Applicant_BankName = 'BANK 14' THEN  '14'
+								WHEN Applicant_BankName = 'BANK 15' THEN  '15'
+								WHEN Applicant_BankName = 'BANK 16' THEN  '16'
+								WHEN Applicant_BankName = 'BANK 17' THEN  '17'
+								WHEN Applicant_BankName = 'BANK 18' THEN  '18'
+								WHEN Applicant_BankName = 'BANK 22' THEN  '22'
+								WHEN Applicant_BankName = 'BANK 23' THEN  '23'
+								WHEN Applicant_BankName = 'BANK 24' THEN  '24'
+								WHEN Applicant_BankName = 'BANK 27' THEN  '27'
+								WHEN Applicant_BankName = 'BANK 28' THEN  '28'
+								WHEN Applicant_BankName = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
 							BankAccountNumber_Applicant AS BankAccountNumber,--(14)
 							'1' AS MaritalStatus,--(15)
-							 'The Scheme Fasa 2 V1 16052025 ISR CASE 6' AS SourceFile,--(16)
+							 'P2_HH_Case6' AS SourceFile,--(16)
 							CASE 
-								WHEN OKUApplicant  = 'Y' THEN  'Y'
+								WHEN DisabledApplicant  = 'Y' THEN  'Y'
 								ELSE 'N'
 								END	AS  Indicator_DisabilityStatus_,--(17)
-							 CASE WHEN substring(NRICPoliceMilitaryIDNumber, 3, 2) = '01' AND substring (NRICPoliceMilitaryIDNumber, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 END
+							 CASE WHEN substring(Applicant_IDNumber, 3, 2) = '01' AND substring (Applicant_IDNumber, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
 							CASE WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) = '01' AND SUBSTRING(DateofBirth_Applicant,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1 + 1
@@ -1448,20 +1426,19 @@ INTO #Y2025_P2_SingleNoSpouse
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) < '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
- INTO  #Y2025_P2_Household_with_Spouse_Over_or_Under_Age_Criteria
- FROM Y2025_P2_TYPE_6 
- WHERE  NoICSpouse = ''
-  -- #Y2025_P2_Household_with_Spouse_Over_or_Under_Age_Criteria : 64,503 
+ INTO  #P2_Household_with_Spouse_Over_or_Under_Age_Criteria
+ FROM SRC_P2_TYPE_6 
+ WHERE  Spouse_ICNo = ''
+  -- #P2_Household_with_Spouse_Over_or_Under_Age_Criteria
 
 
+--Type 7: Household Category, No Applicant Detail, Spouse MalaysianCitizen
 
---7|Household Category, No Applicant Detail, Spouse MalaysianCitizen 
+	select * FROM SRC_P2_TYPE_7 where Spouse_ICNo  !='' AND Applicant_IDNumber  =''-- 0 Applicant in this file
 
-	select * FROM Y2025_P2_TYPE_7 where NoICSpouse  !='' AND NRICPoliceMilitaryIDNumber  =''-- 0 Applicant in this file.
-
-				SELECT NoICSpouse AS NRIC,--(1)
-							FullNameSpouse AS FullName, 	--(2)							
-							TarikhLahir_Spouse AS DateofBirth,--(3)
+				SELECT Spouse_ICNo AS NRIC,--(1)
+							FullNameSpouse AS FullName, 	--(2)
+							Spouse_DOB AS DateofBirth,--(3)
 							CASE 
 								WHEN Spouse_Gender = 'L' THEN '1'
 								ELSE '2'
@@ -1475,104 +1452,104 @@ INTO #Y2025_P2_SingleNoSpouse
 							MobileNumberSpouse AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-								WHEN BankNameSpouse  = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-								WHEN BankNameSpouse  = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-								WHEN BankNameSpouse  = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-								WHEN BankNameSpouse  = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-								WHEN BankNameSpouse  = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-								WHEN BankNameSpouse  = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-								WHEN BankNameSpouse  = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-								WHEN BankNameSpouse  = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-								WHEN BankNameSpouse  = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-								WHEN BankNameSpouse  = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-								WHEN BankNameSpouse  = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-								WHEN BankNameSpouse  = 'CITIBANK BERHAD' THEN  '13'
-								WHEN BankNameSpouse  = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-								WHEN BankNameSpouse  = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-								WHEN BankNameSpouse  = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-								WHEN BankNameSpouse  = 'BANK SIMPANAN NASIONAL' THEN  '17'
-								WHEN BankNameSpouse  = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-								WHEN BankNameSpouse  = 'AGRO BANK BERHAD' THEN  '22'
-								WHEN BankNameSpouse  = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-								WHEN BankNameSpouse  = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-								WHEN BankNameSpouse  = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-								WHEN BankNameSpouse  = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-								WHEN BankNameSpouse  = 'MBSB BANK BERHAD' THEN  '29'
+								WHEN BankNameSpouse  = 'BANK 01' THEN  '01'
+								WHEN BankNameSpouse  = 'BANK 02' THEN  '02'
+								WHEN BankNameSpouse  = 'BANK 03' THEN  '03'
+								WHEN BankNameSpouse  = 'BANK 04' THEN  '04'
+								WHEN BankNameSpouse  = 'BANK 05' THEN  '05'
+								WHEN BankNameSpouse  = 'BANK 06' THEN  '06'
+								WHEN BankNameSpouse  = 'BANK 07' THEN  '07'
+								WHEN BankNameSpouse  = 'BANK 09' THEN  '09'
+								WHEN BankNameSpouse  = 'BANK 10' THEN  '10'
+								WHEN BankNameSpouse  = 'BANK 11' THEN  '11'
+								WHEN BankNameSpouse  = 'BANK 12' THEN  '12'
+								WHEN BankNameSpouse  = 'BANK 13' THEN  '13'
+								WHEN BankNameSpouse  = 'BANK 14' THEN  '14'
+								WHEN BankNameSpouse  = 'BANK 15' THEN  '15'
+								WHEN BankNameSpouse  = 'BANK 16' THEN  '16'
+								WHEN BankNameSpouse  = 'BANK 17' THEN  '17'
+								WHEN BankNameSpouse  = 'BANK 18' THEN  '18'
+								WHEN BankNameSpouse  = 'BANK 22' THEN  '22'
+								WHEN BankNameSpouse  = 'BANK 23' THEN  '23'
+								WHEN BankNameSpouse  = 'BANK 24' THEN  '24'
+								WHEN BankNameSpouse  = 'BANK 27' THEN  '27'
+								WHEN BankNameSpouse  = 'BANK 28' THEN  '28'
+								WHEN BankNameSpouse  = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
-							BankAccountNumberBankSpouse  AS BankAccountNumber,--(14) FullName_Bank_Spouse|Spouse_BankAccountNumber
+							BankAccountNumberBankSpouse  AS BankAccountNumber,--(14) FullName_Bank_Spouse Spouse_BankAccountNumber
 							'1' AS MaritalStatus,--(15)
-							 'The Scheme Fasa 2 V1 16052025 ISR CASE 7' AS SourceFile,--(16)
+							 'P2_HH_Case7' AS SourceFile,--(16)
 							CASE 
-								WHEN OKUSpouse  = 'Y' THEN  'Y'
+								WHEN DisabledSpouse  = 'Y' THEN  'Y'
 								ELSE 'N'
 								END	AS  Indicator_DisabilityStatus_,--(17)
-							 CASE WHEN substring(NoICSpouse, 3, 2) = '01' AND substring (NoICSpouse, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NoICSpouse, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NoICSpouse, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NoICSpouse, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NoICSpouse, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NoICSpouse, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NoICSpouse, 2))*1 END
+							 CASE WHEN substring(Spouse_ICNo, 3, 2) = '01' AND substring (Spouse_ICNo, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Spouse_ICNo, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Spouse_ICNo, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Spouse_ICNo, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Spouse_ICNo, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Spouse_ICNo, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Spouse_ICNo, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
-							CASE WHEN SUBSTRING(TarikhLahir_Spouse,3,2) > '25' AND SUBSTRING(TarikhLahir_Spouse,6,2) = '01' AND SUBSTRING(TarikhLahir_Spouse,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(TarikhLahir_Spouse,3,2))*1 + 1
-							   WHEN SUBSTRING(TarikhLahir_Spouse,3,2) < '25' AND SUBSTRING(TarikhLahir_Spouse,6,2) = '01' AND SUBSTRING(TarikhLahir_Spouse,9,2) = '01' THEN '2026' - CONCAT('20',SUBSTRING(TarikhLahir_Spouse,3,2))*1 + 1
-							   WHEN SUBSTRING(TarikhLahir_Spouse,3,2) > '25' AND SUBSTRING(TarikhLahir_Spouse,6,2) >= '01' AND SUBSTRING(TarikhLahir_Spouse,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(TarikhLahir_Spouse,3,2))*1
-							   WHEN SUBSTRING(TarikhLahir_Spouse,3,2) < '25' AND SUBSTRING(TarikhLahir_Spouse,6,2) >= '01' AND SUBSTRING(TarikhLahir_Spouse,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(TarikhLahir_Spouse,3,2))*1
+							CASE WHEN SUBSTRING(Spouse_DOB,3,2) > '25' AND SUBSTRING(Spouse_DOB,6,2) = '01' AND SUBSTRING(Spouse_DOB,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(Spouse_DOB,3,2))*1 + 1
+							   WHEN SUBSTRING(Spouse_DOB,3,2) < '25' AND SUBSTRING(Spouse_DOB,6,2) = '01' AND SUBSTRING(Spouse_DOB,9,2) = '01' THEN '2026' - CONCAT('20',SUBSTRING(Spouse_DOB,3,2))*1 + 1
+							   WHEN SUBSTRING(Spouse_DOB,3,2) > '25' AND SUBSTRING(Spouse_DOB,6,2) >= '01' AND SUBSTRING(Spouse_DOB,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(Spouse_DOB,3,2))*1
+							   WHEN SUBSTRING(Spouse_DOB,3,2) < '25' AND SUBSTRING(Spouse_DOB,6,2) >= '01' AND SUBSTRING(Spouse_DOB,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(Spouse_DOB,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
- INTO  #Y2025_P2_Spouse_with_blank_Applicant 
-  FROM Y2025_P2_TYPE_7 
-  WHERE  NRICPoliceMilitaryIDNumber = ''
-  -- #Y2025_P2_Spouse_with_blank_Applicant: 202,857 
+ INTO  #P2_Spouse_with_blank_Applicant 
+  FROM SRC_P2_TYPE_7 
+  WHERE  Applicant_IDNumber = ''
+  -- #P2_Spouse_with_blank_Applicant
 
 
-		 	SELECT x.* INTO   #Y2025_P2_AllEligibilityCriteriaCombined /*(9583562 rows affected)*/  
+		 	SELECT x.* INTO   #P2_AllEligibilityCriteriaCombined   
 	FROM 
 	(
-	 SELECT * FROM  #Y2025_P2_SingleNoSpouse WHERE ANB_FromDateofBirth >= 22 AND ANB_FromDateofBirth <=66 
+	 SELECT * FROM  #P2_SingleNoSpouse WHERE ANB_FromDateofBirth >= 22 AND ANB_FromDateofBirth <=66 
 	 UNION
-	 SELECT * FROM  #Y2025_P2_SingleNoSpouse_OKU WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 AND Indicator_DisabilityStatus_ ='Y' 
+	 SELECT * FROM  #P2_SingleNoSpouse_Disabled WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 AND Indicator_DisabilityStatus_ ='Y' 
 	 UNION
-	 SELECT * FROM  #Y2025_P2_NoKinNoSpouse  WHERE ANB_FromDateofBirth >= 22 AND ANB_FromDateofBirth <=66 
+	 SELECT * FROM  #P2_NoKinNoSpouse  WHERE ANB_FromDateofBirth >= 22 AND ANB_FromDateofBirth <=66 
 	 UNION
-	 SELECT * FROM  #Y2025_P2_NoKinNoSpouse_OKU WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 AND Indicator_DisabilityStatus_ ='Y' 
+	 SELECT * FROM  #P2_NoKinNoSpouse_Disabled WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 AND Indicator_DisabilityStatus_ ='Y' 
 	 UNION
-	 SELECT * FROM   #Y2025_P2_Household_AllApplicant WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 
+	 SELECT * FROM   #P2_Household_AllApplicant WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 
 	 UNION
-	 SELECT * FROM  #Y2025_P2_Household_Applicant_with_NoSpouse WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 
+	 SELECT * FROM  #P2_Household_Applicant_with_NoSpouse WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 
 	 UNION
-	 SELECT * FROM  #Y2025_P2_Household_Applicant_with_Spouse  WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 
+	 SELECT * FROM  #P2_Household_Applicant_with_Spouse  WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 
 	 UNION
-	 SELECT * FROM  #Y2025_P2_Household_Spouse_with_Applicant  WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 
+	 SELECT * FROM  #P2_Household_Spouse_with_Applicant  WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 
 	 UNION
-	 SELECT * FROM  #Y2025_P2_Household_Applicant_with_NonMalSpouse  WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 
+	 SELECT * FROM  #P2_Household_Applicant_with_NonMalSpouse  WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 
 	 UNION
-	 SELECT * FROM  #Y2025_P2_Household_with_Spouse_Over_or_Under_Age_Criteria  WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 
+	 SELECT * FROM  #P2_Household_with_Spouse_Over_or_Under_Age_Criteria  WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 
 	 UNION
-	 SELECT * FROM  #Y2025_P2_Spouse_with_blank_Applicant  WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 
+	 SELECT * FROM  #P2_Spouse_with_blank_Applicant  WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 
 	 	) x
 
 
  /*
- C) Y2025_P3 
- /*REDACTED FOR OPSEC*/
-SELECT * FROM Y2025_P3_TYPE_1  --3,426,031 Single Applicant
-SELECT * FROM Y2025_P3_TYPE_2 --383,088 Senior Citizen 
-SELECT * FROM Y2025_P3_TYPE_3--424,917 Ibu Bapa Tunggal Tiada Anak
-SELECT * FROM Y2025_P3_TYPE_4 --2,666,181 Applicant 2,666,181 Spouse
-SELECT * FROM Y2025_P3_TYPE_5 --172,965 Applicant , Spouse NonMalaysian
-SELECT * FROM Y2025_P3_TYPE_6 --66,126 Applicant , Spouse MalaysianCitizen
-SELECT * FROM Y2025_P3_TYPE_7 --203,011 Spouse MalaysianCitizen
+ C) P3
+
+SELECT * FROM SRC_P3_TYPE_1  -- Single Applicant
+SELECT * FROM SRC_P3_TYPE_2 -- Senior Citizen
+SELECT * FROM SRC_P3_TYPE_3-- Single Parent No Children
+SELECT * FROM SRC_P3_TYPE_4 -- Applicant and Spouse
+SELECT * FROM SRC_P3_TYPE_5 -- Applicant , Spouse NonMalaysian
+SELECT * FROM SRC_P3_TYPE_6 -- Applicant , Spouse MalaysianCitizen
+SELECT * FROM SRC_P3_TYPE_7 -- Spouse MalaysianCitizen
 
  */
 
- 		/****** Y2025_P3 Processing ******/
+ 		/****** P3 Processing ******/
 
---1|Single. Applicant tahun lahir 1959 hingga 2007|3426031|Tidak Berkaitan|Tidak Berkaitan||
+--Type 1: Single. Applicant born 1959 to 2007
 
- SELECT NRICPoliceMilitaryIDNumber AS NRIC,--(1)
-							FullName AS FullName, 	--(2)							
+ SELECT Applicant_IDNumber AS NRIC,--(1)
+							FullName AS FullName, 	--(2)
 							DateofBirth_Applicant AS DateofBirth,--(3)
 							CASE 
 								WHEN Gender_Applicant = 'Lelaki' THEN '1'
@@ -1584,48 +1561,48 @@ SELECT * FROM Y2025_P3_TYPE_7 --203,011 Spouse MalaysianCitizen
 							 Postcode,--(8)
 							 City,--(9)
 							 State,--(10)
-							TelB_Applicant AS MobileNumber,--(11)
+							Applicant_Mobile AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-								WHEN Applicant_BankName  = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-								WHEN Applicant_BankName  = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-								WHEN Applicant_BankName  = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-								WHEN Applicant_BankName  = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-								WHEN Applicant_BankName  = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-								WHEN Applicant_BankName  = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-								WHEN Applicant_BankName  = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-								WHEN Applicant_BankName  = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-								WHEN Applicant_BankName  = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-								WHEN Applicant_BankName  = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-								WHEN Applicant_BankName  = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-								WHEN Applicant_BankName  = 'CITIBANK BERHAD' THEN  '13'
-								WHEN Applicant_BankName  = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-								WHEN Applicant_BankName  = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-								WHEN Applicant_BankName  = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-								WHEN Applicant_BankName  = 'BANK SIMPANAN NASIONAL' THEN  '17'
-								WHEN Applicant_BankName  = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-								WHEN Applicant_BankName  = 'AGRO BANK BERHAD' THEN  '22'
-								WHEN Applicant_BankName  = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-								WHEN Applicant_BankName  = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-								WHEN Applicant_BankName  = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-								WHEN Applicant_BankName  = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-								WHEN Applicant_BankName  = 'MBSB BANK BERHAD' THEN  '29'
+								WHEN Applicant_BankName  = 'BANK 01' THEN  '01'
+								WHEN Applicant_BankName  = 'BANK 02' THEN  '02'
+								WHEN Applicant_BankName  = 'BANK 03' THEN  '03'
+								WHEN Applicant_BankName  = 'BANK 04' THEN  '04'
+								WHEN Applicant_BankName  = 'BANK 05' THEN  '05'
+								WHEN Applicant_BankName  = 'BANK 06' THEN  '06'
+								WHEN Applicant_BankName  = 'BANK 07' THEN  '07'
+								WHEN Applicant_BankName  = 'BANK 09' THEN  '09'
+								WHEN Applicant_BankName  = 'BANK 10' THEN  '10'
+								WHEN Applicant_BankName  = 'BANK 11' THEN  '11'
+								WHEN Applicant_BankName  = 'BANK 12' THEN  '12'
+								WHEN Applicant_BankName  = 'BANK 13' THEN  '13'
+								WHEN Applicant_BankName  = 'BANK 14' THEN  '14'
+								WHEN Applicant_BankName  = 'BANK 15' THEN  '15'
+								WHEN Applicant_BankName  = 'BANK 16' THEN  '16'
+								WHEN Applicant_BankName  = 'BANK 17' THEN  '17'
+								WHEN Applicant_BankName  = 'BANK 18' THEN  '18'
+								WHEN Applicant_BankName  = 'BANK 22' THEN  '22'
+								WHEN Applicant_BankName  = 'BANK 23' THEN  '23'
+								WHEN Applicant_BankName  = 'BANK 24' THEN  '24'
+								WHEN Applicant_BankName  = 'BANK 27' THEN  '27'
+								WHEN Applicant_BankName  = 'BANK 28' THEN  '28'
+								WHEN Applicant_BankName  = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
 							BankAccountNumber_Applicant AS BankAccountNumber,--(14)
 							'3' AS MaritalStatus,--(15)
-							 'Y2025_P3_Single_DisabilityStatus_No' AS SourceFile,--(16)
+							 'P3_Single_DisabilityStatus_No' AS SourceFile,--(16)
 							CASE 
-								WHEN OKU_Applicant  = 'Y' THEN  'Y'
+								WHEN Disabled_Applicant  = 'Y' THEN  'Y'
 								ELSE 'N'
 								END	AS  Indicator_DisabilityStatus_,--(17),--(17)
-							 CASE WHEN substring(NRICPoliceMilitaryIDNumber, 3, 2) = '01' AND substring (NRICPoliceMilitaryIDNumber, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 END
+							 CASE WHEN substring(Applicant_IDNumber, 3, 2) = '01' AND substring (Applicant_IDNumber, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
 							CASE WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) = '01' AND SUBSTRING(DateofBirth_Applicant,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1 + 1
@@ -1633,14 +1610,14 @@ SELECT * FROM Y2025_P3_TYPE_7 --203,011 Spouse MalaysianCitizen
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) < '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
-INTO  #Y2025_P3_Single_NoSpouse_DisabilityStatus_No
-  FROM Y2025_P3_TYPE_1   
-  WHERE NoICSpouse  = '' AND OKU_Applicant ='' 
-  --#Y2025_P3_SingleNoSpouse_DisabilityStatus_No: 3,220,245  3220245
+INTO  #P3_Single_NoSpouse_DisabilityStatus_No
+  FROM SRC_P3_TYPE_1   
+  WHERE Spouse_ICNo  = '' AND Disabled_Applicant ='' 
+  --#P3_SingleNoSpouse_DisabilityStatus_No
 
 
-   SELECT NRICPoliceMilitaryIDNumber AS NRIC,--(1)
-							FullName AS FullName, 	--(2)							
+   SELECT Applicant_IDNumber AS NRIC,--(1)
+							FullName AS FullName, 	--(2)
 							DateofBirth_Applicant AS DateofBirth,--(3)
 							CASE 
 								WHEN Gender_Applicant = 'Lelaki' THEN '1'
@@ -1652,48 +1629,48 @@ INTO  #Y2025_P3_Single_NoSpouse_DisabilityStatus_No
 							Postcode,--(8)
 							City,--(9)
 							State,--(10)
-							TelB_Applicant AS MobileNumber,--(11)
+							Applicant_Mobile AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-								WHEN Applicant_BankName = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-								WHEN Applicant_BankName = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-								WHEN Applicant_BankName  = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-								WHEN Applicant_BankName  = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-								WHEN Applicant_BankName  = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-								WHEN Applicant_BankName  = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-								WHEN Applicant_BankName  = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-								WHEN Applicant_BankName  = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-								WHEN Applicant_BankName  = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-								WHEN Applicant_BankName  = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-								WHEN Applicant_BankName  = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-								WHEN Applicant_BankName  = 'CITIBANK BERHAD' THEN  '13'
-								WHEN Applicant_BankName  = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-								WHEN Applicant_BankName  = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-								WHEN Applicant_BankName  = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-								WHEN Applicant_BankName  = 'BANK SIMPANAN NASIONAL' THEN  '17'
-								WHEN Applicant_BankName  = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-								WHEN Applicant_BankName  = 'AGRO BANK BERHAD' THEN  '22'
-								WHEN Applicant_BankName  = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-								WHEN Applicant_BankName  = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-								WHEN Applicant_BankName  = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-								WHEN Applicant_BankName  = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-								WHEN Applicant_BankName  = 'MBSB BANK BERHAD' THEN  '29'
+								WHEN Applicant_BankName = 'BANK 01' THEN  '01'
+								WHEN Applicant_BankName = 'BANK 02' THEN  '02'
+								WHEN Applicant_BankName  = 'BANK 03' THEN  '03'
+								WHEN Applicant_BankName  = 'BANK 04' THEN  '04'
+								WHEN Applicant_BankName  = 'BANK 05' THEN  '05'
+								WHEN Applicant_BankName  = 'BANK 06' THEN  '06'
+								WHEN Applicant_BankName  = 'BANK 07' THEN  '07'
+								WHEN Applicant_BankName  = 'BANK 09' THEN  '09'
+								WHEN Applicant_BankName  = 'BANK 10' THEN  '10'
+								WHEN Applicant_BankName  = 'BANK 11' THEN  '11'
+								WHEN Applicant_BankName  = 'BANK 12' THEN  '12'
+								WHEN Applicant_BankName  = 'BANK 13' THEN  '13'
+								WHEN Applicant_BankName  = 'BANK 14' THEN  '14'
+								WHEN Applicant_BankName  = 'BANK 15' THEN  '15'
+								WHEN Applicant_BankName  = 'BANK 16' THEN  '16'
+								WHEN Applicant_BankName  = 'BANK 17' THEN  '17'
+								WHEN Applicant_BankName  = 'BANK 18' THEN  '18'
+								WHEN Applicant_BankName  = 'BANK 22' THEN  '22'
+								WHEN Applicant_BankName  = 'BANK 23' THEN  '23'
+								WHEN Applicant_BankName  = 'BANK 24' THEN  '24'
+								WHEN Applicant_BankName  = 'BANK 27' THEN  '27'
+								WHEN Applicant_BankName  = 'BANK 28' THEN  '28'
+								WHEN Applicant_BankName  = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
 							BankAccountNumber_Applicant AS BankAccountNumber,--(14)
 							'3' AS MaritalStatus,--(15)
-							 'Y2025_P3_Single_DisabilityStatus_Yes' AS SourceFile,--(16)
+							 'P3_Single_DisabilityStatus_Yes' AS SourceFile,--(16)
 							CASE 
-								WHEN OKU_Applicant  = 'Y' THEN  'Y'
+								WHEN Disabled_Applicant  = 'Y' THEN  'Y'
 								ELSE 'N'
 								END	AS  Indicator_DisabilityStatus_,--(17),--(17),--(17)
-							 CASE WHEN substring(NRICPoliceMilitaryIDNumber, 3, 2) = '01' AND substring (NRICPoliceMilitaryIDNumber, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 END
+							 CASE WHEN substring(Applicant_IDNumber, 3, 2) = '01' AND substring (Applicant_IDNumber, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
 							CASE WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) = '01' AND SUBSTRING(DateofBirth_Applicant,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1 + 1
@@ -1701,16 +1678,16 @@ INTO  #Y2025_P3_Single_NoSpouse_DisabilityStatus_No
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) < '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
- INTO #Y2025_P3_Single_NoSpouse_DisabilityStatus_Yes 
-  FROM Y2025_P3_TYPE_1  
-  WHERE NoICSpouse  = '' AND OKU_Applicant ='Y' 
-  --#Y2025_P3_Single_NoSpouse_DisabilityStatus_Yes: 205,786
+ INTO #P3_Single_NoSpouse_DisabilityStatus_Yes 
+  FROM SRC_P3_TYPE_1  
+  WHERE Spouse_ICNo  = '' AND Disabled_Applicant ='Y' 
+  --#P3_Single_NoSpouse_DisabilityStatus_Yes
 
 
---2|Senior Citizen Tiada Spouse. Applicant tahun lahir 1959 hingga 2007|376091|Tidak Berkaitan|Tidak Berkaitan||
+--Type 2: Senior Citizen No Spouse. Applicant born 1959 to 2007
 	
-				SELECT NRICPoliceMilitaryIDNumber AS NRIC,--(1)
-							FullName AS FullName, 	--(2)							
+				SELECT Applicant_IDNumber AS NRIC,--(1)
+							FullName AS FullName, 	--(2)
 							DateofBirth_Applicant AS DateofBirth,--(3)
 							CASE 
 								WHEN Gender_Applicant = 'Lelaki' THEN '1'
@@ -1722,48 +1699,48 @@ INTO  #Y2025_P3_Single_NoSpouse_DisabilityStatus_No
 							 Postcode,--(8)
 							 City,--(9)
 							 State,--(10)
-							TelB_Applicant AS MobileNumber,--(11)
+							Applicant_Mobile AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-								WHEN Applicant_BankName = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-								WHEN Applicant_BankName = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-								WHEN Applicant_BankName = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-								WHEN Applicant_BankName = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-								WHEN Applicant_BankName = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-								WHEN Applicant_BankName = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-								WHEN Applicant_BankName = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-								WHEN Applicant_BankName = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-								WHEN Applicant_BankName = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-								WHEN Applicant_BankName = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-								WHEN Applicant_BankName = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-								WHEN Applicant_BankName = 'CITIBANK BERHAD' THEN  '13'
-								WHEN Applicant_BankName = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-								WHEN Applicant_BankName = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-								WHEN Applicant_BankName = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-								WHEN Applicant_BankName = 'BANK SIMPANAN NASIONAL' THEN  '17'
-								WHEN Applicant_BankName = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-								WHEN Applicant_BankName = 'AGRO BANK BERHAD' THEN  '22'
-								WHEN Applicant_BankName = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-								WHEN Applicant_BankName = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-								WHEN Applicant_BankName = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-								WHEN Applicant_BankName = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-								WHEN Applicant_BankName = 'MBSB BANK BERHAD' THEN  '29'
+								WHEN Applicant_BankName = 'BANK 01' THEN  '01'
+								WHEN Applicant_BankName = 'BANK 02' THEN  '02'
+								WHEN Applicant_BankName = 'BANK 03' THEN  '03'
+								WHEN Applicant_BankName = 'BANK 04' THEN  '04'
+								WHEN Applicant_BankName = 'BANK 05' THEN  '05'
+								WHEN Applicant_BankName = 'BANK 06' THEN  '06'
+								WHEN Applicant_BankName = 'BANK 07' THEN  '07'
+								WHEN Applicant_BankName = 'BANK 09' THEN  '09'
+								WHEN Applicant_BankName = 'BANK 10' THEN  '10'
+								WHEN Applicant_BankName = 'BANK 11' THEN  '11'
+								WHEN Applicant_BankName = 'BANK 12' THEN  '12'
+								WHEN Applicant_BankName = 'BANK 13' THEN  '13'
+								WHEN Applicant_BankName = 'BANK 14' THEN  '14'
+								WHEN Applicant_BankName = 'BANK 15' THEN  '15'
+								WHEN Applicant_BankName = 'BANK 16' THEN  '16'
+								WHEN Applicant_BankName = 'BANK 17' THEN  '17'
+								WHEN Applicant_BankName = 'BANK 18' THEN  '18'
+								WHEN Applicant_BankName = 'BANK 22' THEN  '22'
+								WHEN Applicant_BankName = 'BANK 23' THEN  '23'
+								WHEN Applicant_BankName = 'BANK 24' THEN  '24'
+								WHEN Applicant_BankName = 'BANK 27' THEN  '27'
+								WHEN Applicant_BankName = 'BANK 28' THEN  '28'
+								WHEN Applicant_BankName = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
 							BankAccountNumber_Applicant AS BankAccountNumber,--(14)
 							'3' AS MaritalStatus,--(15)
-							 'Y2025_P3_SeniorCitizen_NoSpouse' AS SourceFile,--(16)
+							 'P3_SeniorCitizen_NoSpouse' AS SourceFile,--(16)
 							CASE 
-								WHEN OKU_Applicant = 'Y' THEN  'Y'
+								WHEN Disabled_Applicant = 'Y' THEN  'Y'
 								ELSE 'N'
 								END	AS Indicator_DisabilityStatus_,--(17)
-							 CASE WHEN substring(NRICPoliceMilitaryIDNumber, 3, 2) = '01' AND substring (NRICPoliceMilitaryIDNumber, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 END
+							 CASE WHEN substring(Applicant_IDNumber, 3, 2) = '01' AND substring (Applicant_IDNumber, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
 							CASE WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) = '01' AND SUBSTRING(DateofBirth_Applicant,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1 + 1
@@ -1771,15 +1748,15 @@ INTO  #Y2025_P3_Single_NoSpouse_DisabilityStatus_No
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) < '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
- INTO #Y2025_P3_SeniorCitizen_NoSpouse
-  FROM Y2025_P3_TYPE_2 
-  WHERE NoICSpouse  = '' 
-  --#Y2025_P3_SeniorCitizen_NoSpouse: 383,088 383088
+ INTO #P3_SeniorCitizen_NoSpouse
+  FROM SRC_P3_TYPE_2 
+  WHERE Spouse_ICNo  = '' 
+  --#P3_SeniorCitizen_NoSpouse
 
  
 
-			SELECT NRICPoliceMilitaryIDNumber AS NRIC,--(1)
-							FullName AS FullName, 	--(2)							
+			SELECT Applicant_IDNumber AS NRIC,--(1)
+							FullName AS FullName, 	--(2)
 							DateofBirth_Applicant AS DateofBirth,--(3)
 							CASE 
 								WHEN Gender_Applicant = 'Lelaki' THEN '1'
@@ -1791,48 +1768,48 @@ INTO  #Y2025_P3_Single_NoSpouse_DisabilityStatus_No
 							 Postcode,--(8)
 							 City,--(9)
 							 State,--(10)
-							TelB_Applicant AS MobileNumber,--(11)
+							Applicant_Mobile AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-								WHEN Applicant_BankName = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-								WHEN Applicant_BankName = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-								WHEN Applicant_BankName = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-								WHEN Applicant_BankName = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-								WHEN Applicant_BankName = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-								WHEN Applicant_BankName = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-								WHEN Applicant_BankName = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-								WHEN Applicant_BankName = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-								WHEN Applicant_BankName = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-								WHEN Applicant_BankName = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-								WHEN Applicant_BankName = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-								WHEN Applicant_BankName = 'CITIBANK BERHAD' THEN  '13'
-								WHEN Applicant_BankName = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-								WHEN Applicant_BankName = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-								WHEN Applicant_BankName = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-								WHEN Applicant_BankName = 'BANK SIMPANAN NASIONAL' THEN  '17'
-								WHEN Applicant_BankName = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-								WHEN Applicant_BankName = 'AGRO BANK BERHAD' THEN  '22'
-								WHEN Applicant_BankName = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-								WHEN Applicant_BankName = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-								WHEN Applicant_BankName = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-								WHEN Applicant_BankName = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-								WHEN Applicant_BankName = 'MBSB BANK BERHAD' THEN  '29'
+								WHEN Applicant_BankName = 'BANK 01' THEN  '01'
+								WHEN Applicant_BankName = 'BANK 02' THEN  '02'
+								WHEN Applicant_BankName = 'BANK 03' THEN  '03'
+								WHEN Applicant_BankName = 'BANK 04' THEN  '04'
+								WHEN Applicant_BankName = 'BANK 05' THEN  '05'
+								WHEN Applicant_BankName = 'BANK 06' THEN  '06'
+								WHEN Applicant_BankName = 'BANK 07' THEN  '07'
+								WHEN Applicant_BankName = 'BANK 09' THEN  '09'
+								WHEN Applicant_BankName = 'BANK 10' THEN  '10'
+								WHEN Applicant_BankName = 'BANK 11' THEN  '11'
+								WHEN Applicant_BankName = 'BANK 12' THEN  '12'
+								WHEN Applicant_BankName = 'BANK 13' THEN  '13'
+								WHEN Applicant_BankName = 'BANK 14' THEN  '14'
+								WHEN Applicant_BankName = 'BANK 15' THEN  '15'
+								WHEN Applicant_BankName = 'BANK 16' THEN  '16'
+								WHEN Applicant_BankName = 'BANK 17' THEN  '17'
+								WHEN Applicant_BankName = 'BANK 18' THEN  '18'
+								WHEN Applicant_BankName = 'BANK 22' THEN  '22'
+								WHEN Applicant_BankName = 'BANK 23' THEN  '23'
+								WHEN Applicant_BankName = 'BANK 24' THEN  '24'
+								WHEN Applicant_BankName = 'BANK 27' THEN  '27'
+								WHEN Applicant_BankName = 'BANK 28' THEN  '28'
+								WHEN Applicant_BankName = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
 							BankAccountNumber_Applicant AS BankAccountNumber,--(14)
 							'3' AS MaritalStatus,--(15)
-							 'The Scheme WE Fasa 2 2025' AS SourceFile,--(16)
+							 'P2_Batch' AS SourceFile,--(16)
 							CASE 
-								WHEN OKU_Applicant = 'Y' THEN  'Y'
+								WHEN Disabled_Applicant = 'Y' THEN  'Y'
 								ELSE 'N'
 								END	AS  Indicator_DisabilityStatus_,--(17)
-							 CASE WHEN substring(NRICPoliceMilitaryIDNumber, 3, 2) = '01' AND substring (NRICPoliceMilitaryIDNumber, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 END
+							 CASE WHEN substring(Applicant_IDNumber, 3, 2) = '01' AND substring (Applicant_IDNumber, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
 							CASE WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) = '01' AND SUBSTRING(DateofBirth_Applicant,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1 + 1
@@ -1840,17 +1817,17 @@ INTO  #Y2025_P3_Single_NoSpouse_DisabilityStatus_No
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) < '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
- INTO #Y2025_P3_SeniorCitizen_NoSpouse_DisabilityStatus_Yes 
-  FROM Y2025_P3_TYPE_2 
-  WHERE NoICSpouse  = '' AND OKU_Applicant ='Y'
-  --#Y2025_P3_SeniorCitizen_NoSpouse_DisabilityStatus_Yes: 22,572
+ INTO #P3_SeniorCitizen_NoSpouse_DisabilityStatus_Yes 
+  FROM SRC_P3_TYPE_2 
+  WHERE Spouse_ICNo  = '' AND Disabled_Applicant ='Y'
+  --#P3_SeniorCitizen_NoSpouse_DisabilityStatus_Yes
 
 
---3|Household Category.  Applicant tahun lahir 1959 hingga 2007|402086|Tidak Berkaitan|Tidak Berkaitan||
+--Type 3: Household Category. Applicant born 1959 to 2007
 
 
-				SELECT NRICPoliceMilitaryIDNumber AS NRIC,--(1)
-							FullName AS FullName, 	--(2)							
+				SELECT Applicant_IDNumber AS NRIC,--(1)
+							FullName AS FullName, 	--(2)
 							DateofBirth_Applicant AS DateofBirth,--(3)
 							CASE 
 								WHEN Gender_Applicant = 'Lelaki' THEN '1'
@@ -1862,48 +1839,48 @@ INTO  #Y2025_P3_Single_NoSpouse_DisabilityStatus_No
 							 Postcode,--(8)
 							 City,--(9)
 							 State,--(10)
-							TelB_Applicant AS MobileNumber,--(11)
+							Applicant_Mobile AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-								WHEN Applicant_BankName = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-								WHEN Applicant_BankName = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-								WHEN Applicant_BankName = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-								WHEN Applicant_BankName = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-								WHEN Applicant_BankName = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-								WHEN Applicant_BankName = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-								WHEN Applicant_BankName = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-								WHEN Applicant_BankName = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-								WHEN Applicant_BankName = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-								WHEN Applicant_BankName = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-								WHEN Applicant_BankName = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-								WHEN Applicant_BankName = 'CITIBANK BERHAD' THEN  '13'
-								WHEN Applicant_BankName = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-								WHEN Applicant_BankName = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-								WHEN Applicant_BankName = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-								WHEN Applicant_BankName = 'BANK SIMPANAN NASIONAL' THEN  '17'
-								WHEN Applicant_BankName = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-								WHEN Applicant_BankName = 'AGRO BANK BERHAD' THEN  '22'
-								WHEN Applicant_BankName = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-								WHEN Applicant_BankName = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-								WHEN Applicant_BankName = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-								WHEN Applicant_BankName = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-								WHEN Applicant_BankName = 'MBSB BANK BERHAD' THEN  '29'
+								WHEN Applicant_BankName = 'BANK 01' THEN  '01'
+								WHEN Applicant_BankName = 'BANK 02' THEN  '02'
+								WHEN Applicant_BankName = 'BANK 03' THEN  '03'
+								WHEN Applicant_BankName = 'BANK 04' THEN  '04'
+								WHEN Applicant_BankName = 'BANK 05' THEN  '05'
+								WHEN Applicant_BankName = 'BANK 06' THEN  '06'
+								WHEN Applicant_BankName = 'BANK 07' THEN  '07'
+								WHEN Applicant_BankName = 'BANK 09' THEN  '09'
+								WHEN Applicant_BankName = 'BANK 10' THEN  '10'
+								WHEN Applicant_BankName = 'BANK 11' THEN  '11'
+								WHEN Applicant_BankName = 'BANK 12' THEN  '12'
+								WHEN Applicant_BankName = 'BANK 13' THEN  '13'
+								WHEN Applicant_BankName = 'BANK 14' THEN  '14'
+								WHEN Applicant_BankName = 'BANK 15' THEN  '15'
+								WHEN Applicant_BankName = 'BANK 16' THEN  '16'
+								WHEN Applicant_BankName = 'BANK 17' THEN  '17'
+								WHEN Applicant_BankName = 'BANK 18' THEN  '18'
+								WHEN Applicant_BankName = 'BANK 22' THEN  '22'
+								WHEN Applicant_BankName = 'BANK 23' THEN  '23'
+								WHEN Applicant_BankName = 'BANK 24' THEN  '24'
+								WHEN Applicant_BankName = 'BANK 27' THEN  '27'
+								WHEN Applicant_BankName = 'BANK 28' THEN  '28'
+								WHEN Applicant_BankName = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
 							BankAccountNumber_Applicant AS BankAccountNumber,--(14)
 							'1' AS MaritalStatus,--(15)
-							 'Y2025_P3_IBT__Applicant_with_NoSpouse' AS SourceFile,--(16)
+							 'P3_SingleParent__Applicant_with_NoSpouse' AS SourceFile,--(16)
 							CASE 
-								WHEN OKU_Applicant  = 'Y' THEN  'Y'
+								WHEN Disabled_Applicant  = 'Y' THEN  'Y'
 								ELSE 'N'
 								END	AS  Indicator_DisabilityStatus_,--(17)
-							 CASE WHEN substring(NRICPoliceMilitaryIDNumber, 3, 2) = '01' AND substring (NRICPoliceMilitaryIDNumber, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 END
+							 CASE WHEN substring(Applicant_IDNumber, 3, 2) = '01' AND substring (Applicant_IDNumber, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
 							CASE WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) = '01' AND SUBSTRING(DateofBirth_Applicant,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1 + 1
@@ -1911,19 +1888,17 @@ INTO  #Y2025_P3_Single_NoSpouse_DisabilityStatus_No
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) < '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
- INTO #Y2025_P3_IBT_Applicant_with_NoSpouse
- FROM [IRB RawData - Y2025_P3].[dbo].[IBT]
- WHERE  NoICSpouse = ''
-  --#Y2025_P3_Ibt_Applicant_with_NoSpouse : 424,917 424917
+ INTO #P3_SingleParent_Applicant_with_NoSpouse
+ FROM [RawDataDB].[dbo].[SingleParent]
+ WHERE  Spouse_ICNo = ''
+  --#P3_SingleParent_Applicant_with_NoSpouse
 
 
+--Type 4: Household Category. Applicant and Spouse MalaysianCitizen born 1959 to 2007
 
 
---4|Household Category.  Applicant dan Spouse MalaysianCitizen tahun lahir 1959 hingga 2007|2591905|2591905|Tidak Berkaitan||
-
-
-					SELECT NRICPoliceMilitaryIDNumber AS NRIC,--(1)
-							FullName AS FullName, 	--(2)							
+					SELECT Applicant_IDNumber AS NRIC,--(1)
+							FullName AS FullName, 	--(2)
 							DateofBirth_Applicant AS DateofBirth,--(3)
 							CASE 
 								WHEN Gender_Applicant = 'Lelaki' THEN '1'
@@ -1935,48 +1910,48 @@ INTO  #Y2025_P3_Single_NoSpouse_DisabilityStatus_No
 							Postcode,--(8)
 							City,--(9)
 							State,--(10)
-							TelB_Applicant AS MobileNumber,--(11)
+							Applicant_Mobile AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-								WHEN Applicant_BankName = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-								WHEN Applicant_BankName = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-								WHEN Applicant_BankName = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-								WHEN Applicant_BankName = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-								WHEN Applicant_BankName = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-								WHEN Applicant_BankName = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-								WHEN Applicant_BankName = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-								WHEN Applicant_BankName = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-								WHEN Applicant_BankName = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-								WHEN Applicant_BankName = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-								WHEN Applicant_BankName = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-								WHEN Applicant_BankName = 'CITIBANK BERHAD' THEN  '13'
-								WHEN Applicant_BankName = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-								WHEN Applicant_BankName = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-								WHEN Applicant_BankName = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-								WHEN Applicant_BankName = 'BANK SIMPANAN NASIONAL' THEN  '17'
-								WHEN Applicant_BankName = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-								WHEN Applicant_BankName = 'AGRO BANK BERHAD' THEN  '22'
-								WHEN Applicant_BankName = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-								WHEN Applicant_BankName = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-								WHEN Applicant_BankName = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-								WHEN Applicant_BankName = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-								WHEN Applicant_BankName = 'MBSB BANK BERHAD' THEN  '29'
+								WHEN Applicant_BankName = 'BANK 01' THEN  '01'
+								WHEN Applicant_BankName = 'BANK 02' THEN  '02'
+								WHEN Applicant_BankName = 'BANK 03' THEN  '03'
+								WHEN Applicant_BankName = 'BANK 04' THEN  '04'
+								WHEN Applicant_BankName = 'BANK 05' THEN  '05'
+								WHEN Applicant_BankName = 'BANK 06' THEN  '06'
+								WHEN Applicant_BankName = 'BANK 07' THEN  '07'
+								WHEN Applicant_BankName = 'BANK 09' THEN  '09'
+								WHEN Applicant_BankName = 'BANK 10' THEN  '10'
+								WHEN Applicant_BankName = 'BANK 11' THEN  '11'
+								WHEN Applicant_BankName = 'BANK 12' THEN  '12'
+								WHEN Applicant_BankName = 'BANK 13' THEN  '13'
+								WHEN Applicant_BankName = 'BANK 14' THEN  '14'
+								WHEN Applicant_BankName = 'BANK 15' THEN  '15'
+								WHEN Applicant_BankName = 'BANK 16' THEN  '16'
+								WHEN Applicant_BankName = 'BANK 17' THEN  '17'
+								WHEN Applicant_BankName = 'BANK 18' THEN  '18'
+								WHEN Applicant_BankName = 'BANK 22' THEN  '22'
+								WHEN Applicant_BankName = 'BANK 23' THEN  '23'
+								WHEN Applicant_BankName = 'BANK 24' THEN  '24'
+								WHEN Applicant_BankName = 'BANK 27' THEN  '27'
+								WHEN Applicant_BankName = 'BANK 28' THEN  '28'
+								WHEN Applicant_BankName = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
 							BankAccountNumber_Applicant AS BankAccountNumber,--(14)
 							'1' AS MaritalStatus,--(15)
-							 'Y2025_P3_ISR Case 4__Applicant_with_SpouseMalaysianCitizen' AS SourceFile,--(16)
+							 'P3_HH Case 4__Applicant_with_SpouseMalaysianCitizen' AS SourceFile,--(16)
 							CASE 
-								WHEN OKU_Applicant  = 'Y' THEN  'Y'
+								WHEN Disabled_Applicant  = 'Y' THEN  'Y'
 								ELSE 'N'
 								END	AS  Indicator_DisabilityStatus_,--(17)
-							 CASE WHEN substring(NRICPoliceMilitaryIDNumber, 3, 2) = '01' AND substring (NRICPoliceMilitaryIDNumber, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 END
+							 CASE WHEN substring(Applicant_IDNumber, 3, 2) = '01' AND substring (Applicant_IDNumber, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
 							CASE WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) = '01' AND SUBSTRING(DateofBirth_Applicant,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1 + 1
@@ -1984,17 +1959,14 @@ INTO  #Y2025_P3_Single_NoSpouse_DisabilityStatus_No
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) < '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
- INTO #Y2025_P3_ISR_Case_4__Applicant_with_SpouseMalaysianCitizen
- FROM Y2025_P3_TYPE_4
- where NRICPoliceMilitaryIDNumber !='' AND  TarafSpouse_Citizenship = 'MalaysianCitizen'
-  --#Y2025_P3_ISR_Case_4__Applicant_with_SpouseMalaysianCitizen : 2,666,181 2602639
+ INTO #P3_HH_Case_4__Applicant_with_SpouseMalaysianCitizen
+ FROM SRC_P3_TYPE_4
+ where Applicant_IDNumber !='' AND  Spouse_CitizenshipStatus = 'MalaysianCitizen'
+  --#P3_HH_Case_4__Applicant_with_SpouseMalaysianCitizen
 
 
-
---NRICPoliceMilitaryIDNumber|FullName|DateofBirth_Applicant|Gender_Applicant|Category|FullNameSpouse|NoICSpouse|DateofBirth_Spouse|TarafSpouse_Citizenship|Spouse_Gender|OKU_Applicant|OKU_Spouse|Applicant_BankName|BankAccountNumber_Applicant|BankName_Spouse|BankAccountNumber_Spouse|AddressLine1|AddressLine2|AddressLine3|City|Postcode|State|TelB_Applicant|TelB_Spouse|StatusIBT
-
-				SELECT NoICSpouse  AS NRIC,--(1)
-							FullNameSpouse  AS FullName, 	--(2)							
+				SELECT Spouse_ICNo  AS NRIC,--(1)
+							FullNameSpouse  AS FullName, 	--(2)
 							DateofBirth_Spouse AS DateofBirth,--(3)
 							CASE 
 								WHEN Spouse_Gender = 'Lelaki' THEN '1'
@@ -2006,48 +1978,48 @@ INTO  #Y2025_P3_Single_NoSpouse_DisabilityStatus_No
 							 Postcode,--(8)
 							 City,--(9)
 							 State,--(10)
-							TelB_Spouse AS MobileNumber,--(11)
+							Spouse_Mobile AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-								WHEN BankName_Spouse  = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-								WHEN BankName_Spouse  = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-								WHEN BankName_Spouse  = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-								WHEN BankName_Spouse  = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-								WHEN BankName_Spouse  = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-								WHEN BankName_Spouse  = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-								WHEN BankName_Spouse  = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-								WHEN BankName_Spouse  = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-								WHEN BankName_Spouse  = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-								WHEN BankName_Spouse  = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-								WHEN BankName_Spouse  = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-								WHEN BankName_Spouse  = 'CITIBANK BERHAD' THEN  '13'
-								WHEN BankName_Spouse  = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-								WHEN BankName_Spouse  = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-								WHEN BankName_Spouse  = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-								WHEN BankName_Spouse  = 'BANK SIMPANAN NASIONAL' THEN  '17'
-								WHEN BankName_Spouse  = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-								WHEN BankName_Spouse  = 'AGRO BANK BERHAD' THEN  '22'
-								WHEN BankName_Spouse  = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-								WHEN BankName_Spouse  = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-								WHEN BankName_Spouse  = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-								WHEN BankName_Spouse  = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-								WHEN BankName_Spouse  = 'MBSB BANK BERHAD' THEN  '29'
+								WHEN BankName_Spouse  = 'BANK 01' THEN  '01'
+								WHEN BankName_Spouse  = 'BANK 02' THEN  '02'
+								WHEN BankName_Spouse  = 'BANK 03' THEN  '03'
+								WHEN BankName_Spouse  = 'BANK 04' THEN  '04'
+								WHEN BankName_Spouse  = 'BANK 05' THEN  '05'
+								WHEN BankName_Spouse  = 'BANK 06' THEN  '06'
+								WHEN BankName_Spouse  = 'BANK 07' THEN  '07'
+								WHEN BankName_Spouse  = 'BANK 09' THEN  '09'
+								WHEN BankName_Spouse  = 'BANK 10' THEN  '10'
+								WHEN BankName_Spouse  = 'BANK 11' THEN  '11'
+								WHEN BankName_Spouse  = 'BANK 12' THEN  '12'
+								WHEN BankName_Spouse  = 'BANK 13' THEN  '13'
+								WHEN BankName_Spouse  = 'BANK 14' THEN  '14'
+								WHEN BankName_Spouse  = 'BANK 15' THEN  '15'
+								WHEN BankName_Spouse  = 'BANK 16' THEN  '16'
+								WHEN BankName_Spouse  = 'BANK 17' THEN  '17'
+								WHEN BankName_Spouse  = 'BANK 18' THEN  '18'
+								WHEN BankName_Spouse  = 'BANK 22' THEN  '22'
+								WHEN BankName_Spouse  = 'BANK 23' THEN  '23'
+								WHEN BankName_Spouse  = 'BANK 24' THEN  '24'
+								WHEN BankName_Spouse  = 'BANK 27' THEN  '27'
+								WHEN BankName_Spouse  = 'BANK 28' THEN  '28'
+								WHEN BankName_Spouse  = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
-							BankAccountNumber_Spouse  AS BankAccountNumber,--(14) 
+							BankAccountNumber_Spouse  AS BankAccountNumber,--(14)
 							'1' AS MaritalStatus,--(15)
-							 'Y2025_P3_ISR Case 4_SpouseMalaysianCitizen_of_Applicant' AS SourceFile,--(16)
+							 'P3_HH Case 4_SpouseMalaysianCitizen_of_Applicant' AS SourceFile,--(16)
 							CASE 
-								WHEN OKU_Spouse  = 'Y' THEN  'Y'
+								WHEN Disabled_Spouse  = 'Y' THEN  'Y'
 								ELSE 'N'
 								END	AS  Indicator_DisabilityStatus_,--(17)
-							 CASE WHEN substring(NoICSpouse, 3, 2) = '01' AND substring (NoICSpouse, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NoICSpouse, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NoICSpouse, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NoICSpouse, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NoICSpouse, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NoICSpouse, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NoICSpouse, 2))*1 END
+							 CASE WHEN substring(Spouse_ICNo, 3, 2) = '01' AND substring (Spouse_ICNo, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Spouse_ICNo, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Spouse_ICNo, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Spouse_ICNo, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Spouse_ICNo, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Spouse_ICNo, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Spouse_ICNo, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
 							CASE WHEN SUBSTRING(DateofBirth_Spouse,3,2) > '25' AND SUBSTRING(DateofBirth_Spouse,6,2) = '01' AND SUBSTRING(DateofBirth_Spouse,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Spouse,3,2))*1 + 1
@@ -2055,15 +2027,15 @@ INTO  #Y2025_P3_Single_NoSpouse_DisabilityStatus_No
 							   WHEN SUBSTRING(DateofBirth_Spouse,3,2) > '25' AND SUBSTRING(DateofBirth_Spouse,6,2) >= '01' AND SUBSTRING(DateofBirth_Spouse,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Spouse,3,2))*1
 							   WHEN SUBSTRING(DateofBirth_Spouse,3,2) < '25' AND SUBSTRING(DateofBirth_Spouse,6,2) >= '01' AND SUBSTRING(DateofBirth_Spouse,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(DateofBirth_Spouse,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
- INTO #Y2025_P3_ISR_Case_4_SpouseMalaysianCitizen_of_Applicant 
-  FROM Y2025_P3_TYPE_4
-  where NRICPoliceMilitaryIDNumber !='' AND  TarafSpouse_Citizenship = 'MalaysianCitizen'  
-  --#Y2025_P3_ISR_Case_4_SpouseMalaysianCitizen_of_Applicant : 2,666,181 
+ INTO #P3_HH_Case_4_SpouseMalaysianCitizen_of_Applicant 
+  FROM SRC_P3_TYPE_4
+  where Applicant_IDNumber !='' AND  Spouse_CitizenshipStatus = 'MalaysianCitizen'  
+  --#P3_HH_Case_4_SpouseMalaysianCitizen_of_Applicant
 
---5|Household Category,  Applicant tahun lahir 1959 hingga 2007 dan Spouse Bukan MalaysianCitizen  |166338|Tidak Berkaitan|28450 Spouse bukan MalaysianCitizen menepati umur perlu serah tapi perlu ada tagging bukan MalaysianCitizen||
+--Type 5: Household Category, Applicant born 1959 to 2007 and Spouse Not MalaysianCitizen
 
-						SELECT NRICPoliceMilitaryIDNumber AS NRIC,--(1)
-							FullName AS FullName, 	--(2)							
+						SELECT Applicant_IDNumber AS NRIC,--(1)
+							FullName AS FullName, 	--(2)
 							DateofBirth_Applicant AS DateofBirth,--(3)
 							CASE 
 								WHEN Gender_Applicant = 'Lelaki' THEN '1'
@@ -2075,48 +2047,48 @@ INTO  #Y2025_P3_Single_NoSpouse_DisabilityStatus_No
 							Postcode,--(8)
 							City,--(9)
 							State,--(10)
-							TelB_Applicant AS MobileNumber,--(11)
+							Applicant_Mobile AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-								WHEN Applicant_BankName = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-								WHEN Applicant_BankName = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-								WHEN Applicant_BankName = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-								WHEN Applicant_BankName = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-								WHEN Applicant_BankName = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-								WHEN Applicant_BankName = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-								WHEN Applicant_BankName = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-								WHEN Applicant_BankName = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-								WHEN Applicant_BankName = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-								WHEN Applicant_BankName = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-								WHEN Applicant_BankName = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-								WHEN Applicant_BankName = 'CITIBANK BERHAD' THEN  '13'
-								WHEN Applicant_BankName = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-								WHEN Applicant_BankName = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-								WHEN Applicant_BankName = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-								WHEN Applicant_BankName = 'BANK SIMPANAN NASIONAL' THEN  '17'
-								WHEN Applicant_BankName = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-								WHEN Applicant_BankName = 'AGRO BANK BERHAD' THEN  '22'
-								WHEN Applicant_BankName = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-								WHEN Applicant_BankName = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-								WHEN Applicant_BankName = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-								WHEN Applicant_BankName = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-								WHEN Applicant_BankName = 'MBSB BANK BERHAD' THEN  '29'
+								WHEN Applicant_BankName = 'BANK 01' THEN  '01'
+								WHEN Applicant_BankName = 'BANK 02' THEN  '02'
+								WHEN Applicant_BankName = 'BANK 03' THEN  '03'
+								WHEN Applicant_BankName = 'BANK 04' THEN  '04'
+								WHEN Applicant_BankName = 'BANK 05' THEN  '05'
+								WHEN Applicant_BankName = 'BANK 06' THEN  '06'
+								WHEN Applicant_BankName = 'BANK 07' THEN  '07'
+								WHEN Applicant_BankName = 'BANK 09' THEN  '09'
+								WHEN Applicant_BankName = 'BANK 10' THEN  '10'
+								WHEN Applicant_BankName = 'BANK 11' THEN  '11'
+								WHEN Applicant_BankName = 'BANK 12' THEN  '12'
+								WHEN Applicant_BankName = 'BANK 13' THEN  '13'
+								WHEN Applicant_BankName = 'BANK 14' THEN  '14'
+								WHEN Applicant_BankName = 'BANK 15' THEN  '15'
+								WHEN Applicant_BankName = 'BANK 16' THEN  '16'
+								WHEN Applicant_BankName = 'BANK 17' THEN  '17'
+								WHEN Applicant_BankName = 'BANK 18' THEN  '18'
+								WHEN Applicant_BankName = 'BANK 22' THEN  '22'
+								WHEN Applicant_BankName = 'BANK 23' THEN  '23'
+								WHEN Applicant_BankName = 'BANK 24' THEN  '24'
+								WHEN Applicant_BankName = 'BANK 27' THEN  '27'
+								WHEN Applicant_BankName = 'BANK 28' THEN  '28'
+								WHEN Applicant_BankName = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
 							BankAccountNumber_Applicant AS BankAccountNumber,--(14)
 							'1' AS MaritalStatus,--(15)
-							 'Y2025_P3_ISR Case 5_ApplicantWithSpouseNonMalaysian' AS SourceFile,--(16)
+							 'P3_HH Case 5_ApplicantWithSpouseNonMalaysian' AS SourceFile,--(16)
 							CASE 
-								WHEN OKU_Applicant  = 'Y' THEN  'Y'
+								WHEN Disabled_Applicant  = 'Y' THEN  'Y'
 								ELSE 'N'
 								END	AS  Indicator_DisabilityStatus_,--(17)
-							 CASE WHEN substring(NRICPoliceMilitaryIDNumber, 3, 2) = '01' AND substring (NRICPoliceMilitaryIDNumber, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 END
+							 CASE WHEN substring(Applicant_IDNumber, 3, 2) = '01' AND substring (Applicant_IDNumber, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
 							CASE WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) = '01' AND SUBSTRING(DateofBirth_Applicant,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1 + 1
@@ -2124,14 +2096,14 @@ INTO  #Y2025_P3_Single_NoSpouse_DisabilityStatus_No
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) < '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
- INTO #Y2025_P3_ISR_Case_5_ApplicantWithSpouseMalaysianCitizen
- FROM Y2025_P3_TYPE_5
- where NRICPoliceMilitaryIDNumber !='' AND  TarafSpouse_Citizenship = '' and DateofBirth_Applicant BETWEEN '1960-01-01' and '2008-12-31' 
-  --#Y2025_P3_ISR_Case_5_ApplicantWithSpouseMalaysianCitizen : 143,201 140986
+ INTO #P3_HH_Case_5_ApplicantWithSpouseMalaysianCitizen
+ FROM SRC_P3_TYPE_5
+ where Applicant_IDNumber !='' AND  Spouse_CitizenshipStatus = '' and DateofBirth_Applicant BETWEEN '1960-01-01' and '2008-12-31' 
+  --#P3_HH_Case_5_ApplicantWithSpouseMalaysianCitizen
 
 
-  						SELECT NRICPoliceMilitaryIDNumber AS NRIC,--(1)
-							FullName AS FullName, 	--(2)							
+  						SELECT Applicant_IDNumber AS NRIC,--(1)
+							FullName AS FullName, 	--(2)
 							DateofBirth_Applicant AS DateofBirth,--(3)
 							CASE 
 								WHEN Gender_Applicant = 'Lelaki' THEN '1'
@@ -2143,48 +2115,48 @@ INTO  #Y2025_P3_Single_NoSpouse_DisabilityStatus_No
 							Postcode,--(8)
 							City,--(9)
 							State,--(10)
-							TelB_Applicant AS MobileNumber,--(11)
+							Applicant_Mobile AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-								WHEN Applicant_BankName = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-								WHEN Applicant_BankName = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-								WHEN Applicant_BankName = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-								WHEN Applicant_BankName = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-								WHEN Applicant_BankName = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-								WHEN Applicant_BankName = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-								WHEN Applicant_BankName = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-								WHEN Applicant_BankName = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-								WHEN Applicant_BankName = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-								WHEN Applicant_BankName = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-								WHEN Applicant_BankName = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-								WHEN Applicant_BankName = 'CITIBANK BERHAD' THEN  '13'
-								WHEN Applicant_BankName = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-								WHEN Applicant_BankName = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-								WHEN Applicant_BankName = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-								WHEN Applicant_BankName = 'BANK SIMPANAN NASIONAL' THEN  '17'
-								WHEN Applicant_BankName = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-								WHEN Applicant_BankName = 'AGRO BANK BERHAD' THEN  '22'
-								WHEN Applicant_BankName = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-								WHEN Applicant_BankName = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-								WHEN Applicant_BankName = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-								WHEN Applicant_BankName = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-								WHEN Applicant_BankName = 'MBSB BANK BERHAD' THEN  '29'
+								WHEN Applicant_BankName = 'BANK 01' THEN  '01'
+								WHEN Applicant_BankName = 'BANK 02' THEN  '02'
+								WHEN Applicant_BankName = 'BANK 03' THEN  '03'
+								WHEN Applicant_BankName = 'BANK 04' THEN  '04'
+								WHEN Applicant_BankName = 'BANK 05' THEN  '05'
+								WHEN Applicant_BankName = 'BANK 06' THEN  '06'
+								WHEN Applicant_BankName = 'BANK 07' THEN  '07'
+								WHEN Applicant_BankName = 'BANK 09' THEN  '09'
+								WHEN Applicant_BankName = 'BANK 10' THEN  '10'
+								WHEN Applicant_BankName = 'BANK 11' THEN  '11'
+								WHEN Applicant_BankName = 'BANK 12' THEN  '12'
+								WHEN Applicant_BankName = 'BANK 13' THEN  '13'
+								WHEN Applicant_BankName = 'BANK 14' THEN  '14'
+								WHEN Applicant_BankName = 'BANK 15' THEN  '15'
+								WHEN Applicant_BankName = 'BANK 16' THEN  '16'
+								WHEN Applicant_BankName = 'BANK 17' THEN  '17'
+								WHEN Applicant_BankName = 'BANK 18' THEN  '18'
+								WHEN Applicant_BankName = 'BANK 22' THEN  '22'
+								WHEN Applicant_BankName = 'BANK 23' THEN  '23'
+								WHEN Applicant_BankName = 'BANK 24' THEN  '24'
+								WHEN Applicant_BankName = 'BANK 27' THEN  '27'
+								WHEN Applicant_BankName = 'BANK 28' THEN  '28'
+								WHEN Applicant_BankName = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
 							BankAccountNumber_Applicant AS BankAccountNumber,--(14)
 							'1' AS MaritalStatus,--(15)
-							 'Y2025_P3_ISR Case 5_ApplicantWithSpouseNonMalaysian' AS SourceFile,--(16)
+							 'P3_HH Case 5_ApplicantWithSpouseNonMalaysian' AS SourceFile,--(16)
 							CASE 
-								WHEN OKU_Applicant  = 'Y' THEN  'Y'
+								WHEN Disabled_Applicant  = 'Y' THEN  'Y'
 								ELSE 'N'
 								END	AS  Indicator_DisabilityStatus_,--(17)
-							 CASE WHEN substring(NRICPoliceMilitaryIDNumber, 3, 2) = '01' AND substring (NRICPoliceMilitaryIDNumber, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 END
+							 CASE WHEN substring(Applicant_IDNumber, 3, 2) = '01' AND substring (Applicant_IDNumber, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
 							CASE WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) = '01' AND SUBSTRING(DateofBirth_Applicant,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1 + 1
@@ -2192,18 +2164,18 @@ INTO  #Y2025_P3_Single_NoSpouse_DisabilityStatus_No
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) < '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
- INTO #Y2025_P3_ISR_Case_5_ApplicantWithSpouseNonMalaysian
- FROM Y2025_P3_TYPE_5
- where NRICPoliceMilitaryIDNumber !='' AND  TarafSpouse_Citizenship != '' 
-  --#Y2025_P3_ISR_Case_5_ApplicantWithSpouseNonMalaysian : 28,864 
+ INTO #P3_HH_Case_5_ApplicantWithSpouseNonMalaysian
+ FROM SRC_P3_TYPE_5
+ where Applicant_IDNumber !='' AND  Spouse_CitizenshipStatus != '' 
+  --#P3_HH_Case_5_ApplicantWithSpouseNonMalaysian
 
  
 
---6|Household Category,  Applicant tahun lahir 1959 hingga 2007 dan Spouse MalaysianCitizen  tahun lahir kurang 1958 atau lebih 2008 |64503||Tidak Berkaitan||
+--Type 6: Household Category, Applicant born 1959 to 2007 and Spouse MalaysianCitizen born before 1958 or after 2008
 
 
-					SELECT NRICPoliceMilitaryIDNumber AS NRIC,--(1)
-							FullName AS FullName, 	--(2)							
+					SELECT Applicant_IDNumber AS NRIC,--(1)
+							FullName AS FullName, 	--(2)
 							DateofBirth_Applicant AS DateofBirth,--(3)
 							CASE 
 								WHEN Gender_Applicant = 'Lelaki' THEN '1'
@@ -2215,48 +2187,48 @@ INTO  #Y2025_P3_Single_NoSpouse_DisabilityStatus_No
 							 Postcode,--(8)
 							 City,--(9)
 							 State,--(10)
-							TelB_Applicant AS MobileNumber,--(11)
+							Applicant_Mobile AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-								WHEN Applicant_BankName = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-								WHEN Applicant_BankName = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-								WHEN Applicant_BankName = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-								WHEN Applicant_BankName = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-								WHEN Applicant_BankName = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-								WHEN Applicant_BankName = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-								WHEN Applicant_BankName = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-								WHEN Applicant_BankName = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-								WHEN Applicant_BankName = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-								WHEN Applicant_BankName = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-								WHEN Applicant_BankName = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-								WHEN Applicant_BankName = 'CITIBANK BERHAD' THEN  '13'
-								WHEN Applicant_BankName = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-								WHEN Applicant_BankName = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-								WHEN Applicant_BankName = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-								WHEN Applicant_BankName = 'BANK SIMPANAN NASIONAL' THEN  '17'
-								WHEN Applicant_BankName = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-								WHEN Applicant_BankName = 'AGRO BANK BERHAD' THEN  '22'
-								WHEN Applicant_BankName = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-								WHEN Applicant_BankName = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-								WHEN Applicant_BankName = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-								WHEN Applicant_BankName = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-								WHEN Applicant_BankName = 'MBSB BANK BERHAD' THEN  '29'
+								WHEN Applicant_BankName = 'BANK 01' THEN  '01'
+								WHEN Applicant_BankName = 'BANK 02' THEN  '02'
+								WHEN Applicant_BankName = 'BANK 03' THEN  '03'
+								WHEN Applicant_BankName = 'BANK 04' THEN  '04'
+								WHEN Applicant_BankName = 'BANK 05' THEN  '05'
+								WHEN Applicant_BankName = 'BANK 06' THEN  '06'
+								WHEN Applicant_BankName = 'BANK 07' THEN  '07'
+								WHEN Applicant_BankName = 'BANK 09' THEN  '09'
+								WHEN Applicant_BankName = 'BANK 10' THEN  '10'
+								WHEN Applicant_BankName = 'BANK 11' THEN  '11'
+								WHEN Applicant_BankName = 'BANK 12' THEN  '12'
+								WHEN Applicant_BankName = 'BANK 13' THEN  '13'
+								WHEN Applicant_BankName = 'BANK 14' THEN  '14'
+								WHEN Applicant_BankName = 'BANK 15' THEN  '15'
+								WHEN Applicant_BankName = 'BANK 16' THEN  '16'
+								WHEN Applicant_BankName = 'BANK 17' THEN  '17'
+								WHEN Applicant_BankName = 'BANK 18' THEN  '18'
+								WHEN Applicant_BankName = 'BANK 22' THEN  '22'
+								WHEN Applicant_BankName = 'BANK 23' THEN  '23'
+								WHEN Applicant_BankName = 'BANK 24' THEN  '24'
+								WHEN Applicant_BankName = 'BANK 27' THEN  '27'
+								WHEN Applicant_BankName = 'BANK 28' THEN  '28'
+								WHEN Applicant_BankName = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
 							BankAccountNumber_Applicant AS BankAccountNumber,--(14)
 							'1' AS MaritalStatus,--(15)
-							 'Y2025_P3_ISR Case 6_ApplicantWithNoSpouse' AS SourceFile,--(16)
+							 'P3_HH Case 6_ApplicantWithNoSpouse' AS SourceFile,--(16)
 							CASE 
-								WHEN OKU_Applicant  = 'Y' THEN  'Y'
+								WHEN Disabled_Applicant  = 'Y' THEN  'Y'
 								ELSE 'N'
 								END	AS  Indicator_DisabilityStatus_,--(17)
-							 CASE WHEN substring(NRICPoliceMilitaryIDNumber, 3, 2) = '01' AND substring (NRICPoliceMilitaryIDNumber, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NRICPoliceMilitaryIDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NRICPoliceMilitaryIDNumber, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NRICPoliceMilitaryIDNumber, 2))*1 END
+							 CASE WHEN substring(Applicant_IDNumber, 3, 2) = '01' AND substring (Applicant_IDNumber, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Applicant_IDNumber, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_IDNumber, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_IDNumber, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
 							CASE WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) = '01' AND SUBSTRING(DateofBirth_Applicant,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1 + 1
@@ -2264,17 +2236,16 @@ INTO  #Y2025_P3_Single_NoSpouse_DisabilityStatus_No
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) < '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
- INTO #Y2025_P3_ISR_Case_6_ApplicantWithNoSpouse
- FROM Y2025_P3_TYPE_6  
- WHERE  NoICSpouse = ''
-  --##Y2025_P3_ISR_Case_6_ApplicantWithNoSpouse : 66,126 66126
+ INTO #P3_HH_Case_6_ApplicantWithNoSpouse
+ FROM SRC_P3_TYPE_6  
+ WHERE  Spouse_ICNo = ''
+  --##P3_HH_Case_6_ApplicantWithNoSpouse
 
---7|Household Category,  Applicant tahun lahir kurang 1958 atau lebih 2008 dan Spouse MalaysianCitizen  tahun lahir kurang 1959 hingga 2007|data Applicant tidak perlu serah memandangkan telah ada isi tagging rumah|202857|Tidak Berkaitan||
+--Type 7: Household Category, Applicant born before 1958 or after 2008 and Spouse MalaysianCitizen born before 1959 to 2007
 
 
-
-				SELECT NoICSpouse AS NRIC,--(1)
-							FullNameSpouse AS FullName, 	--(2)							
+				SELECT Spouse_ICNo AS NRIC,--(1)
+							FullNameSpouse AS FullName, 	--(2)
 							DateofBirth_Spouse AS DateofBirth,--(3)
 							CASE 
 								WHEN Spouse_Gender = 'Lelaki' THEN '1'
@@ -2286,48 +2257,48 @@ INTO  #Y2025_P3_Single_NoSpouse_DisabilityStatus_No
 							Postcode,--(8)
 							City,--(9)
 							State,--(10)
-							TelB_Spouse AS MobileNumber,--(11)
+							Spouse_Mobile AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-								WHEN BankName_Spouse  = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-								WHEN BankName_Spouse  = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-								WHEN BankName_Spouse  = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-								WHEN BankName_Spouse  = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-								WHEN BankName_Spouse  = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-								WHEN BankName_Spouse  = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-								WHEN BankName_Spouse  = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-								WHEN BankName_Spouse  = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-								WHEN BankName_Spouse  = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-								WHEN BankName_Spouse  = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-								WHEN BankName_Spouse  = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-								WHEN BankName_Spouse  = 'CITIBANK BERHAD' THEN  '13'
-								WHEN BankName_Spouse  = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-								WHEN BankName_Spouse  = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-								WHEN BankName_Spouse  = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-								WHEN BankName_Spouse  = 'BANK SIMPANAN NASIONAL' THEN  '17'
-								WHEN BankName_Spouse  = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-								WHEN BankName_Spouse  = 'AGRO BANK BERHAD' THEN  '22'
-								WHEN BankName_Spouse  = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-								WHEN BankName_Spouse  = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-								WHEN BankName_Spouse  = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-								WHEN BankName_Spouse  = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-								WHEN BankName_Spouse  = 'MBSB BANK BERHAD' THEN  '29'
+								WHEN BankName_Spouse  = 'BANK 01' THEN  '01'
+								WHEN BankName_Spouse  = 'BANK 02' THEN  '02'
+								WHEN BankName_Spouse  = 'BANK 03' THEN  '03'
+								WHEN BankName_Spouse  = 'BANK 04' THEN  '04'
+								WHEN BankName_Spouse  = 'BANK 05' THEN  '05'
+								WHEN BankName_Spouse  = 'BANK 06' THEN  '06'
+								WHEN BankName_Spouse  = 'BANK 07' THEN  '07'
+								WHEN BankName_Spouse  = 'BANK 09' THEN  '09'
+								WHEN BankName_Spouse  = 'BANK 10' THEN  '10'
+								WHEN BankName_Spouse  = 'BANK 11' THEN  '11'
+								WHEN BankName_Spouse  = 'BANK 12' THEN  '12'
+								WHEN BankName_Spouse  = 'BANK 13' THEN  '13'
+								WHEN BankName_Spouse  = 'BANK 14' THEN  '14'
+								WHEN BankName_Spouse  = 'BANK 15' THEN  '15'
+								WHEN BankName_Spouse  = 'BANK 16' THEN  '16'
+								WHEN BankName_Spouse  = 'BANK 17' THEN  '17'
+								WHEN BankName_Spouse  = 'BANK 18' THEN  '18'
+								WHEN BankName_Spouse  = 'BANK 22' THEN  '22'
+								WHEN BankName_Spouse  = 'BANK 23' THEN  '23'
+								WHEN BankName_Spouse  = 'BANK 24' THEN  '24'
+								WHEN BankName_Spouse  = 'BANK 27' THEN  '27'
+								WHEN BankName_Spouse  = 'BANK 28' THEN  '28'
+								WHEN BankName_Spouse  = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
-							BankAccountNumber_Spouse  AS BankAccountNumber,--(14) FullName_Bank_Spouse|Spouse_BankAccountNumber
+							BankAccountNumber_Spouse  AS BankAccountNumber,--(14) FullName_Bank_Spouse Spouse_BankAccountNumber
 							'1' AS MaritalStatus,--(15)
-							 'Y2025_P3_ISR Case 7_SpouseWithNoApplicant' AS SourceFile,--(16)
+							 'P3_HH Case 7_SpouseWithNoApplicant' AS SourceFile,--(16)
 							CASE 
-								WHEN OKU_Spouse  = 'Y' THEN  'Y'
+								WHEN Disabled_Spouse  = 'Y' THEN  'Y'
 								ELSE 'N'
 								END	AS  Indicator_DisabilityStatus_,--(17)
-							 CASE WHEN substring(NoICSpouse, 3, 2) = '01' AND substring (NoICSpouse, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NoICSpouse, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NoICSpouse, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NoICSpouse, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NoICSpouse, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NoICSpouse, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NoICSpouse, 2))*1 END
+							 CASE WHEN substring(Spouse_ICNo, 3, 2) = '01' AND substring (Spouse_ICNo, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Spouse_ICNo, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Spouse_ICNo, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Spouse_ICNo, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Spouse_ICNo, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Spouse_ICNo, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Spouse_ICNo, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
 							CASE WHEN SUBSTRING(DateofBirth_Spouse,3,2) > '25' AND SUBSTRING(DateofBirth_Spouse,6,2) = '01' AND SUBSTRING(DateofBirth_Spouse,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Spouse,3,2))*1 + 1
@@ -2335,55 +2306,53 @@ INTO  #Y2025_P3_Single_NoSpouse_DisabilityStatus_No
 							   WHEN SUBSTRING(DateofBirth_Spouse,3,2) > '25' AND SUBSTRING(DateofBirth_Spouse,6,2) >= '01' AND SUBSTRING(DateofBirth_Spouse,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Spouse,3,2))*1
 							   WHEN SUBSTRING(DateofBirth_Spouse,3,2) < '25' AND SUBSTRING(DateofBirth_Spouse,6,2) >= '01' AND SUBSTRING(DateofBirth_Spouse,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(DateofBirth_Spouse,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
- INTO #Y2025_P3_ISR_Case_7_SpouseWithNoApplicant
-  FROM Y2025_P3_TYPE_7 
-  WHERE  NRICPoliceMilitaryIDNumber = ''
-  --#Y2025_P3_ISR_Case_7_SpouseWithNoApplicant: 203,011 203011
+ INTO #P3_HH_Case_7_SpouseWithNoApplicant
+  FROM SRC_P3_TYPE_7 
+  WHERE  Applicant_IDNumber = ''
+  --#P3_HH_Case_7_SpouseWithNoApplicant
 
-		 	SELECT x.* INTO  #Y2025_P3_AllEligibilityCriteriaCombined /*(9845715 rows affected)*/  
+		 	SELECT x.* INTO  #P3_AllEligibilityCriteriaCombined   
 	FROM 
 	(
-SELECT * FROM #Y2025_P3_Single_NoSpouse_DisabilityStatus_No WHERE ANB_FromDateofBirth >= 22 AND ANB_FromDateofBirth <=66 
+SELECT * FROM #P3_Single_NoSpouse_DisabilityStatus_No WHERE ANB_FromDateofBirth >= 22 AND ANB_FromDateofBirth <=66 
 UNION
-SELECT * FROM #Y2025_P3_Single_NoSpouse_DisabilityStatus_Yes WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 AND Indicator_DisabilityStatus_ ='Y' 
+SELECT * FROM #P3_Single_NoSpouse_DisabilityStatus_Yes WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 AND Indicator_DisabilityStatus_ ='Y' 
 UNION
-SELECT * FROM #Y2025_P3_SeniorCitizen_NoSpouse WHERE ANB_FromDateofBirth >= 22 AND ANB_FromDateofBirth <=66 
+SELECT * FROM #P3_SeniorCitizen_NoSpouse WHERE ANB_FromDateofBirth >= 22 AND ANB_FromDateofBirth <=66 
 UNION
-SELECT * FROM #Y2025_P3_SeniorCitizen_NoSpouse_DisabilityStatus_Yes WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 AND Indicator_DisabilityStatus_ ='Y' 
+SELECT * FROM #P3_SeniorCitizen_NoSpouse_DisabilityStatus_Yes WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 AND Indicator_DisabilityStatus_ ='Y' 
 UNION
-SELECT * FROM #Y2025_P3_IBT_Applicant_with_NoSpouse WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66
+SELECT * FROM #P3_SingleParent_Applicant_with_NoSpouse WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66
 UNION
-SELECT * FROM #Y2025_P3_ISR_Case_4__Applicant_with_SpouseMalaysianCitizen  WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66
+SELECT * FROM #P3_HH_Case_4__Applicant_with_SpouseMalaysianCitizen  WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66
 UNION
-SELECT * FROM #Y2025_P3_ISR_Case_4_SpouseMalaysianCitizen_of_Applicant  WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66
+SELECT * FROM #P3_HH_Case_4_SpouseMalaysianCitizen_of_Applicant  WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66
 UNION
-SELECT * FROM #Y2025_P3_ISR_Case_5_ApplicantWithSpouseMalaysianCitizen  WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 
+SELECT * FROM #P3_HH_Case_5_ApplicantWithSpouseMalaysianCitizen  WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 
 UNION
-SELECT * FROM #Y2025_P3_ISR_Case_5_ApplicantWithSpouseNonMalaysian  WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 
+SELECT * FROM #P3_HH_Case_5_ApplicantWithSpouseNonMalaysian  WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 
 UNION
-SELECT * FROM #Y2025_P3_ISR_Case_6_ApplicantWithNoSpouse  WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 
+SELECT * FROM #P3_HH_Case_6_ApplicantWithNoSpouse  WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 
 UNION
-SELECT * FROM #Y2025_P3_ISR_Case_7_SpouseWithNoApplicant  WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66
+SELECT * FROM #P3_HH_Case_7_SpouseWithNoApplicant  WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66
 	 	) x
 
 
 /*
-D) Y2025_P4  
- Re:  /*REDACTED FOR OPSEC*/
-
-SELECT * FROM Y2025_P4_TYPE_1--3,496,721  Single Applicant
-SELECT * FROM Y2025_P4_TYPE_2 --430,947 Ibu Bapa Tunggal Tiada Anak
-SELECT * FROM Y2025_P4_TYPE_3 --2,720,497 Applicant 2,715,958 Spouse
-SELECT * FROM Y2025_P4_TYPE_4 --174,919 Applicant , Spouse NonMalaysian
-SELECT * FROM Y2025_P4_TYPE_5 --67,518 Applicant , Spouse MalaysianCitizen
-SELECT * FROM Y2025_P4_TYPE_6 --205,274 Spouse MalaysianCitizen
-SELECT * FROM Y2025_P4_TYPE_7 --384,984 Senior Citizen 
+D) P4
+SELECT * FROM SRC_P4_TYPE_1--  Single Applicant
+SELECT * FROM SRC_P4_TYPE_2 -- Single Parent No Children
+SELECT * FROM SRC_P4_TYPE_3 -- Applicant and Spouse
+SELECT * FROM SRC_P4_TYPE_4 -- Applicant , Spouse NonMalaysian
+SELECT * FROM SRC_P4_TYPE_5 -- Applicant , Spouse MalaysianCitizen
+SELECT * FROM SRC_P4_TYPE_6 -- Spouse MalaysianCitizen
+SELECT * FROM SRC_P4_TYPE_7 -- Senior Citizen
 */
 
-/****** Y2025_P4 Processing ******/
+/****** P4 Processing ******/
 
-SELECT NoKP_Applicant AS NRIC,--(1)
-							FullName_Applicant AS FullName, 	--(2)							
+SELECT Applicant_ICNo AS NRIC,--(1)
+							FullName_Applicant AS FullName, 	--(2)
 							DateofBirth_Applicant AS DateofBirth,--(3)
 							CASE 
 								WHEN Gender_Applicant = 'Lelaki' THEN '1'
@@ -2398,47 +2367,47 @@ SELECT NoKP_Applicant AS NRIC,--(1)
 							'' AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-									WHEN Applicant_BankName  = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-									WHEN Applicant_BankName  = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-									WHEN Applicant_BankName  = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-									WHEN Applicant_BankName  = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-									WHEN Applicant_BankName  = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-									WHEN Applicant_BankName  = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-									WHEN Applicant_BankName  = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-									WHEN Applicant_BankName  = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-									WHEN Applicant_BankName  = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-									WHEN Applicant_BankName  = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-									WHEN Applicant_BankName  = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-									WHEN Applicant_BankName  = 'CITIBANK BERHAD' THEN  '13'
-									WHEN Applicant_BankName  = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-									WHEN Applicant_BankName  = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-									WHEN Applicant_BankName  = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-									WHEN Applicant_BankName  = 'BANK SIMPANAN NASIONAL' THEN  '17'
-									WHEN Applicant_BankName  = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-									WHEN Applicant_BankName  = 'BANK OF AMERICA MALAYSIA BERHAD' THEN  '21'
-									WHEN Applicant_BankName  = 'AGRO BANK BERHAD' THEN  '22'
-									WHEN Applicant_BankName  = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-									WHEN Applicant_BankName  = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-									WHEN Applicant_BankName  = 'SUMITOMO MITSUI BANKING CORPORATION MALAYSIA BERHAD  ' THEN  '26'
-									WHEN Applicant_BankName  = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-									WHEN Applicant_BankName  = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-									WHEN Applicant_BankName  = 'MBSB BANK BERHAD' THEN  '29'
+									WHEN Applicant_BankName  = 'BANK 01' THEN  '01'
+									WHEN Applicant_BankName  = 'BANK 02' THEN  '02'
+									WHEN Applicant_BankName  = 'BANK 03' THEN  '03'
+									WHEN Applicant_BankName  = 'BANK 04' THEN  '04'
+									WHEN Applicant_BankName  = 'BANK 05' THEN  '05'
+									WHEN Applicant_BankName  = 'BANK 06' THEN  '06'
+									WHEN Applicant_BankName  = 'BANK 07' THEN  '07'
+									WHEN Applicant_BankName  = 'BANK 09' THEN  '09'
+									WHEN Applicant_BankName  = 'BANK 10' THEN  '10'
+									WHEN Applicant_BankName  = 'BANK 11' THEN  '11'
+									WHEN Applicant_BankName  = 'BANK 12' THEN  '12'
+									WHEN Applicant_BankName  = 'BANK 13' THEN  '13'
+									WHEN Applicant_BankName  = 'BANK 14' THEN  '14'
+									WHEN Applicant_BankName  = 'BANK 15' THEN  '15'
+									WHEN Applicant_BankName  = 'BANK 16' THEN  '16'
+									WHEN Applicant_BankName  = 'BANK 17' THEN  '17'
+									WHEN Applicant_BankName  = 'BANK 18' THEN  '18'
+									WHEN Applicant_BankName  = 'BANK 21' THEN  '21'
+									WHEN Applicant_BankName  = 'BANK 22' THEN  '22'
+									WHEN Applicant_BankName  = 'BANK 23' THEN  '23'
+									WHEN Applicant_BankName  = 'BANK 24' THEN  '24'
+									WHEN Applicant_BankName  = 'BANK 26' THEN  '26'
+									WHEN Applicant_BankName  = 'BANK 27' THEN  '27'
+									WHEN Applicant_BankName  = 'BANK 28' THEN  '28'
+									WHEN Applicant_BankName  = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
 							BankAccountNumber_Applicant AS BankAccountNumber,--(14)
 							'3' AS MaritalStatus,--(15)
-							 'Y2025_P4_Single_DisabilityStatus_No' AS SourceFile,--(16)
+							 'P4_Single_DisabilityStatus_No' AS SourceFile,--(16)
 							CASE 
 								WHEN Ind_DisabilityStatus_Applicant  = 'Yes' THEN  'Y'
 								ELSE 'N'
 								END	AS  Indicator_DisabilityStatus_,--(17),--(17)
-							 CASE WHEN substring(NoKP_Applicant, 3, 2) = '01' AND substring (NoKP_Applicant, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NoKP_Applicant, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NoKP_Applicant, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NoKP_Applicant, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NoKP_Applicant, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NoKP_Applicant, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NoKP_Applicant, 2))*1 END
+							 CASE WHEN substring(Applicant_ICNo, 3, 2) = '01' AND substring (Applicant_ICNo, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Applicant_ICNo, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_ICNo, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_ICNo, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Applicant_ICNo, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_ICNo, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_ICNo, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
 							CASE WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) = '01' AND SUBSTRING(DateofBirth_Applicant,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1 + 1
@@ -2446,8 +2415,8 @@ SELECT NoKP_Applicant AS NRIC,--(1)
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) < '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
-INTO #Y2025_P4_Single_NoSpouse_DisabilityStatus_No
-  FROM  Y2025_P4_TYPE_1  AS t
+INTO #P4_Single_NoSpouse_DisabilityStatus_No
+  FROM  SRC_P4_TYPE_1  AS t
  -- 💡 Address splitter via CROSS APPLY (no UDF needed)--Start
 							CROSS APPLY (SELECT s = LTRIM(RTRIM(t.Address))) AS a
 							CROSS APPLY (
@@ -2508,11 +2477,11 @@ INTO #Y2025_P4_Single_NoSpouse_DisabilityStatus_No
 -- 💡 Address splitter via CROSS APPLY (no UDF needed)--End
 
   WHERE Spouse_NRICNumber  = '' AND Ind_DisabilityStatus_Applicant ='' 
-  --#Y2025_P4_SingleNoSpouse_DisabilityStatus_No: 3,301,935 3301935
+  --#P4_SingleNoSpouse_DisabilityStatus_No
 
 
-  SELECT NoKP_Applicant AS NRIC,--(1)
-							FullName_Applicant AS FullName, 	--(2)							
+  SELECT Applicant_ICNo AS NRIC,--(1)
+							FullName_Applicant AS FullName, 	--(2)
 							DateofBirth_Applicant AS DateofBirth,--(3)
 							CASE 
 								WHEN Gender_Applicant = 'Lelaki' THEN '1'
@@ -2527,47 +2496,47 @@ INTO #Y2025_P4_Single_NoSpouse_DisabilityStatus_No
 							'' AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-									WHEN Applicant_BankName  = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-									WHEN Applicant_BankName  = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-									WHEN Applicant_BankName  = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-									WHEN Applicant_BankName  = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-									WHEN Applicant_BankName  = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-									WHEN Applicant_BankName  = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-									WHEN Applicant_BankName  = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-									WHEN Applicant_BankName  = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-									WHEN Applicant_BankName  = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-									WHEN Applicant_BankName  = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-									WHEN Applicant_BankName  = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-									WHEN Applicant_BankName  = 'CITIBANK BERHAD' THEN  '13'
-									WHEN Applicant_BankName  = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-									WHEN Applicant_BankName  = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-									WHEN Applicant_BankName  = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-									WHEN Applicant_BankName  = 'BANK SIMPANAN NASIONAL' THEN  '17'
-									WHEN Applicant_BankName  = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-									WHEN Applicant_BankName  = 'BANK OF AMERICA MALAYSIA BERHAD' THEN  '21'
-									WHEN Applicant_BankName  = 'AGRO BANK BERHAD' THEN  '22'
-									WHEN Applicant_BankName  = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-									WHEN Applicant_BankName  = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-									WHEN Applicant_BankName  = 'SUMITOMO MITSUI BANKING CORPORATION MALAYSIA BERHAD  ' THEN  '26'
-									WHEN Applicant_BankName  = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-									WHEN Applicant_BankName  = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-									WHEN Applicant_BankName  = 'MBSB BANK BERHAD' THEN  '29'
+									WHEN Applicant_BankName  = 'BANK 01' THEN  '01'
+									WHEN Applicant_BankName  = 'BANK 02' THEN  '02'
+									WHEN Applicant_BankName  = 'BANK 03' THEN  '03'
+									WHEN Applicant_BankName  = 'BANK 04' THEN  '04'
+									WHEN Applicant_BankName  = 'BANK 05' THEN  '05'
+									WHEN Applicant_BankName  = 'BANK 06' THEN  '06'
+									WHEN Applicant_BankName  = 'BANK 07' THEN  '07'
+									WHEN Applicant_BankName  = 'BANK 09' THEN  '09'
+									WHEN Applicant_BankName  = 'BANK 10' THEN  '10'
+									WHEN Applicant_BankName  = 'BANK 11' THEN  '11'
+									WHEN Applicant_BankName  = 'BANK 12' THEN  '12'
+									WHEN Applicant_BankName  = 'BANK 13' THEN  '13'
+									WHEN Applicant_BankName  = 'BANK 14' THEN  '14'
+									WHEN Applicant_BankName  = 'BANK 15' THEN  '15'
+									WHEN Applicant_BankName  = 'BANK 16' THEN  '16'
+									WHEN Applicant_BankName  = 'BANK 17' THEN  '17'
+									WHEN Applicant_BankName  = 'BANK 18' THEN  '18'
+									WHEN Applicant_BankName  = 'BANK 21' THEN  '21'
+									WHEN Applicant_BankName  = 'BANK 22' THEN  '22'
+									WHEN Applicant_BankName  = 'BANK 23' THEN  '23'
+									WHEN Applicant_BankName  = 'BANK 24' THEN  '24'
+									WHEN Applicant_BankName  = 'BANK 26' THEN  '26'
+									WHEN Applicant_BankName  = 'BANK 27' THEN  '27'
+									WHEN Applicant_BankName  = 'BANK 28' THEN  '28'
+									WHEN Applicant_BankName  = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
 							BankAccountNumber_Applicant AS BankAccountNumber,--(14)
 							'3' AS MaritalStatus,--(15)
-							 'Y2025_P4_Single_DisabilityStatus_Yes' AS SourceFile,--(16)
+							 'P4_Single_DisabilityStatus_Yes' AS SourceFile,--(16)
 							CASE 
 								WHEN Ind_DisabilityStatus_Applicant  = 'Yes' THEN  'Y'
 								ELSE 'N'
 								END	AS  Indicator_DisabilityStatus_,--(17),--(17)
-							 CASE WHEN substring(NoKP_Applicant, 3, 2) = '01' AND substring (NoKP_Applicant, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NoKP_Applicant, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NoKP_Applicant, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NoKP_Applicant, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NoKP_Applicant, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NoKP_Applicant, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NoKP_Applicant, 2))*1 END
+							 CASE WHEN substring(Applicant_ICNo, 3, 2) = '01' AND substring (Applicant_ICNo, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Applicant_ICNo, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_ICNo, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_ICNo, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Applicant_ICNo, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_ICNo, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_ICNo, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
 							CASE WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) = '01' AND SUBSTRING(DateofBirth_Applicant,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1 + 1
@@ -2575,8 +2544,8 @@ INTO #Y2025_P4_Single_NoSpouse_DisabilityStatus_No
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) < '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
-INTO #Y2025_P4_Single_NoSpouse_DisabilityStatus_Yes
-  FROM  Y2025_P4_TYPE_1  AS t
+INTO #P4_Single_NoSpouse_DisabilityStatus_Yes
+  FROM  SRC_P4_TYPE_1  AS t
 -- 💡 Address splitter via CROSS APPLY (no UDF needed)--Start
 							CROSS APPLY (SELECT s = LTRIM(RTRIM(t.Address))) AS a
 							CROSS APPLY (
@@ -2637,10 +2606,10 @@ INTO #Y2025_P4_Single_NoSpouse_DisabilityStatus_Yes
 -- 💡 Address splitter via CROSS APPLY (no UDF needed)--End
 
   WHERE Spouse_NRICNumber  = '' AND Ind_DisabilityStatus_Applicant ='Yes' 
-  --#Y2025_P4_P_SingleNoSpouse_DisabilityStatus_Yes: 194,786 194786
+  --#P4_P_SingleNoSpouse_DisabilityStatus_Yes
 
-		 SELECT NoKP_Applicant AS NRIC,--(1)
-							FullName_Applicant AS FullName, 	--(2)							
+		 SELECT Applicant_ICNo AS NRIC,--(1)
+							FullName_Applicant AS FullName, 	--(2)
 							DateofBirth_Applicant AS DateofBirth,--(3)
 							CASE 
 								WHEN Gender_Applicant = 'Lelaki' THEN '1'
@@ -2655,47 +2624,47 @@ INTO #Y2025_P4_Single_NoSpouse_DisabilityStatus_Yes
 							'' AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-									WHEN Applicant_BankName  = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-									WHEN Applicant_BankName  = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-									WHEN Applicant_BankName  = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-									WHEN Applicant_BankName  = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-									WHEN Applicant_BankName  = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-									WHEN Applicant_BankName  = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-									WHEN Applicant_BankName  = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-									WHEN Applicant_BankName  = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-									WHEN Applicant_BankName  = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-									WHEN Applicant_BankName  = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-									WHEN Applicant_BankName  = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-									WHEN Applicant_BankName  = 'CITIBANK BERHAD' THEN  '13'
-									WHEN Applicant_BankName  = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-									WHEN Applicant_BankName  = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-									WHEN Applicant_BankName  = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-									WHEN Applicant_BankName  = 'BANK SIMPANAN NASIONAL' THEN  '17'
-									WHEN Applicant_BankName  = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-									WHEN Applicant_BankName  = 'BANK OF AMERICA MALAYSIA BERHAD' THEN  '21'
-									WHEN Applicant_BankName  = 'AGRO BANK BERHAD' THEN  '22'
-									WHEN Applicant_BankName  = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-									WHEN Applicant_BankName  = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-									WHEN Applicant_BankName  = 'SUMITOMO MITSUI BANKING CORPORATION MALAYSIA BERHAD  ' THEN  '26'
-									WHEN Applicant_BankName  = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-									WHEN Applicant_BankName  = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-									WHEN Applicant_BankName  = 'MBSB BANK BERHAD' THEN  '29'
+									WHEN Applicant_BankName  = 'BANK 01' THEN  '01'
+									WHEN Applicant_BankName  = 'BANK 02' THEN  '02'
+									WHEN Applicant_BankName  = 'BANK 03' THEN  '03'
+									WHEN Applicant_BankName  = 'BANK 04' THEN  '04'
+									WHEN Applicant_BankName  = 'BANK 05' THEN  '05'
+									WHEN Applicant_BankName  = 'BANK 06' THEN  '06'
+									WHEN Applicant_BankName  = 'BANK 07' THEN  '07'
+									WHEN Applicant_BankName  = 'BANK 09' THEN  '09'
+									WHEN Applicant_BankName  = 'BANK 10' THEN  '10'
+									WHEN Applicant_BankName  = 'BANK 11' THEN  '11'
+									WHEN Applicant_BankName  = 'BANK 12' THEN  '12'
+									WHEN Applicant_BankName  = 'BANK 13' THEN  '13'
+									WHEN Applicant_BankName  = 'BANK 14' THEN  '14'
+									WHEN Applicant_BankName  = 'BANK 15' THEN  '15'
+									WHEN Applicant_BankName  = 'BANK 16' THEN  '16'
+									WHEN Applicant_BankName  = 'BANK 17' THEN  '17'
+									WHEN Applicant_BankName  = 'BANK 18' THEN  '18'
+									WHEN Applicant_BankName  = 'BANK 21' THEN  '21'
+									WHEN Applicant_BankName  = 'BANK 22' THEN  '22'
+									WHEN Applicant_BankName  = 'BANK 23' THEN  '23'
+									WHEN Applicant_BankName  = 'BANK 24' THEN  '24'
+									WHEN Applicant_BankName  = 'BANK 26' THEN  '26'
+									WHEN Applicant_BankName  = 'BANK 27' THEN  '27'
+									WHEN Applicant_BankName  = 'BANK 28' THEN  '28'
+									WHEN Applicant_BankName  = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
 							BankAccountNumber_Applicant AS BankAccountNumber,--(14)
 							'1' AS MaritalStatus,--(15)
-							 'Y2025_P4_IBT' AS SourceFile,--(16)
+							 'P4_SingleParent' AS SourceFile,--(16)
 							CASE 
 								WHEN Ind_DisabilityStatus_Applicant  = 'Yes' THEN  'Y'
 								ELSE 'N'
 								END	AS  Indicator_DisabilityStatus_,--(17),--(17)
-							 CASE WHEN substring(NoKP_Applicant, 3, 2) = '01' AND substring (NoKP_Applicant, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NoKP_Applicant, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NoKP_Applicant, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NoKP_Applicant, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NoKP_Applicant, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NoKP_Applicant, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NoKP_Applicant, 2))*1 END
+							 CASE WHEN substring(Applicant_ICNo, 3, 2) = '01' AND substring (Applicant_ICNo, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Applicant_ICNo, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_ICNo, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_ICNo, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Applicant_ICNo, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_ICNo, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_ICNo, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
 							CASE WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) = '01' AND SUBSTRING(DateofBirth_Applicant,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1 + 1
@@ -2703,8 +2672,8 @@ INTO #Y2025_P4_Single_NoSpouse_DisabilityStatus_Yes
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) < '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
-INTO #Y2025_P4_IBT_Applicant_with_NoSpouse
- FROM Y2025_P4_TYPE_2 AS t
+INTO #P4_SingleParent_Applicant_with_NoSpouse
+ FROM SRC_P4_TYPE_2 AS t
 -- 💡 Address splitter via CROSS APPLY (no UDF needed)--Start
 							CROSS APPLY (SELECT s = LTRIM(RTRIM(t.Address))) AS a
 							CROSS APPLY (
@@ -2764,11 +2733,11 @@ INTO #Y2025_P4_IBT_Applicant_with_NoSpouse
 							) AS c3
 -- 💡 Address splitter via CROSS APPLY (no UDF needed)--End
  WHERE  Spouse_NRICNumber = ''
-  --#Y2025_P4_Ibt_Applicant_with_NoSpouse : 430,947 430947
+  --#P4_SingleParent_Applicant_with_NoSpouse
 
 	
-			 SELECT NoKP_Applicant AS NRIC,--(1)
-							FullName_Applicant AS FullName, 	--(2)							
+			 SELECT Applicant_ICNo AS NRIC,--(1)
+							FullName_Applicant AS FullName, 	--(2)
 							DateofBirth_Applicant AS DateofBirth,--(3)
 							CASE 
 								WHEN Gender_Applicant = 'Lelaki' THEN '1'
@@ -2783,47 +2752,47 @@ INTO #Y2025_P4_IBT_Applicant_with_NoSpouse
 							'' AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-									WHEN Applicant_BankName  = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-									WHEN Applicant_BankName  = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-									WHEN Applicant_BankName  = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-									WHEN Applicant_BankName  = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-									WHEN Applicant_BankName  = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-									WHEN Applicant_BankName  = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-									WHEN Applicant_BankName  = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-									WHEN Applicant_BankName  = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-									WHEN Applicant_BankName  = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-									WHEN Applicant_BankName  = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-									WHEN Applicant_BankName  = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-									WHEN Applicant_BankName  = 'CITIBANK BERHAD' THEN  '13'
-									WHEN Applicant_BankName  = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-									WHEN Applicant_BankName  = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-									WHEN Applicant_BankName  = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-									WHEN Applicant_BankName  = 'BANK SIMPANAN NASIONAL' THEN  '17'
-									WHEN Applicant_BankName  = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-									WHEN Applicant_BankName  = 'BANK OF AMERICA MALAYSIA BERHAD' THEN  '21'
-									WHEN Applicant_BankName  = 'AGRO BANK BERHAD' THEN  '22'
-									WHEN Applicant_BankName  = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-									WHEN Applicant_BankName  = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-									WHEN Applicant_BankName  = 'SUMITOMO MITSUI BANKING CORPORATION MALAYSIA BERHAD  ' THEN  '26'
-									WHEN Applicant_BankName  = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-									WHEN Applicant_BankName  = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-									WHEN Applicant_BankName  = 'MBSB BANK BERHAD' THEN  '29'
+									WHEN Applicant_BankName  = 'BANK 01' THEN  '01'
+									WHEN Applicant_BankName  = 'BANK 02' THEN  '02'
+									WHEN Applicant_BankName  = 'BANK 03' THEN  '03'
+									WHEN Applicant_BankName  = 'BANK 04' THEN  '04'
+									WHEN Applicant_BankName  = 'BANK 05' THEN  '05'
+									WHEN Applicant_BankName  = 'BANK 06' THEN  '06'
+									WHEN Applicant_BankName  = 'BANK 07' THEN  '07'
+									WHEN Applicant_BankName  = 'BANK 09' THEN  '09'
+									WHEN Applicant_BankName  = 'BANK 10' THEN  '10'
+									WHEN Applicant_BankName  = 'BANK 11' THEN  '11'
+									WHEN Applicant_BankName  = 'BANK 12' THEN  '12'
+									WHEN Applicant_BankName  = 'BANK 13' THEN  '13'
+									WHEN Applicant_BankName  = 'BANK 14' THEN  '14'
+									WHEN Applicant_BankName  = 'BANK 15' THEN  '15'
+									WHEN Applicant_BankName  = 'BANK 16' THEN  '16'
+									WHEN Applicant_BankName  = 'BANK 17' THEN  '17'
+									WHEN Applicant_BankName  = 'BANK 18' THEN  '18'
+									WHEN Applicant_BankName  = 'BANK 21' THEN  '21'
+									WHEN Applicant_BankName  = 'BANK 22' THEN  '22'
+									WHEN Applicant_BankName  = 'BANK 23' THEN  '23'
+									WHEN Applicant_BankName  = 'BANK 24' THEN  '24'
+									WHEN Applicant_BankName  = 'BANK 26' THEN  '26'
+									WHEN Applicant_BankName  = 'BANK 27' THEN  '27'
+									WHEN Applicant_BankName  = 'BANK 28' THEN  '28'
+									WHEN Applicant_BankName  = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
 							BankAccountNumber_Applicant AS BankAccountNumber,--(14)
 							'1' AS MaritalStatus,--(15)
-							 'Y2025_P4_ISR Case 4_Applicant_with_SpouseMalaysianCitizen' AS SourceFile,--(16)
+							 'P4_HH Case 4_Applicant_with_SpouseMalaysianCitizen' AS SourceFile,--(16)
 							CASE 
 								WHEN Ind_DisabilityStatus_Applicant  = 'Yes' THEN  'Y'
 								ELSE 'N'
 								END	AS  Indicator_DisabilityStatus_,--(17),--(17)
-							 CASE WHEN substring(NoKP_Applicant, 3, 2) = '01' AND substring (NoKP_Applicant, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NoKP_Applicant, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NoKP_Applicant, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NoKP_Applicant, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NoKP_Applicant, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NoKP_Applicant, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NoKP_Applicant, 2))*1 END
+							 CASE WHEN substring(Applicant_ICNo, 3, 2) = '01' AND substring (Applicant_ICNo, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Applicant_ICNo, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_ICNo, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_ICNo, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Applicant_ICNo, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_ICNo, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_ICNo, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
 							CASE WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) = '01' AND SUBSTRING(DateofBirth_Applicant,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1 + 1
@@ -2831,8 +2800,8 @@ INTO #Y2025_P4_IBT_Applicant_with_NoSpouse
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) < '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
-INTO #Y2025_P4_ISR_Case_4__Applicant_with_SpouseMalaysianCitizen
- FROM Y2025_P4_TYPE_3 AS t
+INTO #P4_HH_Case_4__Applicant_with_SpouseMalaysianCitizen
+ FROM SRC_P4_TYPE_3 AS t
  -- 💡 Address splitter via CROSS APPLY (no UDF needed)--Start
 							CROSS APPLY (SELECT s = LTRIM(RTRIM(t.Address))) AS a
 							CROSS APPLY (
@@ -2891,12 +2860,12 @@ INTO #Y2025_P4_ISR_Case_4__Applicant_with_SpouseMalaysianCitizen
 										   END
 							) AS c3
 -- 💡 Address splitter via CROSS APPLY (no UDF needed)--End
- where NoKP_Applicant !='' AND  Spouse_Citizenship = 'MalaysianCitizen' 
-  --#Y2025_P4_ISR_Case_4__Applicant_with_SpouseMalaysianCitizen : 2,720,497 2655841
+ where Applicant_ICNo !='' AND  Spouse_Citizenship = 'MalaysianCitizen' 
+  --#P4_HH_Case_4__Applicant_with_SpouseMalaysianCitizen
 
 
   				SELECT Spouse_NRICNumber  AS NRIC,--(1)
-							Spouse_FullName  AS FullName, 	--(2)							
+							Spouse_FullName  AS FullName, 	--(2)
 							DateofBirth_Spouse AS DateofBirth,--(3)
 							CASE 
 								WHEN Gender_Applicant = 'Lelaki' THEN '2'
@@ -2911,38 +2880,38 @@ INTO #Y2025_P4_ISR_Case_4__Applicant_with_SpouseMalaysianCitizen
 							'' AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-									WHEN BankName_Spouse  = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-									WHEN BankName_Spouse  = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-									WHEN BankName_Spouse  = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-									WHEN BankName_Spouse  = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-									WHEN BankName_Spouse  = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-									WHEN BankName_Spouse  = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-									WHEN BankName_Spouse  = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-									WHEN BankName_Spouse  = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-									WHEN BankName_Spouse  = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-									WHEN BankName_Spouse  = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-									WHEN BankName_Spouse  = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-									WHEN BankName_Spouse  = 'CITIBANK BERHAD' THEN  '13'
-									WHEN BankName_Spouse  = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-									WHEN BankName_Spouse  = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-									WHEN BankName_Spouse  = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-									WHEN BankName_Spouse  = 'BANK SIMPANAN NASIONAL' THEN  '17'
-									WHEN BankName_Spouse  = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-									WHEN BankName_Spouse  = 'BANK OF AMERICA MALAYSIA BERHAD' THEN  '21'
-									WHEN BankName_Spouse  = 'AGRO BANK BERHAD' THEN  '22'
-									WHEN BankName_Spouse  = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-									WHEN BankName_Spouse  = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-									WHEN BankName_Spouse  = 'SUMITOMO MITSUI BANKING CORPORATION MALAYSIA BERHAD  ' THEN  '26'
-									WHEN BankName_Spouse  = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-									WHEN BankName_Spouse  = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-									WHEN BankName_Spouse  = 'MBSB BANK BERHAD' THEN  '29'
+									WHEN BankName_Spouse  = 'BANK 01' THEN  '01'
+									WHEN BankName_Spouse  = 'BANK 02' THEN  '02'
+									WHEN BankName_Spouse  = 'BANK 03' THEN  '03'
+									WHEN BankName_Spouse  = 'BANK 04' THEN  '04'
+									WHEN BankName_Spouse  = 'BANK 05' THEN  '05'
+									WHEN BankName_Spouse  = 'BANK 06' THEN  '06'
+									WHEN BankName_Spouse  = 'BANK 07' THEN  '07'
+									WHEN BankName_Spouse  = 'BANK 09' THEN  '09'
+									WHEN BankName_Spouse  = 'BANK 10' THEN  '10'
+									WHEN BankName_Spouse  = 'BANK 11' THEN  '11'
+									WHEN BankName_Spouse  = 'BANK 12' THEN  '12'
+									WHEN BankName_Spouse  = 'BANK 13' THEN  '13'
+									WHEN BankName_Spouse  = 'BANK 14' THEN  '14'
+									WHEN BankName_Spouse  = 'BANK 15' THEN  '15'
+									WHEN BankName_Spouse  = 'BANK 16' THEN  '16'
+									WHEN BankName_Spouse  = 'BANK 17' THEN  '17'
+									WHEN BankName_Spouse  = 'BANK 18' THEN  '18'
+									WHEN BankName_Spouse  = 'BANK 21' THEN  '21'
+									WHEN BankName_Spouse  = 'BANK 22' THEN  '22'
+									WHEN BankName_Spouse  = 'BANK 23' THEN  '23'
+									WHEN BankName_Spouse  = 'BANK 24' THEN  '24'
+									WHEN BankName_Spouse  = 'BANK 26' THEN  '26'
+									WHEN BankName_Spouse  = 'BANK 27' THEN  '27'
+									WHEN BankName_Spouse  = 'BANK 28' THEN  '28'
+									WHEN BankName_Spouse  = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
-							BankAccountNumber_Spouse  AS BankAccountNumber,--(14) 
+							BankAccountNumber_Spouse  AS BankAccountNumber,--(14)
 							'1' AS MaritalStatus,--(15)
-							 'Y2025_P4_ISR Case 4_SpouseMalaysianCitizen_of_Applicant' AS SourceFile,--(16) 
+							 'P4_HH Case 4_SpouseMalaysianCitizen_of_Applicant' AS SourceFile,--(16)
 							CASE 
 								WHEN Ind_DisabilityStatus_Applicant  = 'Yes' THEN  'Y'
 								ELSE 'N'
@@ -2959,8 +2928,8 @@ INTO #Y2025_P4_ISR_Case_4__Applicant_with_SpouseMalaysianCitizen
 							   WHEN SUBSTRING(DateofBirth_Spouse,3,2) > '25' AND SUBSTRING(DateofBirth_Spouse,6,2) >= '01' AND SUBSTRING(DateofBirth_Spouse,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Spouse,3,2))*1
 							   WHEN SUBSTRING(DateofBirth_Spouse,3,2) < '25' AND SUBSTRING(DateofBirth_Spouse,6,2) >= '01' AND SUBSTRING(DateofBirth_Spouse,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(DateofBirth_Spouse,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
-INTO #Y2025_P4_ISR_Case_4_SpouseMalaysianCitizen_of_Applicant 
-  FROM Y2025_P4_TYPE_3 AS t
+INTO #P4_HH_Case_4_SpouseMalaysianCitizen_of_Applicant 
+  FROM SRC_P4_TYPE_3 AS t
  -- 💡 Address splitter via CROSS APPLY (no UDF needed)--Start
 							CROSS APPLY (SELECT s = LTRIM(RTRIM(t.Address))) AS a
 							CROSS APPLY (
@@ -3020,11 +2989,11 @@ INTO #Y2025_P4_ISR_Case_4_SpouseMalaysianCitizen_of_Applicant
 							) AS c3
 -- 💡 Address splitter via CROSS APPLY (no UDF needed)--End
   where Spouse_NRICNumber !='' AND  Spouse_Citizenship = 'MalaysianCitizen'  
-  --#Y2025_P4_ISR_Case_4_SpouseMalaysianCitizen_of_Applicant : 2,720,497 
+  --#P4_HH_Case_4_SpouseMalaysianCitizen_of_Applicant
 
 
-					SELECT NoKP_Applicant AS NRIC,--(1)
-							FullName_Applicant AS FullName, 	--(2)							
+					SELECT Applicant_ICNo AS NRIC,--(1)
+							FullName_Applicant AS FullName, 	--(2)
 							DateofBirth_Applicant AS DateofBirth,--(3)
 							CASE 
 								WHEN Gender_Applicant = 'Lelaki' THEN '1'
@@ -3039,47 +3008,47 @@ INTO #Y2025_P4_ISR_Case_4_SpouseMalaysianCitizen_of_Applicant
 							'' AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-									WHEN Applicant_BankName  = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-									WHEN Applicant_BankName  = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-									WHEN Applicant_BankName  = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-									WHEN Applicant_BankName  = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-									WHEN Applicant_BankName  = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-									WHEN Applicant_BankName  = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-									WHEN Applicant_BankName  = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-									WHEN Applicant_BankName  = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-									WHEN Applicant_BankName  = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-									WHEN Applicant_BankName  = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-									WHEN Applicant_BankName  = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-									WHEN Applicant_BankName  = 'CITIBANK BERHAD' THEN  '13'
-									WHEN Applicant_BankName  = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-									WHEN Applicant_BankName  = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-									WHEN Applicant_BankName  = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-									WHEN Applicant_BankName  = 'BANK SIMPANAN NASIONAL' THEN  '17'
-									WHEN Applicant_BankName  = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-									WHEN Applicant_BankName  = 'BANK OF AMERICA MALAYSIA BERHAD' THEN  '21'
-									WHEN Applicant_BankName  = 'AGRO BANK BERHAD' THEN  '22'
-									WHEN Applicant_BankName  = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-									WHEN Applicant_BankName  = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-									WHEN Applicant_BankName  = 'SUMITOMO MITSUI BANKING CORPORATION MALAYSIA BERHAD  ' THEN  '26'
-									WHEN Applicant_BankName  = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-									WHEN Applicant_BankName  = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-									WHEN Applicant_BankName  = 'MBSB BANK BERHAD' THEN  '29'
+									WHEN Applicant_BankName  = 'BANK 01' THEN  '01'
+									WHEN Applicant_BankName  = 'BANK 02' THEN  '02'
+									WHEN Applicant_BankName  = 'BANK 03' THEN  '03'
+									WHEN Applicant_BankName  = 'BANK 04' THEN  '04'
+									WHEN Applicant_BankName  = 'BANK 05' THEN  '05'
+									WHEN Applicant_BankName  = 'BANK 06' THEN  '06'
+									WHEN Applicant_BankName  = 'BANK 07' THEN  '07'
+									WHEN Applicant_BankName  = 'BANK 09' THEN  '09'
+									WHEN Applicant_BankName  = 'BANK 10' THEN  '10'
+									WHEN Applicant_BankName  = 'BANK 11' THEN  '11'
+									WHEN Applicant_BankName  = 'BANK 12' THEN  '12'
+									WHEN Applicant_BankName  = 'BANK 13' THEN  '13'
+									WHEN Applicant_BankName  = 'BANK 14' THEN  '14'
+									WHEN Applicant_BankName  = 'BANK 15' THEN  '15'
+									WHEN Applicant_BankName  = 'BANK 16' THEN  '16'
+									WHEN Applicant_BankName  = 'BANK 17' THEN  '17'
+									WHEN Applicant_BankName  = 'BANK 18' THEN  '18'
+									WHEN Applicant_BankName  = 'BANK 21' THEN  '21'
+									WHEN Applicant_BankName  = 'BANK 22' THEN  '22'
+									WHEN Applicant_BankName  = 'BANK 23' THEN  '23'
+									WHEN Applicant_BankName  = 'BANK 24' THEN  '24'
+									WHEN Applicant_BankName  = 'BANK 26' THEN  '26'
+									WHEN Applicant_BankName  = 'BANK 27' THEN  '27'
+									WHEN Applicant_BankName  = 'BANK 28' THEN  '28'
+									WHEN Applicant_BankName  = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
 							BankAccountNumber_Applicant AS BankAccountNumber,--(14)
 							'1' AS MaritalStatus,--(15)
-							 'Y2025_P4_ISR Case 5_ApplicantWithSpouseMalaysianCitizen' AS SourceFile,--(16)
+							 'P4_HH Case 5_ApplicantWithSpouseMalaysianCitizen' AS SourceFile,--(16)
 							CASE 
 								WHEN Ind_DisabilityStatus_Applicant  = 'Yes' THEN  'Y'
 								ELSE 'N'
 								END	AS  Indicator_DisabilityStatus_,--(17),--(17)
-							 CASE WHEN substring(NoKP_Applicant, 3, 2) = '01' AND substring (NoKP_Applicant, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NoKP_Applicant, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NoKP_Applicant, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NoKP_Applicant, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NoKP_Applicant, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NoKP_Applicant, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NoKP_Applicant, 2))*1 END
+							 CASE WHEN substring(Applicant_ICNo, 3, 2) = '01' AND substring (Applicant_ICNo, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Applicant_ICNo, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_ICNo, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_ICNo, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Applicant_ICNo, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_ICNo, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_ICNo, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
 							CASE WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) = '01' AND SUBSTRING(DateofBirth_Applicant,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1 + 1
@@ -3087,8 +3056,8 @@ INTO #Y2025_P4_ISR_Case_4_SpouseMalaysianCitizen_of_Applicant
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) < '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
-INTO #Y2025_P4_ISR_Case_5_Applicant
- FROM Y2025_P4_TYPE_4 AS t
+INTO #P4_HH_Case_5_Applicant
+ FROM SRC_P4_TYPE_4 AS t
  -- 💡 Address splitter via CROSS APPLY (no UDF needed)--Start
 							CROSS APPLY (SELECT s = LTRIM(RTRIM(t.Address))) AS a
 							CROSS APPLY (
@@ -3148,11 +3117,11 @@ INTO #Y2025_P4_ISR_Case_5_Applicant
 							) AS c3
 -- 💡 Address splitter via CROSS APPLY (no UDF needed)--End
 
-  --#Y2025_P4_ISR_Case_5_Applicant : 174,919 
+  --#P4_HH_Case_5_Applicant
 
 
- SELECT NoKP_Applicant AS NRIC,--(1)
-							FullName_Applicant AS FullName, 	--(2)							
+ SELECT Applicant_ICNo AS NRIC,--(1)
+							FullName_Applicant AS FullName, 	--(2)
 							DateofBirth_Applicant AS DateofBirth,--(3)
 							CASE 
 								WHEN Gender_Applicant = 'Lelaki' THEN '1'
@@ -3167,47 +3136,47 @@ INTO #Y2025_P4_ISR_Case_5_Applicant
 							'' AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-									WHEN Applicant_BankName  = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-									WHEN Applicant_BankName  = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-									WHEN Applicant_BankName  = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-									WHEN Applicant_BankName  = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-									WHEN Applicant_BankName  = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-									WHEN Applicant_BankName  = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-									WHEN Applicant_BankName  = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-									WHEN Applicant_BankName  = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-									WHEN Applicant_BankName  = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-									WHEN Applicant_BankName  = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-									WHEN Applicant_BankName  = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-									WHEN Applicant_BankName  = 'CITIBANK BERHAD' THEN  '13'
-									WHEN Applicant_BankName  = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-									WHEN Applicant_BankName  = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-									WHEN Applicant_BankName  = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-									WHEN Applicant_BankName  = 'BANK SIMPANAN NASIONAL' THEN  '17'
-									WHEN Applicant_BankName  = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-									WHEN Applicant_BankName  = 'BANK OF AMERICA MALAYSIA BERHAD' THEN  '21'
-									WHEN Applicant_BankName  = 'AGRO BANK BERHAD' THEN  '22'
-									WHEN Applicant_BankName  = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-									WHEN Applicant_BankName  = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-									WHEN Applicant_BankName  = 'SUMITOMO MITSUI BANKING CORPORATION MALAYSIA BERHAD  ' THEN  '26'
-									WHEN Applicant_BankName  = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-									WHEN Applicant_BankName  = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-									WHEN Applicant_BankName  = 'MBSB BANK BERHAD' THEN  '29'
+									WHEN Applicant_BankName  = 'BANK 01' THEN  '01'
+									WHEN Applicant_BankName  = 'BANK 02' THEN  '02'
+									WHEN Applicant_BankName  = 'BANK 03' THEN  '03'
+									WHEN Applicant_BankName  = 'BANK 04' THEN  '04'
+									WHEN Applicant_BankName  = 'BANK 05' THEN  '05'
+									WHEN Applicant_BankName  = 'BANK 06' THEN  '06'
+									WHEN Applicant_BankName  = 'BANK 07' THEN  '07'
+									WHEN Applicant_BankName  = 'BANK 09' THEN  '09'
+									WHEN Applicant_BankName  = 'BANK 10' THEN  '10'
+									WHEN Applicant_BankName  = 'BANK 11' THEN  '11'
+									WHEN Applicant_BankName  = 'BANK 12' THEN  '12'
+									WHEN Applicant_BankName  = 'BANK 13' THEN  '13'
+									WHEN Applicant_BankName  = 'BANK 14' THEN  '14'
+									WHEN Applicant_BankName  = 'BANK 15' THEN  '15'
+									WHEN Applicant_BankName  = 'BANK 16' THEN  '16'
+									WHEN Applicant_BankName  = 'BANK 17' THEN  '17'
+									WHEN Applicant_BankName  = 'BANK 18' THEN  '18'
+									WHEN Applicant_BankName  = 'BANK 21' THEN  '21'
+									WHEN Applicant_BankName  = 'BANK 22' THEN  '22'
+									WHEN Applicant_BankName  = 'BANK 23' THEN  '23'
+									WHEN Applicant_BankName  = 'BANK 24' THEN  '24'
+									WHEN Applicant_BankName  = 'BANK 26' THEN  '26'
+									WHEN Applicant_BankName  = 'BANK 27' THEN  '27'
+									WHEN Applicant_BankName  = 'BANK 28' THEN  '28'
+									WHEN Applicant_BankName  = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
 							BankAccountNumber_Applicant AS BankAccountNumber,--(14)
 							'1' AS MaritalStatus,--(15)
-							 'Y2025_P4_ISR_Case_6_ApplicantWithNoSpouse' AS SourceFile,--(16)
+							 'P4_HH_Case_6_ApplicantWithNoSpouse' AS SourceFile,--(16)
 							CASE 
 								WHEN Ind_DisabilityStatus_Applicant  = 'Yes' THEN  'Y'
 								ELSE 'N'
 								END	AS  Indicator_DisabilityStatus_,--(17),--(17)
-							 CASE WHEN substring(NoKP_Applicant, 3, 2) = '01' AND substring (NoKP_Applicant, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NoKP_Applicant, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NoKP_Applicant, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NoKP_Applicant, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NoKP_Applicant, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NoKP_Applicant, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NoKP_Applicant, 2))*1 END
+							 CASE WHEN substring(Applicant_ICNo, 3, 2) = '01' AND substring (Applicant_ICNo, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Applicant_ICNo, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_ICNo, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_ICNo, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Applicant_ICNo, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_ICNo, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_ICNo, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
 							CASE WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) = '01' AND SUBSTRING(DateofBirth_Applicant,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1 + 1
@@ -3215,8 +3184,8 @@ INTO #Y2025_P4_ISR_Case_5_Applicant
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) < '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
-INTO #Y2025_P4_ISR_Case_6_ApplicantWithNoSpouse
- FROM Y2025_P4_TYPE_5 AS t
+INTO #P4_HH_Case_6_ApplicantWithNoSpouse
+ FROM SRC_P4_TYPE_5 AS t
  -- 💡 Address splitter via CROSS APPLY (no UDF needed)--Start
 							CROSS APPLY (SELECT s = LTRIM(RTRIM(t.Address))) AS a
 							CROSS APPLY (
@@ -3274,12 +3243,12 @@ INTO #Y2025_P4_ISR_Case_6_ApplicantWithNoSpouse
 											 ELSE NULLIF(LTRIM(RTRIM(LEFT(c2.tail, b3.break_at))), '')
 										   END
 							) AS c3
--- 💡 Address splitter via CROSS APPLY (no UDF needed)--End  
+-- 💡 Address splitter via CROSS APPLY (no UDF needed)--End
  WHERE  Spouse_NRICNumber = ''
-  --#Y2025_P4_ISR_Case_6_ApplicantWithNoSpouse : 67,518 67518
+  --#P4_HH_Case_6_ApplicantWithNoSpouse
 
 				SELECT Spouse_NRICNumber  AS NRIC,--(1)
-							Spouse_FullName  AS FullName, 	--(2)							
+							Spouse_FullName  AS FullName, 	--(2)
 							DateofBirth_Spouse AS DateofBirth,--(3)
 							CASE 
 								WHEN Gender_Applicant = 'Lelaki' THEN '2'
@@ -3294,38 +3263,38 @@ INTO #Y2025_P4_ISR_Case_6_ApplicantWithNoSpouse
 							'' AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-									WHEN BankName_Spouse  = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-									WHEN BankName_Spouse  = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-									WHEN BankName_Spouse  = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-									WHEN BankName_Spouse  = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-									WHEN BankName_Spouse  = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-									WHEN BankName_Spouse  = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-									WHEN BankName_Spouse  = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-									WHEN BankName_Spouse  = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-									WHEN BankName_Spouse  = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-									WHEN BankName_Spouse  = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-									WHEN BankName_Spouse  = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-									WHEN BankName_Spouse  = 'CITIBANK BERHAD' THEN  '13'
-									WHEN BankName_Spouse  = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-									WHEN BankName_Spouse  = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-									WHEN BankName_Spouse  = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-									WHEN BankName_Spouse  = 'BANK SIMPANAN NASIONAL' THEN  '17'
-									WHEN BankName_Spouse  = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-									WHEN BankName_Spouse  = 'BANK OF AMERICA MALAYSIA BERHAD' THEN  '21'
-									WHEN BankName_Spouse  = 'AGRO BANK BERHAD' THEN  '22'
-									WHEN BankName_Spouse  = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-									WHEN BankName_Spouse  = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-									WHEN BankName_Spouse  = 'SUMITOMO MITSUI BANKING CORPORATION MALAYSIA BERHAD  ' THEN  '26'
-									WHEN BankName_Spouse  = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-									WHEN BankName_Spouse  = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-									WHEN BankName_Spouse  = 'MBSB BANK BERHAD' THEN  '29'
+									WHEN BankName_Spouse  = 'BANK 01' THEN  '01'
+									WHEN BankName_Spouse  = 'BANK 02' THEN  '02'
+									WHEN BankName_Spouse  = 'BANK 03' THEN  '03'
+									WHEN BankName_Spouse  = 'BANK 04' THEN  '04'
+									WHEN BankName_Spouse  = 'BANK 05' THEN  '05'
+									WHEN BankName_Spouse  = 'BANK 06' THEN  '06'
+									WHEN BankName_Spouse  = 'BANK 07' THEN  '07'
+									WHEN BankName_Spouse  = 'BANK 09' THEN  '09'
+									WHEN BankName_Spouse  = 'BANK 10' THEN  '10'
+									WHEN BankName_Spouse  = 'BANK 11' THEN  '11'
+									WHEN BankName_Spouse  = 'BANK 12' THEN  '12'
+									WHEN BankName_Spouse  = 'BANK 13' THEN  '13'
+									WHEN BankName_Spouse  = 'BANK 14' THEN  '14'
+									WHEN BankName_Spouse  = 'BANK 15' THEN  '15'
+									WHEN BankName_Spouse  = 'BANK 16' THEN  '16'
+									WHEN BankName_Spouse  = 'BANK 17' THEN  '17'
+									WHEN BankName_Spouse  = 'BANK 18' THEN  '18'
+									WHEN BankName_Spouse  = 'BANK 21' THEN  '21'
+									WHEN BankName_Spouse  = 'BANK 22' THEN  '22'
+									WHEN BankName_Spouse  = 'BANK 23' THEN  '23'
+									WHEN BankName_Spouse  = 'BANK 24' THEN  '24'
+									WHEN BankName_Spouse  = 'BANK 26' THEN  '26'
+									WHEN BankName_Spouse  = 'BANK 27' THEN  '27'
+									WHEN BankName_Spouse  = 'BANK 28' THEN  '28'
+									WHEN BankName_Spouse  = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
-							BankAccountNumber_Spouse  AS BankAccountNumber,--(14) 
+							BankAccountNumber_Spouse  AS BankAccountNumber,--(14)
 							'1' AS MaritalStatus,--(15)
-							 'Y2025_P4_ISR Case 7_SpouseMalaysianCitizen_of_Applicant' AS SourceFile,--(16)
+							 'P4_HH Case 7_SpouseMalaysianCitizen_of_Applicant' AS SourceFile,--(16)
 							CASE 
 								WHEN Ind_DisabilityStatus_Spouse  = 'Yes' THEN  'Y'
 								ELSE 'N'
@@ -3342,8 +3311,8 @@ INTO #Y2025_P4_ISR_Case_6_ApplicantWithNoSpouse
 							   WHEN SUBSTRING(DateofBirth_Spouse,3,2) > '25' AND SUBSTRING(DateofBirth_Spouse,6,2) >= '01' AND SUBSTRING(DateofBirth_Spouse,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Spouse,3,2))*1
 							   WHEN SUBSTRING(DateofBirth_Spouse,3,2) < '25' AND SUBSTRING(DateofBirth_Spouse,6,2) >= '01' AND SUBSTRING(DateofBirth_Spouse,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(DateofBirth_Spouse,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
-INTO #Y2025_P4_ISR_Case_7_SpouseWithNoApplicant
-  FROM Y2025_P4_TYPE_6 AS t
+INTO #P4_HH_Case_7_SpouseWithNoApplicant
+  FROM SRC_P4_TYPE_6 AS t
  -- 💡 Address splitter via CROSS APPLY (no UDF needed)--Start
 							CROSS APPLY (SELECT s = LTRIM(RTRIM(t.Address))) AS a
 							CROSS APPLY (
@@ -3401,13 +3370,13 @@ INTO #Y2025_P4_ISR_Case_7_SpouseWithNoApplicant
 											 ELSE NULLIF(LTRIM(RTRIM(LEFT(c2.tail, b3.break_at))), '')
 										   END
 							) AS c3
--- 💡 Address splitter via CROSS APPLY (no UDF needed)--End 
+-- 💡 Address splitter via CROSS APPLY (no UDF needed)--End
   WHERE  Spouse_NRICNumber != ''
-  --#Y2025_P4_ISR_Case_7_SpouseWithNoApplicant: 205,274 
+  --#P4_HH_Case_7_SpouseWithNoApplicant
 
 
-SELECT NoKP_Applicant AS NRIC,--(1)
-							FullName_Applicant AS FullName, 	--(2)							
+SELECT Applicant_ICNo AS NRIC,--(1)
+							FullName_Applicant AS FullName, 	--(2)
 							DateofBirth_Applicant AS DateofBirth,--(3)
 							CASE 
 								WHEN Gender_Applicant = 'Lelaki' THEN '1'
@@ -3422,47 +3391,47 @@ SELECT NoKP_Applicant AS NRIC,--(1)
 							'' AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-									WHEN Applicant_BankName  = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-									WHEN Applicant_BankName  = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-									WHEN Applicant_BankName  = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-									WHEN Applicant_BankName  = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-									WHEN Applicant_BankName  = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-									WHEN Applicant_BankName  = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-									WHEN Applicant_BankName  = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-									WHEN Applicant_BankName  = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-									WHEN Applicant_BankName  = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-									WHEN Applicant_BankName  = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-									WHEN Applicant_BankName  = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-									WHEN Applicant_BankName  = 'CITIBANK BERHAD' THEN  '13'
-									WHEN Applicant_BankName  = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-									WHEN Applicant_BankName  = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-									WHEN Applicant_BankName  = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-									WHEN Applicant_BankName  = 'BANK SIMPANAN NASIONAL' THEN  '17'
-									WHEN Applicant_BankName  = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-									WHEN Applicant_BankName  = 'BANK OF AMERICA MALAYSIA BERHAD' THEN  '21'
-									WHEN Applicant_BankName  = 'AGRO BANK BERHAD' THEN  '22'
-									WHEN Applicant_BankName  = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-									WHEN Applicant_BankName  = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-									WHEN Applicant_BankName  = 'SUMITOMO MITSUI BANKING CORPORATION MALAYSIA BERHAD  ' THEN  '26'
-									WHEN Applicant_BankName  = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-									WHEN Applicant_BankName  = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-									WHEN Applicant_BankName  = 'MBSB BANK BERHAD' THEN  '29'
+									WHEN Applicant_BankName  = 'BANK 01' THEN  '01'
+									WHEN Applicant_BankName  = 'BANK 02' THEN  '02'
+									WHEN Applicant_BankName  = 'BANK 03' THEN  '03'
+									WHEN Applicant_BankName  = 'BANK 04' THEN  '04'
+									WHEN Applicant_BankName  = 'BANK 05' THEN  '05'
+									WHEN Applicant_BankName  = 'BANK 06' THEN  '06'
+									WHEN Applicant_BankName  = 'BANK 07' THEN  '07'
+									WHEN Applicant_BankName  = 'BANK 09' THEN  '09'
+									WHEN Applicant_BankName  = 'BANK 10' THEN  '10'
+									WHEN Applicant_BankName  = 'BANK 11' THEN  '11'
+									WHEN Applicant_BankName  = 'BANK 12' THEN  '12'
+									WHEN Applicant_BankName  = 'BANK 13' THEN  '13'
+									WHEN Applicant_BankName  = 'BANK 14' THEN  '14'
+									WHEN Applicant_BankName  = 'BANK 15' THEN  '15'
+									WHEN Applicant_BankName  = 'BANK 16' THEN  '16'
+									WHEN Applicant_BankName  = 'BANK 17' THEN  '17'
+									WHEN Applicant_BankName  = 'BANK 18' THEN  '18'
+									WHEN Applicant_BankName  = 'BANK 21' THEN  '21'
+									WHEN Applicant_BankName  = 'BANK 22' THEN  '22'
+									WHEN Applicant_BankName  = 'BANK 23' THEN  '23'
+									WHEN Applicant_BankName  = 'BANK 24' THEN  '24'
+									WHEN Applicant_BankName  = 'BANK 26' THEN  '26'
+									WHEN Applicant_BankName  = 'BANK 27' THEN  '27'
+									WHEN Applicant_BankName  = 'BANK 28' THEN  '28'
+									WHEN Applicant_BankName  = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
 							BankAccountNumber_Applicant AS BankAccountNumber,--(14)
 							'1' AS MaritalStatus,--(15)
-							 'Y2025_P4_Senior Citizen_NoSpouse' AS SourceFile,--(16)
+							 'P4_Senior Citizen_NoSpouse' AS SourceFile,--(16)
 							CASE 
 								WHEN Ind_DisabilityStatus_Applicant  = 'Yes' THEN  'Y'
 								ELSE 'N'
 								END	AS  Indicator_DisabilityStatus_,--(17),--(17)
-							 CASE WHEN substring(NoKP_Applicant, 3, 2) = '01' AND substring (NoKP_Applicant, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NoKP_Applicant, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NoKP_Applicant, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NoKP_Applicant, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NoKP_Applicant, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NoKP_Applicant, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NoKP_Applicant, 2))*1 END
+							 CASE WHEN substring(Applicant_ICNo, 3, 2) = '01' AND substring (Applicant_ICNo, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Applicant_ICNo, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_ICNo, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_ICNo, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Applicant_ICNo, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_ICNo, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_ICNo, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
 							CASE WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) = '01' AND SUBSTRING(DateofBirth_Applicant,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1 + 1
@@ -3470,8 +3439,8 @@ SELECT NoKP_Applicant AS NRIC,--(1)
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) < '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
-INTO #Y2025_P4_SeniorCitizen_NoSpouse
- FROM Y2025_P4_TYPE_7   AS t
+INTO #P4_SeniorCitizen_NoSpouse
+ FROM SRC_P4_TYPE_7   AS t
   -- 💡 Address splitter via CROSS APPLY (no UDF needed)--Start
 							CROSS APPLY (SELECT s = LTRIM(RTRIM(t.Address))) AS a
 							CROSS APPLY (
@@ -3531,12 +3500,12 @@ INTO #Y2025_P4_SeniorCitizen_NoSpouse
 							) AS c3
 -- 💡 Address splitter via CROSS APPLY (no UDF needed)--End
  WHERE Spouse_NRICNumber  = '' 
- --#Y2025_P4_SeniorCitizen_NoSpouse: 384,984 
+ --#P4_SeniorCitizen_NoSpouse
 
 
  
-			SELECT NoKP_Applicant AS NRIC,--(1)
-							FullName_Applicant AS FullName, 	--(2)							
+			SELECT Applicant_ICNo AS NRIC,--(1)
+							FullName_Applicant AS FullName, 	--(2)
 							DateofBirth_Applicant AS DateofBirth,--(3)
 							CASE 
 								WHEN Gender_Applicant = 'Lelaki' THEN '1'
@@ -3551,47 +3520,47 @@ INTO #Y2025_P4_SeniorCitizen_NoSpouse
 							'' AS MobileNumber,--(11)
 							'' AS EmailAddress,--(12)
 							CASE 
-									WHEN Applicant_BankName  = 'AFFIN BANK BERHAD / AFFIN ISLAMIC BANK BERHAD' THEN  '01'
-									WHEN Applicant_BankName  = 'ALLIANCE BANK MALAYSIA BERHAD / ALLIANCE ISLAMIC BANK BERHAD' THEN  '02'
-									WHEN Applicant_BankName  = 'AMBANK BERHAD / AM ISLAMIC BANK BERHAD' THEN  '03'
-									WHEN Applicant_BankName  = 'BANK MUAMALAT MALAYSIA BERHAD' THEN  '04'
-									WHEN Applicant_BankName  = 'BANK ISLAM MALAYSIA BERHAD' THEN  '05'
-									WHEN Applicant_BankName  = 'BANK KERJASAMA RAKYAT MALAYSIA BHD' THEN  '06'
-									WHEN Applicant_BankName  = 'CIMB BANK BERHAD / CIMB ISLAMIC BANK BERHAD' THEN  '07'
-									WHEN Applicant_BankName  = 'HONG LEONG BANK BERHAD / HONG LEONG ISLAMIC BANK BERHAD' THEN  '09'
-									WHEN Applicant_BankName  = 'MALAYAN BANKING BERHAD / MAYBANK ISLAMIC BERHAD' THEN  '10'
-									WHEN Applicant_BankName  = 'PUBLIC BANK BERHAD / PUBLIC ISLAMIC BANK BERHAD' THEN  '11'
-									WHEN Applicant_BankName  = 'RHB BANK BERHAD / RHB ISLAMIC BANK BERHAD' THEN  '12'
-									WHEN Applicant_BankName  = 'CITIBANK BERHAD' THEN  '13'
-									WHEN Applicant_BankName  = 'OCBC BANK MALAYSIA BHD / OCBC AL-AMIN BANK BERHAD' THEN  '14'
-									WHEN Applicant_BankName  = 'HSBC BANK MALAYSIA BERHAD / HSBC AMANAH MALAYSIA BERHAD  ' THEN  '15'
-									WHEN Applicant_BankName  = 'STANDARD CHARTERED BANK MALAYSIA BERHAD / STANDARD CHARTERED SAADIQ BERHAD' THEN  '16'
-									WHEN Applicant_BankName  = 'BANK SIMPANAN NASIONAL' THEN  '17'
-									WHEN Applicant_BankName  = 'UNITED OVERSEAS BANK (MALAYSIA) BERHAD (UOB BANK)' THEN  '18'
-									WHEN Applicant_BankName  = 'BANK OF AMERICA MALAYSIA BERHAD' THEN  '21'
-									WHEN Applicant_BankName  = 'AGRO BANK BERHAD' THEN  '22'
-									WHEN Applicant_BankName  = 'J.P. MORGAN CHASE BANK BERHAD  ' THEN  '23'
-									WHEN Applicant_BankName  = 'KUWAIT FINANCE HOUSE (MALAYSIA) BERHAD' THEN  '24'
-									WHEN Applicant_BankName  = 'SUMITOMO MITSUI BANKING CORPORATION MALAYSIA BERHAD  ' THEN  '26'
-									WHEN Applicant_BankName  = 'AL RAJHI BANKING & INVESTMENT CORPORATION (MALAYSIA) BERHAD' THEN  '27'
-									WHEN Applicant_BankName  = 'BANK OF CHINA (MALAYSIA) BERHAD' THEN  '28'
-									WHEN Applicant_BankName  = 'MBSB BANK BERHAD' THEN  '29'
+									WHEN Applicant_BankName  = 'BANK 01' THEN  '01'
+									WHEN Applicant_BankName  = 'BANK 02' THEN  '02'
+									WHEN Applicant_BankName  = 'BANK 03' THEN  '03'
+									WHEN Applicant_BankName  = 'BANK 04' THEN  '04'
+									WHEN Applicant_BankName  = 'BANK 05' THEN  '05'
+									WHEN Applicant_BankName  = 'BANK 06' THEN  '06'
+									WHEN Applicant_BankName  = 'BANK 07' THEN  '07'
+									WHEN Applicant_BankName  = 'BANK 09' THEN  '09'
+									WHEN Applicant_BankName  = 'BANK 10' THEN  '10'
+									WHEN Applicant_BankName  = 'BANK 11' THEN  '11'
+									WHEN Applicant_BankName  = 'BANK 12' THEN  '12'
+									WHEN Applicant_BankName  = 'BANK 13' THEN  '13'
+									WHEN Applicant_BankName  = 'BANK 14' THEN  '14'
+									WHEN Applicant_BankName  = 'BANK 15' THEN  '15'
+									WHEN Applicant_BankName  = 'BANK 16' THEN  '16'
+									WHEN Applicant_BankName  = 'BANK 17' THEN  '17'
+									WHEN Applicant_BankName  = 'BANK 18' THEN  '18'
+									WHEN Applicant_BankName  = 'BANK 21' THEN  '21'
+									WHEN Applicant_BankName  = 'BANK 22' THEN  '22'
+									WHEN Applicant_BankName  = 'BANK 23' THEN  '23'
+									WHEN Applicant_BankName  = 'BANK 24' THEN  '24'
+									WHEN Applicant_BankName  = 'BANK 26' THEN  '26'
+									WHEN Applicant_BankName  = 'BANK 27' THEN  '27'
+									WHEN Applicant_BankName  = 'BANK 28' THEN  '28'
+									WHEN Applicant_BankName  = 'BANK 29' THEN  '29'
 
 								ELSE ' '
-								END	AS BankName, --(13) 
+								END	AS BankName, --(13)
 
 							BankAccountNumber_Applicant AS BankAccountNumber,--(14)
 							'1' AS MaritalStatus,--(15)
-							 'Y2025_P4_Senior Citizen_NoSpouse_NoSpouse_DisabilityStatus_Yes' AS SourceFile,--(16)
+							 'P4_Senior Citizen_NoSpouse_NoSpouse_DisabilityStatus_Yes' AS SourceFile,--(16)
 							CASE 
 								WHEN Ind_DisabilityStatus_Applicant  = 'Yes' THEN  'Y'
 								ELSE 'N'
 								END	AS  Indicator_DisabilityStatus_,--(17),--(17)
-							 CASE WHEN substring(NoKP_Applicant, 3, 2) = '01' AND substring (NoKP_Applicant, 5, 2) = '01' 
-								 THEN CASE WHEN CAST(LEFT(NoKP_Applicant, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NoKP_Applicant, 2))*1 + 1
-										   ELSE 2026 - CONCAT('19', LEFT(NoKP_Applicant, 2))*1 + 1 END
-								 ELSE CASE WHEN CAST(LEFT(NoKP_Applicant, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(NoKP_Applicant, 2))*1
-										   ELSE 2026 - CONCAT('19', LEFT(NoKP_Applicant, 2))*1 END
+							 CASE WHEN substring(Applicant_ICNo, 3, 2) = '01' AND substring (Applicant_ICNo, 5, 2) = '01' 
+								 THEN CASE WHEN CAST(LEFT(Applicant_ICNo, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_ICNo, 2))*1 + 1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_ICNo, 2))*1 + 1 END
+								 ELSE CASE WHEN CAST(LEFT(Applicant_ICNo, 2) AS INT) < 20 THEN 2026 - CONCAT('20', LEFT(Applicant_ICNo, 2))*1
+										   ELSE 2026 - CONCAT('19', LEFT(Applicant_ICNo, 2))*1 END
 								 END AS ANB_FromNRIC, --(18)
 
 							CASE WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) = '01' AND SUBSTRING(DateofBirth_Applicant,9,2) = '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1 + 1
@@ -3599,8 +3568,8 @@ INTO #Y2025_P4_SeniorCitizen_NoSpouse
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) > '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('19',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   WHEN SUBSTRING(DateofBirth_Applicant,3,2) < '25' AND SUBSTRING(DateofBirth_Applicant,6,2) >= '01' AND SUBSTRING(DateofBirth_Applicant,9,2) >= '01' THEN '2026' - CONCAT('20',SUBSTRING(DateofBirth_Applicant,3,2))*1
 							   ELSE  '999' END AS ANB_FromDateofBirth --(19)
-INTO #Y2025_P4_SeniorCitizen_NoSpouse_DisabilityStatus_Yes 
-  FROM Y2025_P4_TYPE_7 AS t
+INTO #P4_SeniorCitizen_NoSpouse_DisabilityStatus_Yes 
+  FROM SRC_P4_TYPE_7 AS t
     -- 💡 Address splitter via CROSS APPLY (no UDF needed)--Start
 							CROSS APPLY (SELECT s = LTRIM(RTRIM(t.Address))) AS a
 							CROSS APPLY (
@@ -3660,340 +3629,265 @@ INTO #Y2025_P4_SeniorCitizen_NoSpouse_DisabilityStatus_Yes
 							) AS c3
 -- 💡 Address splitter via CROSS APPLY (no UDF needed)--End
   WHERE Spouse_NRICNumber  = '' AND Ind_DisabilityStatus_Applicant ='Yes'
-  --#Y2025_P4_SeniorCitizen_NoSpouse_DisabilityStatus_Yes: 20,016 
+  --#P4_SeniorCitizen_NoSpouse_DisabilityStatus_Yes
 
 
-
-     	SELECT x.* INTO  #Y2025_P4_AllEligibilityCriteriaCombined /*(10,034,297 rows affected)*/    
+     	SELECT x.* INTO  #P4_AllEligibilityCriteriaCombined     
 	FROM 
 	(
-SELECT * FROM  #Y2025_P4_Single_NoSpouse_DisabilityStatus_No WHERE ANB_FromDateofBirth >= 22 AND ANB_FromDateofBirth <=66 --(3301935 rows affected)
+SELECT * FROM  #P4_Single_NoSpouse_DisabilityStatus_No WHERE ANB_FromDateofBirth >= 22 AND ANB_FromDateofBirth <=66 
 UNION
-SELECT * FROM  #Y2025_P4_Single_NoSpouse_DisabilityStatus_Yes WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 AND Indicator_DisabilityStatus_ ='Y' --(194786 rows affected)
+SELECT * FROM  #P4_Single_NoSpouse_DisabilityStatus_Yes WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 AND Indicator_DisabilityStatus_ ='Y' 
 UNION
-SELECT * FROM  #Y2025_P4_IBT_Applicant_with_NoSpouse  WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 --(430947 rows affected)
+SELECT * FROM  #P4_SingleParent_Applicant_with_NoSpouse  WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 
 UNION
-SELECT * FROM  #Y2025_P4_ISR_Case_4__Applicant_with_SpouseMalaysianCitizen WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66   --(2720497 rows affected)
+SELECT * FROM  #P4_HH_Case_4__Applicant_with_SpouseMalaysianCitizen WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66   
 UNION
-SELECT * FROM  #Y2025_P4_ISR_Case_4_SpouseMalaysianCitizen_of_Applicant WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66   --(2720497 rows affected)
+SELECT * FROM  #P4_HH_Case_4_SpouseMalaysianCitizen_of_Applicant WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66   
 UNION
-SELECT * FROM  #Y2025_P4_ISR_Case_5_Applicant WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66	--(174919 rows affected)
+SELECT * FROM  #P4_HH_Case_5_Applicant WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66	
 UNION
-SELECT * FROM  #Y2025_P4_ISR_Case_6_ApplicantWithNoSpouse WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 --(67518 rows affected)
+SELECT * FROM  #P4_HH_Case_6_ApplicantWithNoSpouse WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 
 UNION
-SELECT * FROM  #Y2025_P4_ISR_Case_7_SpouseWithNoApplicant WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66	--(205274 rows affected)
+SELECT * FROM  #P4_HH_Case_7_SpouseWithNoApplicant WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66	
 UNION
-SELECT * FROM  #Y2025_P4_SeniorCitizen_NoSpouse WHERE ANB_FromDateofBirth >= 22 AND ANB_FromDateofBirth <=66	--(384984 rows affected)
+SELECT * FROM  #P4_SeniorCitizen_NoSpouse WHERE ANB_FromDateofBirth >= 22 AND ANB_FromDateofBirth <=66	
 UNION
-SELECT * FROM  #Y2025_P4_SeniorCitizen_NoSpouse_DisabilityStatus_Yes WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 AND Indicator_DisabilityStatus_ ='Y'  --(20016 rows affected)
+SELECT * FROM  #P4_SeniorCitizen_NoSpouse_DisabilityStatus_Yes WHERE  ANB_FromDateofBirth >= 19 AND ANB_FromDateofBirth <=66 AND Indicator_DisabilityStatus_ ='Y'  
  
 	 	) x
 		
-     SELECT x.* INTO  #Y2025_AllEligibilityCriteriaCombined /*(38775342 rows affected)*/     
+     SELECT x.* INTO  #AllEligibilityCriteriaCombined      
 	FROM 
 	(
-SELECT * FROM  #Y2025_P1_AllEligibilityCriteriaCombined
+SELECT * FROM  #P1_AllEligibilityCriteriaCombined
 UNION
-SELECT * FROM  #Y2025_P2_AllEligibilityCriteriaCombined
+SELECT * FROM  #P2_AllEligibilityCriteriaCombined
 UNION
-SELECT * FROM  #Y2025_P3_AllEligibilityCriteriaCombined
+SELECT * FROM  #P3_AllEligibilityCriteriaCombined
 UNION
-SELECT * FROM  #Y2025_P4_AllEligibilityCriteriaCombined
+SELECT * FROM  #P4_AllEligibilityCriteriaCombined
 	 	) x
 
 
---Exclude Spouse_PEMASTAUTIN_TETAP_BUKAN_MalaysianCitizen_BUKAN_PEMASTAUTIN_TETAP--
-SELECT * INTO #Y2025_AllEligibilityCriteriaCombined_/*(38775342 rows affected)*/ FROM #Y2025_AllEligibilityCriteriaCombined
+--Exclude spouses who are Permanent Residents or Non-Citizens
+SELECT * INTO #AllEligibilityCriteriaCombined_ FROM #AllEligibilityCriteriaCombined
 WHERE NRIC NOT IN /*IN*/
-(SELECT Spouse_NRICNumber  FROM Y2025_P4_TYPE_4 where Spouse_Citizenship ='Permanent Resident' OR Spouse_Citizenship ='NonCitizen and Non Permanent Resident') 
---0 Spouse Permanent Resident or NonCitizen and Non Permanent Resident in ##Y2025_AllEligibilityCriteriaCombined.To exclude
+(SELECT Spouse_NRICNumber  FROM SRC_P4_TYPE_4 where Spouse_Citizenship ='Permanent Resident' OR Spouse_Citizenship ='NonCitizen and Non Permanent Resident') 
+--0 Spouse Permanent Resident or NonCitizen and Non Permanent Resident in ##AllEligibilityCriteriaCombined.To exclude
 
 /*
-SELECT * INTO [Working17].[dbo].[Y2025_AllEligibilityCriteriaCombined] FROM #Y2025_AllEligibilityCriteriaCombined_ /*(38780078 rows affected)*/
+SELECT * INTO [WorkingDB].[dbo].[AllEligibilityCriteriaCombined] FROM #AllEligibilityCriteriaCombined_ /**/
 */
 
 
 --CheckDuplicateNRIC
 
-SELECT DISTINCT NRIC FROM  #Y2025_AllEligibilityCriteriaCombined_
-	--#Y2025_AllEligibilityCriteriaCombined Unique NRIC= *10,058,652/ 
+SELECT DISTINCT NRIC FROM  #AllEligibilityCriteriaCombined_
+	--#AllEligibilityCriteriaCombined: count of unique NRIC
 	
-	SELECT TOP(10)*FROM  #Y2025_AllEligibilityCriteriaCombined_
-	SELECT TOP(10)*FROm  [Working17].[dbo].[Y2025_AllEligibilityCriteriaCombined]
+	SELECT TOP(10)*FROM  #AllEligibilityCriteriaCombined_
+	SELECT TOP(10)*FROm  [WorkingDB].[dbo].[AllEligibilityCriteriaCombined]
 
-	SELECT *FROM  #Y2025_AllEligibilityCriteriaCombined_ where ANB_FromDateofBirth != ANB_FromNRIC
---10,313 record where ANB_FromDateofBirth != ANB_FromNRIC
+	SELECT *FROM  #AllEligibilityCriteriaCombined_ where ANB_FromDateofBirth != ANB_FromNRIC
+--Records where ANB_FromDateofBirth != ANB_FromNRIC
 
-	SELECT *FROM  #Y2025_AllEligibilityCriteriaCombined_ where ANB_FromDateofBirth = '' or  ANB_FromNRIC = ''
-	SELECT *FROM  #Y2025_AllEligibilityCriteriaCombined_ where ANB_FromDateofBirth = '' 
-	SELECT *FROM  #Y2025_AllEligibilityCriteriaCombined_ where ANB_FromNRIC = '' 
+	SELECT *FROM  #AllEligibilityCriteriaCombined_ where ANB_FromDateofBirth = '' or  ANB_FromNRIC = ''
+	SELECT *FROM  #AllEligibilityCriteriaCombined_ where ANB_FromDateofBirth = '' 
+	SELECT *FROM  #AllEligibilityCriteriaCombined_ where ANB_FromNRIC = '' 
 
-	SELECT distinct ANB_FromDateofBirth FROM  #Y2025_AllEligibilityCriteriaCombined_ GROUP BY ANB_FromDateofBirth ORDER BY ANB_FromDateofBirth ASC
+	SELECT distinct ANB_FromDateofBirth FROM  #AllEligibilityCriteriaCombined_ GROUP BY ANB_FromDateofBirth ORDER BY ANB_FromDateofBirth ASC
 	--ANB 19 to 66
-	SELECT distinct ANB_FromNRIC FROM  #Y2025_AllEligibilityCriteriaCombined_ GROUP BY ANB_FromNRIC ORDER BY ANB_FromNRIC ASC
+	SELECT distinct ANB_FromNRIC FROM  #AllEligibilityCriteriaCombined_ GROUP BY ANB_FromNRIC ORDER BY ANB_FromNRIC ASC
 	--ANB 19 to 86
-	SELECT * FROM  #Y2025_AllEligibilityCriteriaCombined_ WHERE  ANB_FromNRIC > 66
-	--622 records with potentially excluded if use ANB_FromNRIC. To proceed. 
+	SELECT * FROM  #AllEligibilityCriteriaCombined_ WHERE  ANB_FromNRIC > 66
+	--Some records would be excluded if ANB_FromNRIC were used instead. To proceed
 	 
-	SELECT distinct DateofBirth  FROM  #Y2025_AllEligibilityCriteriaCombined_ GROUP BY DateofBirth ORDER BY DateofBirth ASC /*DESC*/
-	--Earliest DateofBirth 1960-01-02, latest DateofBirth 2007-12-31. OK.
+	SELECT distinct DateofBirth  FROM  #AllEligibilityCriteriaCombined_ GROUP BY DateofBirth ORDER BY DateofBirth ASC /*DESC*/
+	--Earliest DateofBirth 1960-01-02, latest DateofBirth 2007-12-31. OK
 
-	SELECT NRIC, SourceFile, COUNT(NRIC) AS OccuranceNNRIC FROM #Y2025_AllEligibilityCriteriaCombined_ 
+	SELECT NRIC, SourceFile, COUNT(NRIC) AS OccuranceNNRIC FROM #AllEligibilityCriteriaCombined_ 
 	GROUP BY NRIC, SourceFile
 	HAVING COUNT(NRIC) > 2 /*2/3/4*/
 	ORDER BY NRIC ASC
-	--25,281 appeared more than once
+	--NRICs appearing more than once
 
 
 		;WITH Ranked AS
 		(
 			SELECT NRIC,FullName,DateofBirth, Gender,AddressLine1,AddressLine2,AddressLine3,Postcode,City,State,MobileNumber,EmailAddress,BankName,BankAccountNumber,MaritalStatus,
 				   ROW_NUMBER() OVER (PARTITION BY NRIC ORDER BY (SELECT NULL)) AS rn
-			FROM #Y2025_AllEligibilityCriteriaCombined_
+			FROM #AllEligibilityCriteriaCombined_
 		)
 		SELECT *
-		INTO #Y2025_AllEligibilityCriteriaCombined_DuplicateRemoved --(10058652 rows affected)
+		INTO #AllEligibilityCriteriaCombined_DuplicateRemoved 
 		FROM Ranked
 		WHERE rn = 1;
 
 	_______________________________________________________________________________________________________________________________
---Remove Non Malaysian, Sanctioned Persons  & Claims Negative List
+--Remove Non Malaysian, Sanctioned Persons & Claims Negative List
 
 SELECT * 
-INTO #Y2025_AllEligibilityCriteriaCombined_DuplicateRemoved_SanctionedRemoved /*(10,058,640 rows affected)*/
-FROM #Y2025_AllEligibilityCriteriaCombined_DuplicateRemoved WHERE NRIC /*IN*/ NOT  IN ( 
-/*
-'NRIC',/*Name*/
+INTO #AllEligibilityCriteriaCombined_DuplicateRemoved_SanctionedRemoved 
+FROM #AllEligibilityCriteriaCombined_DuplicateRemoved WHERE NRIC /*IN*/ NOT IN (SELECT NRIC FROM [WorkingDB].[dbo].[SanctionedPersons])
 
-REDACTED FOR OPSEC
-*/
-
-
---Filepath:  /*REDACTED FOR OPSEC*/
-
---12 match Sanctioned Persons,to exclude
-
-/*
-REDACTED FOR OPSEC
-*/
+--Records matching the Sanctioned Persons list, to exclude
 
 
 SELECT *
-INTO #Y2025_AllEligibilityCriteriaCombined_DuplicateRemoved_SanctionedRemoved_NonMalaysianV6 /*(10,057,737 rows affected)*/   
-FROM #Y2025_AllEligibilityCriteriaCombined_DuplicateRemoved_SanctionedRemoved WHERE NRIC /*IN*/  NOT IN (SELECT NRIC from [Working].[dbo].[NonMalaysianV6])
---903 record match with NonMalaysianV6, to exclude
---Y2025_AllEligibilityCriteriaCombined_DuplicateRemoved_SanctionedRemoved_NonMalaysianV6=10,057,737
+INTO #AllEligibilityCriteriaCombined_DuplicateRemoved_SanctionedRemoved_NonCitizen    
+FROM #AllEligibilityCriteriaCombined_DuplicateRemoved_SanctionedRemoved WHERE NRIC /*IN*/  NOT IN (SELECT NRIC from [WorkingDB].[dbo].[NonCitizen])
+--Records matching the Non-Citizen list, to exclude
+--AllEligibilityCriteriaCombined_DuplicateRemoved_SanctionedRemoved_NonCitizen
 
 
  SELECT * 
-INTO #Y2025_AllEligibilityCriteriaCombined_DuplicateRemoved_SanctionedRemoved_NonMalaysianV6_ClmNegListRmvd /*(10,057,516 rows affected)*/ 
-FROM #Y2025_AllEligibilityCriteriaCombined_DuplicateRemoved_SanctionedRemoved_NonMalaysianV6 WHERE NRIC /*IN*/  NOT IN ( 
-/*
-REDACTED FOR OPSEC
-*/)
+INTO #AllEligibilityCriteriaCombined_DuplicateRemoved_SanctionedRemoved_NonCitizen_ClmNegListRmvd  
+FROM #AllEligibilityCriteriaCombined_DuplicateRemoved_SanctionedRemoved_NonCitizen WHERE NRIC /*IN*/  NOT IN (SELECT NRIC FROM [WorkingDB].[dbo].[ClaimsNegativeList])
 
 /*
-No1|Sheet Name|Count of NRIC|Date Added/ Requested|Reference 
-   /*
-  REDACTED FOR OPSEC
-  */
 
---221 match Claims Negative List,to exclude
-*/
 
-/*
-NRIC|FullName|DateofBirth|Gender|AddressLine1|AddressLine2|AddressLine3|Postcode|City|State|MobileNumber|EmailAddress|BankName|BankAccountNumber|MaritalStatus
-/*
-REDACTED FOR OPSEC
-*/
+--Records matching the Claims Negative List, to exclude
 */
 
 
+AllEligibilityCriteriaCombined_DuplicateRemoved_SanctionedRemoved_NonCitizen_ClmNegListRmvd
 
-Y2025_AllEligibilityCriteriaCombined_DuplicateRemoved_SanctionedRemoved_NonMalaysianV6_ClmNegListRmvd
 
+SELECT * INTO  [WorkingDB].[dbo].[AllEligibilityCriteriaCombined_DuplicateRemoved_SanctionedRemoved_NonCitizen_ClmNegListRmvd] FROM  #AllEligibilityCriteriaCombined_DuplicateRemoved_SanctionedRemoved_NonCitizen_ClmNegListRmvd 
 
-SELECT * INTO  [Working17].[dbo].[Y2025_AllEligibilityCriteriaCombined_DuplicateRemoved_SanctionedRemoved_NonMalaysianV6_ClmNegListRmvd] FROM  #Y2025_AllEligibilityCriteriaCombined_DuplicateRemoved_SanctionedRemoved_NonMalaysianV6_ClmNegListRmvd /*(10057518 rows affected)*/
-
-drop table #TEMP_AllYears_as_at20251216
+drop table #TEMP_AllYears
 ______________________________________________________________________________________________________________________________________
---Check new to The Scheme coverage 
+--Check new to The Scheme coverage
 
-			SELECT x.* INTO  #TEMP_AllYears_as_at20251216
+			SELECT x.* INTO  #TEMP_AllYears
 
 	FROM (
-	SELECT '2019' AS EligibilityYear,* FROM [SchemeEligibleListing10].[dbo].[Eligible_2019_4297764]
+	SELECT '2019' AS EligibilityYear,* FROM [EligibilityDB].[dbo].[Eligible_2019]
 	UNION  
-	SELECT '2020' AS EligibilityYear,* FROM [SchemeEligibleListing10].[dbo].[Eligible_2020_5984756]
+	SELECT '2020' AS EligibilityYear,* FROM [EligibilityDB].[dbo].[Eligible_2020]
 	UNION  
-	SELECT '2021' AS EligibilityYear,* FROM [SchemeEligibleListing10].[dbo].[Eligible_2021_5521408]
+	SELECT '2021' AS EligibilityYear,* FROM [EligibilityDB].[dbo].[Eligible_2021]
 	UNION  
-	SELECT '2022' AS EligibilityYear,* FROM [SchemeEligibleListing11].[dbo].[Eligible_2022_V10_11275019]	
+	SELECT '2022' AS EligibilityYear,* FROM [EligibilityDB].[dbo].[Eligible_2022]	
 	UNION  
-	SELECT '2023' AS EligibilityYear,* FROM [SchemeEligibleListing11].[dbo].[Eligible_2023_V8_11002492]	
+	SELECT '2023' AS EligibilityYear,* FROM [EligibilityDB].[dbo].[Eligible_2023]	
 	UNION  
-	SELECT '2024' AS EligibilityYear,* FROM [SchemeEligibleListing15].[dbo].[Eligible_2024_V20_11410090]
+	SELECT '2024' AS EligibilityYear,* FROM [EligibilityDB].[dbo].[Eligible_2024]
 	UNION  
-	SELECT '2025' AS EligibilityYear,* FROM [SchemeEligibleListing15].[dbo].[Eligible_2025_V15_10628200]
+	SELECT '2025' AS EligibilityYear,* FROM [EligibilityDB].[dbo].[Eligible_2025]
 	) x
 
 	SELECT *
-	INTO #TEMPNewtoScheme137385 /*(137385 rows affected)*/
-	FROM #Y2025_AllEligibilityCriteriaCombined_DuplicateRemoved_SanctionedRemoved_NonMalaysianV6_ClmNegListRmvd WHERE NRIC /*IN*/ NOT  IN (SELECT NRIC FROM #TEMP_AllYears_as_at20251216)
-	--9,920,131 record ALREADY IN The Scheme under prior years
-	--New record to The Scheme = 137,385 . Check why so many & are they in Eligible_2025_V15_10628200? If not why?
+	INTO #TEMPNewtoScheme 
+	FROM #AllEligibilityCriteriaCombined_DuplicateRemoved_SanctionedRemoved_NonCitizen_ClmNegListRmvd WHERE NRIC /*IN*/ NOT  IN (SELECT NRIC FROM #TEMP_AllYears)
+	--Records ALREADY IN The Scheme under prior years
+	--New records to The Scheme. Check why so many & are they in Eligible_2025? If not why?
 
-	SELECT TOP(10)* FROM #TEMPNewtoScheme137385
+	SELECT TOP(10)* FROM #TEMPNewtoScheme
 
 	SELECT *
-	FROM #TEMPNewtoScheme137385 WHERE NRIC /*IN*/ NOT IN (SELECT NRIC FROM [SchemeEligibleListing15].[dbo].[Eligible_2025_V15_10628200])
-	--are they in Eligible_2025_V15_10628200? No
+	FROM #TEMPNewtoScheme WHERE NRIC /*IN*/ NOT IN (SELECT NRIC FROM [EligibilityDB].[dbo].[Eligible_2025])
+	--are they in Eligible_2025? No
 
-	SELECT DISTINCT DateofBirth, COUNT (DateofBirth)  AS COUNTDateofBirth FROM #TEMPNewtoScheme137385 GROUP BY DateofBirth ORDER BY DateofBirth asc
+	SELECT DISTINCT DateofBirth, COUNT (DateofBirth)  AS COUNTDateofBirth FROM #TEMPNewtoScheme GROUP BY DateofBirth ORDER BY DateofBirth asc
 	/*
-	DateofBirth|COUNTDateofBirth
-	2004-01-02|388
-	......
-	2007-12-31|5
 
-	Total born year 2004=136161
-	Total born year 2007=1224
+	Total born year 2004
+	Total born year 2007
 	*/
 
-	SELECT DISTINCT MaritalStatus, COUNT (MaritalStatus) AS COUNTMaritalStatus   FROM #TEMPNewtoScheme137385  GROUP BY MaritalStatus ORDER BY MaritalStatus ASC
-	/*
-	MaritalStatus|COUNTMaritalStatus
-	1|1224
-	3|136161
-	*/
+	SELECT DISTINCT MaritalStatus, COUNT (MaritalStatus) AS COUNTMaritalStatus   FROM #TEMPNewtoScheme  GROUP BY MaritalStatus ORDER BY MaritalStatus ASC
+	
 
-	--New record to The Scheme = 137,385. From 136161 Marital Status=3 & 1224 Marital Status=1. OK
+	--New records to The Scheme split by Marital Status 3 and 1. OK
 
 	______________________________________________________________________________________________________________________________________
 --Create Eligible_2026
 
 	SELECT *
-	INTO [SchemeEligibleListing15].[dbo].[Eligible_2026_V1_10057516] /*(10,057,516 rows affected)*/
-	FROM #Y2025_AllEligibilityCriteriaCombined_DuplicateRemoved_SanctionedRemoved_NonMalaysianV6_ClmNegListRmvd
+	INTO [EligibilityDB].[dbo].[Eligible_2026] 
+	FROM #AllEligibilityCriteriaCombined_DuplicateRemoved_SanctionedRemoved_NonCitizen_ClmNegListRmvd
 
-	SELECT COUNT (NRIC) FROM #Y2025_AllEligibilityCriteriaCombined_DuplicateRemoved_SanctionedRemoved_NonMalaysianV6_ClmNegListRmvd
+	SELECT COUNT (NRIC) FROM #AllEligibilityCriteriaCombined_DuplicateRemoved_SanctionedRemoved_NonCitizen_ClmNegListRmvd
 
-	select top(10)* from  [SchemeEligibleListing15].[dbo].[Eligible_2026_V1_10057516]
-
-	SELECT *
-	INTO  [Working17].[dbo].[AS400ADHOC260107] 
-	FROM [SchemeEligibleListing15].[dbo].[Eligible_2026_V1_10057516] WHERE NRIC NOT IN (SELECT NRIC FROM #TEMP_AllYears_as_at20251216)
+	select top(10)* from  [EligibilityDB].[dbo].[Eligible_2026]
 
 	SELECT *
-	INTO  [Working17].[dbo].[AS400ADHOC260108] 
-	FROM [SchemeEligibleListing15].[dbo].[Eligible_2026_V1_10057516] WHERE NRIC  IN (SELECT NRIC FROM #TEMP_AllYears_as_at20251216)
+	INTO  [WorkingDB].[dbo].[CoreUpload_New] 
+	FROM [EligibilityDB].[dbo].[Eligible_2026] WHERE NRIC NOT IN (SELECT NRIC FROM #TEMP_AllYears)
 
-	select top(10)* from  [Working17].[dbo].[AS400ADHOC260108] 
+	SELECT *
+	INTO  [WorkingDB].[dbo].[CoreUpload_Returning] 
+	FROM [EligibilityDB].[dbo].[Eligible_2026] WHERE NRIC  IN (SELECT NRIC FROM #TEMP_AllYears)
+
+	select top(10)* from  [WorkingDB].[dbo].[CoreUpload_Returning] 
 	______________________________________________________________________________________________________________________________________
---Amendment to data [SchemeEligibleListing15].[dbo].[Eligible_2026_V1_10057516]. 
+--Amendment to data [EligibilityDB].[dbo].[Eligible_2026]
 /*
-Due to issue found for 
-A)
-NRIC	FullName
-/*
-REDACTED FOR OPSEC
-*/
- 
-
-Correct name located from  /*REDACTED FOR OPSEC*/, from other SourceData data.
+Due to issue found for
+A) Misspelled names in a small number of records.
+Correct names were sourced from other reference data and loaded into #NameCorrections (NRIC, CorrectedName).
 */
 
+SELECT e.NRIC, e.FullName, c.CorrectedName
+FROM [EligibilityDB].[dbo].[Eligible_2026] e
+JOIN #NameCorrections c ON c.NRIC = e.NRIC
 
-SELECT * FROM [SchemeEligibleListing15].[dbo].[Eligible_2026_V1_10057516]
-WHERE NRIC IN (
-/*
-REDACTED FOR OPSEC
-*/)
+UPDATE e
+  SET e.FullName = c.CorrectedName
+FROM [EligibilityDB].[dbo].[Eligible_2026] e
+JOIN #NameCorrections c ON c.NRIC = e.NRIC
 
-
-/*
-REDACTED FOR OPSEC
-*/
-
-
-
-UPDATE [SchemeEligibleListing15].[dbo].[Eligible_2026_V1_10057516]
-  SET FullName = /*REDACTED FOR OPSEC*/
-  WHERE NRIC = /*REDACTED FOR OPSEC*/
-
-UPDATE [SchemeEligibleListing15].[dbo].[Eligible_2026_V1_10057516]
-  SET FullName = /*REDACTED FOR OPSEC*/
-  WHERE NRIC = /*REDACTED FOR OPSEC*/
-
-UPDATE [SchemeEligibleListing15].[dbo].[Eligible_2026_V1_10057516]
-  SET FullName = /*REDACTED FOR OPSEC*/
-  WHERE NRIC = /*REDACTED FOR OPSEC*/
-
-UPDATE [SchemeEligibleListing15].[dbo].[Eligible_2026_V1_10057516]
-  SET FullName = /*REDACTED FOR OPSEC*/
-  WHERE NRIC = /*REDACTED FOR OPSEC*/
-
-UPDATE [SchemeEligibleListing15].[dbo].[Eligible_2026_V1_10057516]
-  SET FullName = /*REDACTED FOR OPSEC*/
-  WHERE NRIC = /*REDACTED FOR OPSEC*/
-
-UPDATE [SchemeEligibleListing15].[dbo].[Eligible_2026_V1_10057516]
-  SET FullName = /*REDACTED FOR OPSEC*/
-  WHERE NRIC = /*REDACTED FOR OPSEC*/
-
-
-/*
-REDACTED FOR OPSEC
-*/
-  
 
 /*
 B)
 Blank AddressLine1, Postcode, City, State
 */
 
- select count(AddressLine1) from [SchemeEligibleListing15].[dbo].[Eligible_2026_V1_10057516] where AddressLine1 =''
- --10517 records with blank AddressLine1
-  select count(Postcode) from [SchemeEligibleListing15].[dbo].[Eligible_2026_V1_10057516] where Postcode =''
---9872 records with blank Postcode
-    select count(City) from [SchemeEligibleListing15].[dbo].[Eligible_2026_V1_10057516] where City =''
---9872 records with blank City
-    select count(State) from [SchemeEligibleListing15].[dbo].[Eligible_2026_V1_10057516] where State =''
---9872 records with blank State
+ select count(AddressLine1) from [EligibilityDB].[dbo].[Eligible_2026] where AddressLine1 =''
+ --Records with blank AddressLine1
+  select count(Postcode) from [EligibilityDB].[dbo].[Eligible_2026] where Postcode =''
+--Records with blank Postcode
+    select count(City) from [EligibilityDB].[dbo].[Eligible_2026] where City =''
+--Records with blank City
+    select count(State) from [EligibilityDB].[dbo].[Eligible_2026] where State =''
+--Records with blank State
 
 
-UPDATE [SchemeEligibleListing15].[dbo].[Eligible_2026_V1_10057516]
+UPDATE [EligibilityDB].[dbo].[Eligible_2026]
   SET AddressLine1 = 'AddressLine1'
   WHERE AddressLine1 = ''
 
-UPDATE [SchemeEligibleListing15].[dbo].[Eligible_2026_V1_10057516]
+UPDATE [EligibilityDB].[dbo].[Eligible_2026]
   SET Postcode = '10000'
   WHERE Postcode = ''
 
-UPDATE [SchemeEligibleListing15].[dbo].[Eligible_2026_V1_10057516]
+UPDATE [EligibilityDB].[dbo].[Eligible_2026]
   SET City = 'City'
   WHERE City = ''
 
-UPDATE [SchemeEligibleListing15].[dbo].[Eligible_2026_V1_10057516]
+UPDATE [EligibilityDB].[dbo].[Eligible_2026]
   SET State = 'State'
   WHERE State = ''
 
 
-   select count(AddressLine1) from [SchemeEligibleListing15].[dbo].[Eligible_2026_V1_10057516] where AddressLine1 =''
+   select count(AddressLine1) from [EligibilityDB].[dbo].[Eligible_2026] where AddressLine1 =''
  --0 records with blank AddressLine1
-  select count(Postcode) from [SchemeEligibleListing15].[dbo].[Eligible_2026_V1_10057516] where Postcode =''
+  select count(Postcode) from [EligibilityDB].[dbo].[Eligible_2026] where Postcode =''
 --0 records with blank Postcode
-    select count(City) from [SchemeEligibleListing15].[dbo].[Eligible_2026_V1_10057516] where City =''
+    select count(City) from [EligibilityDB].[dbo].[Eligible_2026] where City =''
 --0 records with blank City
-    select count(State) from [SchemeEligibleListing15].[dbo].[Eligible_2026_V1_10057516] where State =''
+    select count(State) from [EligibilityDB].[dbo].[Eligible_2026] where State =''
 --0 records with blank State
 
 
-ALTER TABLE [SchemeEligibleListing15].[dbo].[Eligible_2026_V1_10057516]
+ALTER TABLE [EligibilityDB].[dbo].[Eligible_2026]
 DROP COLUMN rn;
 
-ALTER TABLE [Working17].[dbo].[AS400ADHOC260108] 
+ALTER TABLE [WorkingDB].[dbo].[CoreUpload_Returning] 
 DROP COLUMN rn;
 
-ALTER TABLE [Working17].[dbo].[AS400ADHOC260107] 
+ALTER TABLE [WorkingDB].[dbo].[CoreUpload_New] 
 DROP COLUMN rn;
